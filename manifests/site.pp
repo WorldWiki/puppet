@@ -1,6 +1,6 @@
 # servers
 
-node 'vps504112.ovh.net' {
+node 'puppet.wiki.org.uk' {
     include base
     include puppetmaster
 }
