@@ -2,23 +2,45 @@ groups:
   ops:
     gid: 2000
     description: roots, sudo everywhere
-    members: [paladox, reception, zppix]
+    members: [paladox, reception, Megadev44s.mail]
     privileges: ['ALL = (ALL) NOPASSWD: ALL']
-  reception:
+
+users:
+  jemlee15:
     ensure: present
-    uid: 1007
-    name: reception
-    realname: Reception
-    ssh_keys: [ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAgEA7U+sWg/K7BM7KEVwsLEFnkmOv6//eotDh8W6FmG4D3t3/6q7ysQS8QEYtply8MWSusTCH1s/QfpPrhtxEq6Qm8LfjikbfeltfCZHmzGlqC98DRFMhGIgiFC4SVqRc9FCWv3ZQ8nnVp++VdiOoXB5rf8uENtlDlCLoA2RXuCCYBUMbScbbuDKPI/ipHuSx0kp04pGpX/QTULES3AJgjV2IZtLMh9cF27psEdjE1lRwt9aeB0Cgb9302AqQycXV2Oqcs9Y6TwkN6IWSvEo+5AenGZW9nqN0y0VekQNqMWMl4xLZDG8zNoq0tZcdSEXmz9D9XBOEg5d4blRkX5wzaCDYHhDbDJ71x2bgH/ifzQMaRYN6vLU8q3qlCxSq2Hk7rcEwK6/fqrOdZlavh0v59zsypuixYF+kRNtqipup21LV/2+jlc5DWqLUiW1ORCbdl2pvTEHNnKpaQO3tPa8PSht0EhaLl8st+nLOiGJgxtlf886lLBEbk+6y4tybtTJlCg5Z0FSZZpODD9DxktqUla+L44l6h6X4we/VnDJ6sWKOQqNZABZwv7sYlMxYt5Ncm04fcWTlVuUIToaflkIWitawHTwyauru8MenyHNT/gTYnwY8kc+jy44cO2QHWYERsNAXAAj2DRgn/b4x1oK7WNydAPPSxwblzuq0dgD8VJ0dE8= rsa-key-20161113]
+    uid: 1000
+    name: jemlee15
+    realname: jemlee15
+    ssh_keys: [ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAu7ekU1Mj+gMv6qj/vKp4RXpYAf+yxqLb5gdWk/0QST patrickmulhall@Patricks-MBP.home]
+  Megadev44s.mail:
+    ensure: present
+    uid: 1001
+    name: Megadev44s.mail
+    realname: Megadev44s.mail
+    ssh_keys: [ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCcieJurScAmGZNJgkCDyy+tc49StU7/LyT85oLGlvw/+IGF3InMbEJCNgrDkjyH52RxZWFA5spG728PFwjyo/ZpcmUuPAHdAH+IE9Zv3UbnUkgiWzi8FEJOxt64Qo6yV8vblZeROPf/bDaxPjt3PW8p6FqSxE3KVtBt+i8k4fs/T6qp+e97CMQ9+rUwvyIfwGtc6b6Q6ISjthg06Z40KVwPz73kOjd7xF8VD5SDANMRu4vB2JRhR4SXyA/S8u/tb14DFXL8FGeUnBl7AH8i4Ji82FYsdFVbthrqsJFEzHva4lZPyEZNhIOgcsJ9URAO5f1N3vmfKV3JcjQVe4maSfn Megadev44s.mail@gmail.com]
   paladox:
     ensure: present
-    uid: 1009
+    uid: 1002
     name: paladox
     realname: Paladox
     ssh_keys: [ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAu7ekU1Mj+gMv6qj/vKp4RXpYAf+yxqLb5gdWk/0QST patrickmulhall@Patricks-MBP.home]
-  zppix:
+  reception:
     ensure: present
-    uid: 1010
-    name: zppix
-    realname: Zppix
-    ssh_keys: []
+    uid: 1003
+    name: reception
+    realname: Reception
+    ssh_keys: [ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEAmojhRl4kKkhqF+pj1dyYG/GreIspAkUUO+9COcLkzr+R/EUF5nDxw2hinCU/NYKBVZplIK0fH4cGHUYtTvF68LVkMmMfAYwOgRzpAnHGCB9wYvF16+JZFv7vwkMmGFjxT2RDp7i7l/C5dXGylrgeRGigY4rdrpGN9zHLPUEkR1Q4IbwqO+g/PuHrlHWaE1H/PzvvDVLcioGForM/mD8h3c7L1gwBcyZxsnoh5ewEDLoTnIW+tYqt3uHxif8wZLVUVVLKHwvY1pGfg63Vla7lF3a0rYbkH3u4ox5MRH8CPct0A3NSvKefbrCdoj1TsUz6muGOjYlpuHDprV7ZDOYmIw== rsa-key-20180107]
+  samtar:
+    ensure: present
+    uid: 1004
+    name: samtar
+    realname: samtar
+    ssh_keys: [---- BEGIN SSH2 PUBLIC KEY ----                                  
+Comment: "samtar.on.en.wp @ WorldWiki"
+AAAAB3NzaC1yc2EAAAABJQAAAQEA2NAZMpXAVHt8F1pzCzZosz4tR4X5zuJOO6dk
+8wW/a9crg8Q4ZhjdnB4ll+x+K+8RIsAuEyCFDPHhwHkJdSlw+zpmgz7byZeU0eiX
+QN9I1iSu7E+BkVLSTlpuCeK8Qo48yDs20Pg5YMdk552FkJXqD021OfaNn+2af/PP
+GTFroCW6Wbp1x3k91UPe4vZgYfuoqfL9cs6F0/sg7D2lguYs8iG33AwB52ZhtfTh
+bi/vYSibrMzhtImAL6UjvTjWXbywAHRHk6V235soF97o9F2HrM8cpABMZwVoVWCa
+C8y3gpozeMyHVGPlxqLY6FcM2HfYWvoIixl7jZFhKO61DBN5Mw==
+---- END SSH2 PUBLIC KEY ----]
