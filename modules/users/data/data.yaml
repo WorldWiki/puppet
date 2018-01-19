@@ -10,13 +10,13 @@ users:
     ensure: present
     uid: 1000
     name: jemlee15
-    realname: jemlee15
-    ssh_keys: [ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAu7ekU1Mj+gMv6qj/vKp4RXpYAf+yxqLb5gdWk/0QST patrickmulhall@Patricks-MBP.home]
+    realname: Dysklyver
+    ssh_keys: [ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCcieJurScAmGZNJgkCDyy+tc49StU7/LyT85oLGlvw/+IGF3InMbEJCNgrDkjyH52RxZWFA5spG728PFwjyo/ZpcmUuPAHdAH+IE9Zv3UbnUkgiWzi8FEJOxt64Qo6yV8vblZeROPf/bDaxPjt3PW8p6FqSxE3KVtBt+i8k4fs/T6qp+e97CMQ9+rUwvyIfwGtc6b6Q6ISjthg06Z40KVwPz73kOjd7xF8VD5SDANMRu4vB2JRhR4SXyA/S8u/tb14DFXL8FGeUnBl7AH8i4Ji82FYsdFVbthrqsJFEzHva4lZPyEZNhIOgcsJ9URAO5f1N3vmfKV3JcjQVe4maSfn Linux-mediawiki]
   Megadev44s.mail:
     ensure: present
     uid: 1001
     name: Megadev44s.mail
-    realname: Megadev44s.mail
+    realname: Zppix
     ssh_keys: [ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCcieJurScAmGZNJgkCDyy+tc49StU7/LyT85oLGlvw/+IGF3InMbEJCNgrDkjyH52RxZWFA5spG728PFwjyo/ZpcmUuPAHdAH+IE9Zv3UbnUkgiWzi8FEJOxt64Qo6yV8vblZeROPf/bDaxPjt3PW8p6FqSxE3KVtBt+i8k4fs/T6qp+e97CMQ9+rUwvyIfwGtc6b6Q6ISjthg06Z40KVwPz73kOjd7xF8VD5SDANMRu4vB2JRhR4SXyA/S8u/tb14DFXL8FGeUnBl7AH8i4Ji82FYsdFVbthrqsJFEzHva4lZPyEZNhIOgcsJ9URAO5f1N3vmfKV3JcjQVe4maSfn Megadev44s.mail@gmail.com]
   paladox:
     ensure: present
