@@ -7,6 +7,7 @@ class puppetmaster(
   ) {
 
     $puppetmaster_hostname = hiera('puppetmaster_hostname', 'puppet.wiki.org.uk')
+    $puppetmaster_certname = hiera('puppetmaster_cert', 'phabricator-2-vm.c.world-wiki.internal')
     $puppetmaster_version = hiera('puppetmaster_version', 4)
 
     $packages = [
