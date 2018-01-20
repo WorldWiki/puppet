@@ -1,6 +1,11 @@
 # servers
 
-node 'puppet.wiki.org.uk' {
+#node 'puppet.wiki.org.uk' {
+#    include base
+#    include puppetmaster
+#}
+
+node 'phabricator-2-vm' {
     include base
     include puppetmaster
 }
