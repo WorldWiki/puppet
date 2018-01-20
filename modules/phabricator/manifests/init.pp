@@ -1,24 +1,19 @@
 # class: phabricator
 class phabricator {
     include ::apache::mod::ssl
-    include ::apache::mod::php5
+    include ::apache::mod::php7.1
 
     $password = hiera('passwords::irc::mirahezebots')
 
-    package { 'php5-apcu':
+    package { 'php7.1-apcu':
         ensure => present,
     }
 
     ssl::cert { 'phab.miraheze.wiki': }
 
-    apache::site { 'phab.miraheze.wiki':
+    apache::site { 'phabricator.wiki.org.uk':
         ensure => present,
-        source => 'puppet:///modules/phabricator/phab.miraheze.wiki.conf',
-    }
-
-    apache::site { 'phabricator.miraheze.org':
-        ensure => present,
-        source => 'puppet:///modules/phabricator/phabricator.miraheze.org.conf',
+        source => 'puppet:///modules/phabricator/phabricator.wiki.org.uk.conf',
     }
 
     file { '/srv/phab':
@@ -78,14 +73,9 @@ class phabricator {
         ensure => directory,
     }
 
-    file { '/etc/php5/apache2/php.ini':
+    file { '/etc/php7.1/apache2/php.ini':
         ensure => present,
         mode   => '0755',
         source => 'puppet:///modules/phabricator/php.ini',
-    }
-
-    icinga::service { 'phd':
-        description   => 'phd',
-        check_command => 'check_nrpe_1arg!check_phd',
     }
 }
