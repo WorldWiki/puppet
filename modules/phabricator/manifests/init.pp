@@ -71,7 +71,7 @@ class phabricator {
         ensure => directory,
     }
 
-    file { '/etc/php7.1/apache2/php.ini':
+    file { '/etc/php/7.1/apache2/php.ini':
         ensure => present,
         mode   => '0755',
         source => 'puppet:///modules/phabricator/php.ini',
