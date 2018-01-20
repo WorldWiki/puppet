@@ -131,8 +131,10 @@ class puppetmaster(
         ensure => stopped,
     }
 
-    service { 'apache2':
-        ensure => running,
+    if ! defined(Service['apache2']) {
+        service { 'apache2':
+            ensure => running,
+        }
     }
 
     ufw::allow { 'puppetmaster':
