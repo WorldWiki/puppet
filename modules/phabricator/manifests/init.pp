@@ -3,8 +3,6 @@ class phabricator {
     include ::apache::mod::ssl
     include ::apache::mod::php71
 
-    $password = hiera('passwords::irc::mirahezebots')
-
     package { 'php7.1-apcu':
         ensure => present,
     }
@@ -58,8 +56,8 @@ class phabricator {
     $module_path = get_module_path($module_name)
     $phab_yaml = loadyaml("${module_path}/data/config.yaml")
     $phab_private = {
-        'mysql.pass'              => hiera('passwords::db::phabricator'),
-        'phpmailer.smtp-password' => hiera('passwords::mail::noreply'),
+        'mysql.pass'              => hiera('passwords::db::phabricator', ''),
+        'phpmailer.smtp-password' => hiera('passwords::mail::noreply', ''),
     }
 
     $phab_settings = merge($phab_yaml, $phab_private)
