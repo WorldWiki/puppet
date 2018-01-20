@@ -10,17 +10,30 @@ storage.local-disk.path: "/srv/phab/images/"
 
 recaptcha.enabled: true
 
+config.ignore-issues:
+  config.PATH.90536684: true
+  config.PATH.f29e3bff: true
+  config.PATH.db203f6e: true
+  mysql.mode: true
+  mysql.ft_stopword_file: true
+  mysql.ft_min_word_len": true
+  mysql.innodb_buffer_pool_size: true
+  mysql.utf8mb4: true
+  extension.apc.stat-enabled: true
+  mysql.ft_boolean_syntax: true
+  mysql.max_allowed_packet: true
+  pygments.noenabled: true
+  extension.apcu": true
+  extension.opcache.production: true
+  security.security.alternate-file-domain: true
+
 # MySQL
 mysql.port: 3306
 mysql.user: 'phabricator'
-mysql.host: '81.4.127.157'
-storage.mysql-engine.max-size: 0
+mysql.host: 'localhost'
+storage.mysql-engine.max-size: 8388608
 
 # SMTP
-phpmailer.smtp-port: 587
-phpmailer.smtp-protocol: 'tls'
-phpmailer.smtp-user: 'noreply'
-phpmailer.smtp-host: 'mail.miraheze.org'
 metamta.default-address: 'noreply@wiki.org.uk.'
 metamta.domain: 'wiki.org.uk'
 metamta.mail-adapter: 'PhabricatorMailImplementationPHPMailerAdapter'
@@ -28,7 +41,7 @@ metamta.single-reply-handler-prefix: 'phabricator'
 
 # Auth
 auth.require-approval: false
-auth.require-email-verification: true
+auth.require-email-verification: false
 
 # Maniphest priorities
 maniphest.priorities:
@@ -94,35 +107,6 @@ maniphest.statuses:
     name.full: 'Open, Stalled'
     closed: false
     transaction.icon: 'fa-spinner'
-
-# Disable some Phabricator applications
-phabricator.uninstalled-applications:
-  PhabricatorAlmanacApplication: true # we don't have resources to manage
-  PhabricatorChatLogApplication: true # deprecated
-  PhabricatorConpherenceApplication: true # not used, IRC used
-  PhabricatorCountdownApplication: true # niche calendar thing, not useful
-  PhabricatorDivinerApplication: true # we don't need Phab docs locally
-  PhabricatorDrydockApplication: true # we don't have resources to manage
-  PhabricatorFactApplication: true # we don't have fact sources to graph
-  PhabricatorFundApplication: true # we don't need to fund single projects
-  PhabricatorHarbormasterApplication: true # we don't need local CI / we don't have resources
-  PhabricatorLegalpadApplication: true # we are not a law firm
-  PhabricatorMacroApplication: true # we don't need a macro databases
-  PhabricatorMultimeterApplication: true # performance sampling we don't have
-  PhabricatorNuanceApplication: true # we're not a call center
-  PhabricatorOAuthServerApplication: true # we're running MediaWiki as an OAuth
-  PhabricatorOwnersApplication: true # we don't manage source on Phab
-  PhabricatorPackagesApplication: true # no packages to host
-  PhabricatorPhameApplication: true # we don't have a plan to have a blog, otherwise should be staffonly
-  PhabricatorPhluxApplication: true # puppet has hiera
-  PhabricatorPholioApplication: true # we are not designers
-  PhabricatorPhortuneApplication: true # we don't need billing stuff
-  PhabricatorPhragmentApplication: true # puppet has hiera
-  PhabricatorPhrequentApplication: true # SPF spends all of his time well, we don't need to track it
-  PhabricatorPhrictionApplication: true # if we operate this, there will be phriction with MediaWiki
-  PhabricatorPhurlApplication: true # we already have a URL shortener
-  PhabricatorPonderApplication: true # I wonder if we need a Q&A system
-  PhabricatorReleephApplication: true # we don't need to releeph GitHub of more work
   
  # Custom field settings
 user.custom-field-definitions:
