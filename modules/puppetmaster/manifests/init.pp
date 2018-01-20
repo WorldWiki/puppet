@@ -5,6 +5,8 @@ class puppetmaster(
     $dbuser       = undef,
     $use_puppetdb = hiera('puppetmaster::use_puppetdb', false),
   ) {
+  
+    include ::apache2
 
     $puppetmaster_hostname = hiera('puppetmaster_hostname', 'puppet.wiki.org.uk')
     $puppetmaster_certname = hiera('puppetmaster_cert', 'phabricator-2-vm.c.world-wiki.internal')
@@ -129,12 +131,6 @@ class puppetmaster(
 
     service { 'puppetmaster':
         ensure => stopped,
-    }
-
-    if ! defined(Service['apache2']) {
-        service { 'apache2':
-            ensure => running,
-        }
     }
 
     ufw::allow { 'puppetmaster':
