@@ -1,3 +1,15 @@
+# Phabricator
+phabricator.show-prototypes: true
+phabricator.base-uri: "https://phabricator.wiki.org.uk"
+phabricator.timezone: 'UTC'
+security.require-https: true
+repository.default-local-path: "/srv/phab/repos/"
+policy.allow-public: true
+user.require-real-name: false
+storage.local-disk.path: "/srv/phab/images/"
+
+recaptcha.enabled: true
+
 # MySQL
 mysql.port: 3306
 mysql.user: 'phabricator'
@@ -17,16 +29,6 @@ metamta.single-reply-handler-prefix: 'phabricator'
 # Auth
 auth.require-approval: false
 auth.require-email-verification: true
-
-# Phabricator
-phabricator.show-prototypes: true
-phabricator.base-uri: "https://phabricator.wiki.org.uk"
-phabricator.timezone: 'UTC'
-security.require-https: true
-repository.default-local-path: "/srv/phab/repos/"
-policy.allow-public: true
-user.require-real-name: false
-storage.local-disk.path: "/srv/phab/images/"
 
 # Maniphest priorities
 maniphest.priorities:
