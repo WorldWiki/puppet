@@ -69,6 +69,16 @@ class puppetmaster(
         ensure => directory,
     }
 
+    file { '/etc/puppet/private/hieradata':
+        ensure  => directory,
+        require => File['/etc/puppet/private'],
+    }
+
+    file { '/etc/puppet/private/hieradata/hosts':
+        ensure  => directory,
+        require => File['/etc/puppet/private/hieradata'],
+    }
+
     file { '/etc/puppet/manifests':
         ensure  => link,
         target  => '/etc/puppet/git/manifests',
