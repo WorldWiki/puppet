@@ -37,7 +37,7 @@ storage.mysql-engine.max-size: 8388608
 # SMTP
 metamta.default-address: 'noreply@wiki.org.uk.'
 metamta.domain: 'wiki.org.uk'
-metamta.mail-adapter: 'PhabricatorMailImplementationPHPMailerAdapter'
+metamta.mail-adapter: 'PhabricatorMailImplementationSendGridAdapter'
 metamta.single-reply-handler-prefix: 'phabricator'
 
 # Auth
