@@ -6,7 +6,7 @@ define apache::site(
     $content   = undef,
     $source    = undef,
     $replaces  = undef,
-    $monitor   = true,
+    $monitor   = false,
 ) {
     include ::apache
 
