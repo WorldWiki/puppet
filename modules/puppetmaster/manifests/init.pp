@@ -122,13 +122,6 @@ class puppetmaster(
         require => [File['/etc/puppet/code/environments/production'], Git::Clone['ssl']],
     }
 
-    file { '/home/puppet-users':
-        ensure  => directory,
-        owner   => 'root',
-        group   => 'puppet-users',
-        mode    => '0770',
-    }
-
     if $use_puppetdb {
         class { 'puppetmaster::puppetdb::client': }
     }
