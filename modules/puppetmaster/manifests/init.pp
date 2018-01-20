@@ -6,7 +6,7 @@ class puppetmaster(
     $use_puppetdb = hiera('puppetmaster::use_puppetdb', false),
   ) {
 
-    $puppetmaster_hostname = hiera('puppetmaster_hostname', 'vps504112.ovh.net')
+    $puppetmaster_hostname = hiera('puppetmaster_hostname', 'puppet.wiki.org.uk')
     $puppetmaster_version = hiera('puppetmaster_version', 4)
 
     $packages = [
@@ -53,7 +53,7 @@ class puppetmaster(
     git::clone { 'puppet':
         ensure    => latest,
         directory => '/etc/puppet/git',
-        origin    => 'https://github.com/paladox/puppet-2.git',
+        origin    => 'https://github.com/WorldWiki/puppet.git',
         require   => Package['puppetmaster'],
     }
 
