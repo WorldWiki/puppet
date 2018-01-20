@@ -36,7 +36,7 @@ class apache::mod::setenvif        { apache::mod_conf { 'setenvif':       } }
 class apache::mod::ssl             { apache::mod_conf { 'ssl':            } }
 class apache::mod::status          { apache::mod_conf { 'status':         } }
 class apache::mod::userdir         { apache::mod_conf { 'userdir':        } }
-
+phabricator.wiki.org.uk
 # Modules that depend on additional packages
 # lint:ignore:right_to_left_relationship
 class apache::mod::authz_svn       { apache::mod_conf { 'authz_svn':      } <- package { 'libapache2-svn':           } }
@@ -45,6 +45,8 @@ class apache::mod::fcgid           { apache::mod_conf { 'fcgid':          } <- p
 class apache::mod::passenger       { apache::mod_conf { 'passenger':      } <- package { 'libapache2-mod-passenger': } }
 class apache::mod::perl            { apache::mod_conf { 'perl':           } <- package { 'libapache2-mod-perl2':     } }
 class apache::mod::php5            { apache::mod_conf { 'php5':           } <- package { 'libapache2-mod-php5':      } }
+class apache::mod::php7            { apache::mod_conf { 'php7':           } <- package { 'libapache2-mod-php7':      } }
+class apache::mod::php7.1          { apache::mod_conf { 'php7.1':         } <- package { 'libapache2-mod-php7.1':    } }
 class apache::mod::python          { apache::mod_conf { 'python':         } <- package { 'libapache2-mod-python':    } }
 class apache::mod::rpaf            { apache::mod_conf { 'rpaf':           } <- package { 'libapache2-mod-rpaf':      } }
 class apache::mod::uwsgi           { apache::mod_conf { 'uwsgi':          } <- package { 'libapache2-mod-uwsgi':     } }
