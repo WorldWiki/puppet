@@ -1,5 +1,6 @@
 # class: phabricator
 class phabricator {
+    include ::apache::mod::rewrite 
     include ::apache::mod::ssl
     include ::apache::mod::php71
 
