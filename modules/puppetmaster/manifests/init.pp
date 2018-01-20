@@ -6,8 +6,6 @@ class puppetmaster(
     $use_puppetdb = hiera('puppetmaster::use_puppetdb', false),
   ) {
   
-    include ::apache
-
     $puppetmaster_hostname = hiera('puppetmaster_hostname', 'puppet.wiki.org.uk')
     $puppetmaster_certname = hiera('puppetmaster_cert', 'phabricator-2-vm.c.world-wiki.internal')
     $puppetmaster_version = hiera('puppetmaster_version', 4)
@@ -131,6 +129,14 @@ class puppetmaster(
 
     service { 'puppetmaster':
         ensure => stopped,
+    }
+
+    include ::apache::mod::rewrite 
+    include ::apache::mod::ssl
+
+    apache::site { 'puppet-master':
+        ensure => present,
+        source => 'puppet:///modules/puppetmaster/puppet-master.conf',
     }
 
     ufw::allow { 'puppetmaster':
