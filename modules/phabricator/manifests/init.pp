@@ -1,7 +1,7 @@
 # class: phabricator
 class phabricator {
     include ::apache::mod::ssl
-    include ::apache::mod::php7.1
+    include ::apache::mod::php71
 
     $password = hiera('passwords::irc::mirahezebots')
 
