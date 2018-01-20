@@ -2,7 +2,7 @@
 phabricator.show-prototypes: true
 phabricator.base-uri: "https://phabricator.wiki.org.uk"
 phabricator.timezone: 'UTC'
-security.require-https: true
+security.require-https: false
 repository.default-local-path: "/srv/phab/repos/"
 policy.allow-public: true
 user.require-real-name: false
