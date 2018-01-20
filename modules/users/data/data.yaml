@@ -8,13 +8,13 @@ groups:
 users:
   jemlee15:
     ensure: present
-    uid: 1000
+    uid: 1002
     name: jemlee15
     realname: Dysklyver
     ssh_keys: [ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCcieJurScAmGZNJgkCDyy+tc49StU7/LyT85oLGlvw/+IGF3InMbEJCNgrDkjyH52RxZWFA5spG728PFwjyo/ZpcmUuPAHdAH+IE9Zv3UbnUkgiWzi8FEJOxt64Qo6yV8vblZeROPf/bDaxPjt3PW8p6FqSxE3KVtBt+i8k4fs/T6qp+e97CMQ9+rUwvyIfwGtc6b6Q6ISjthg06Z40KVwPz73kOjd7xF8VD5SDANMRu4vB2JRhR4SXyA/S8u/tb14DFXL8FGeUnBl7AH8i4Ji82FYsdFVbthrqsJFEzHva4lZPyEZNhIOgcsJ9URAO5f1N3vmfKV3JcjQVe4maSfn Linux-mediawiki]
   Megadev44s.mail:
     ensure: present
-    uid: 1001
+    uid: 1003
     name: Megadev44s.mail
     realname: Zppix
     ssh_keys: [ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCcieJurScAmGZNJgkCDyy+tc49StU7/LyT85oLGlvw/+IGF3InMbEJCNgrDkjyH52RxZWFA5spG728PFwjyo/ZpcmUuPAHdAH+IE9Zv3UbnUkgiWzi8FEJOxt64Qo6yV8vblZeROPf/bDaxPjt3PW8p6FqSxE3KVtBt+i8k4fs/T6qp+e97CMQ9+rUwvyIfwGtc6b6Q6ISjthg06Z40KVwPz73kOjd7xF8VD5SDANMRu4vB2JRhR4SXyA/S8u/tb14DFXL8FGeUnBl7AH8i4Ji82FYsdFVbthrqsJFEzHva4lZPyEZNhIOgcsJ9URAO5f1N3vmfKV3JcjQVe4maSfn Megadev44s.mail@gmail.com]
@@ -26,13 +26,13 @@ users:
     ssh_keys: [ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAu7ekU1Mj+gMv6qj/vKp4RXpYAf+yxqLb5gdWk/0QST patrickmulhall@Patricks-MBP.home]
   reception:
     ensure: present
-    uid: 1003
+    uid: 998
     name: reception
     realname: Reception
     ssh_keys: [ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEAmojhRl4kKkhqF+pj1dyYG/GreIspAkUUO+9COcLkzr+R/EUF5nDxw2hinCU/NYKBVZplIK0fH4cGHUYtTvF68LVkMmMfAYwOgRzpAnHGCB9wYvF16+JZFv7vwkMmGFjxT2RDp7i7l/C5dXGylrgeRGigY4rdrpGN9zHLPUEkR1Q4IbwqO+g/PuHrlHWaE1H/PzvvDVLcioGForM/mD8h3c7L1gwBcyZxsnoh5ewEDLoTnIW+tYqt3uHxif8wZLVUVVLKHwvY1pGfg63Vla7lF3a0rYbkH3u4ox5MRH8CPct0A3NSvKefbrCdoj1TsUz6muGOjYlpuHDprV7ZDOYmIw== rsa-key-20180107]
   samtar:
     ensure: present
-    uid: 1004
+    uid: 110
     name: samtar
     realname: samtar
     ssh_keys: ['
