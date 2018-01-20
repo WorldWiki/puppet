@@ -8,6 +8,7 @@ policy.allow-public: true
 user.require-real-name: false
 storage.local-disk.path: "/srv/phab/images/"
 storage.default-namespace: "bitnami_phabricator"
+pygments.enabled: true
 
 recaptcha.enabled: true
 
