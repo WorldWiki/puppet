@@ -4,7 +4,7 @@ class phabricator {
     include ::apache::mod::ssl
     include ::apache::mod::php71
 
-    package { 'php7.1-apcu':
+    package { ['php7.1-mbstring', 'php7.1-apcu']:
         ensure => present,
     }
 
