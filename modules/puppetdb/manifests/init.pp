@@ -9,15 +9,15 @@ class puppetdb(
     $db_user = hiera('puppetdb::db_user', 'puppetdb'),
     $db_password = hiera('puppetdb::db_password', 'test'),
     $perform_gc = hiera('puppetdb::perform_gc', false),
-    $heap_size = hiera('puppetdb::heap_size', '4G'),
+    $heap_size = hiera('puppetdb::heap_size', '2G'),
     $bind_ip = hiera('puppetdb::bind_ip', '0.0.0.0'),
     $command_processing_threads = hiera('puppetdb::command_processing_threads', 16),
     $db_ssl = hiera('puppetdb::db_ssl', false),
 ) {
 
-    package { 'java7-runtime-headless':
-	    ensure => present,
-	}
+    package { 'default-jdk':
+        ensure => present,
+    }
 
     ## PuppetDB installation
 
@@ -36,7 +36,7 @@ class puppetdb(
         provider => dpkg,
         ensure   => present,
         source   => '/opt/puppetdb_2.3.8-1~wmf1_all.deb',
-        require  => Package['java7-runtime-headless'],
+        require  => Package['default-jdk'],
     }
 
     package { "puppetdb-terminus":
