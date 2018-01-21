@@ -10,7 +10,7 @@ storage.local-disk.path: "/srv/phab/images/"
 storage.default-namespace: "bitnami_phabricator"
 pygments.enabled: true
 
-recaptcha.enabled: true
+recaptcha.enabled: false
 
 config.ignore-issues:
   config.PATH.90536684: true
