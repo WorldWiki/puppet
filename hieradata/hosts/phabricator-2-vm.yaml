@@ -3,16 +3,15 @@ puppetmaster_hostname: puppet.wiki.org.uk
 puppetmaster::dbserver: db2.miraheze.org
 puppetmaster::dbuser: puppet
 puppetmaster::dbname: puppet
-puppetmaster::dbpassword: 'test'
+puppetmaster::dbpassword: miraheze
 puppetmaster_version: 4
-puppetmaster::use_puppetdb: false
+puppetmaster::use_puppetdb: true
 puppetdb_host: puppet.wiki.org.uk
-puppetdb::db_ro_host: localhost
 # these are tests passwords on prod add them into the private repo
-puppetdb::db_password: 'miraheze'
-puppetdb::password::rw: 'miraheze'
+puppetdb::db_password: miraheze
+puppetdb::password::rw: miraheze
 puppetmaster::puppetdb::postgres_users:
-  puppetdb@phabricator-2-vm:
+  puppetdb@localhost:
     user: puppetdb
     database: puppetdb
     password: "%{::puppetdb::database::puppetdb_pass}"
