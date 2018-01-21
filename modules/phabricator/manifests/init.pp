@@ -54,8 +54,8 @@ class phabricator {
     $module_path = get_module_path($module_name)
     $phab_yaml = loadyaml("${module_path}/data/config.yaml")
     $phab_private = {
-        'recaptcha.private-key'   => hiera('passwords::phabricator::recaptcha::private-key', '123'),
-        'recaptcha.private-key'   => hiera('passwords::phabricator::recaptcha::public-key', '123'),
+        'recaptcha.private-key'   => hiera('passwords::phabricator::recaptcha::private_key', '123'),
+        'recaptcha.public-key'    => hiera('passwords::phabricator::recaptcha::public_key', '123'),
         'sendgrid.api-key'        => hiera('passwords::phabricator::sendgrid::api-key', '123'),
         'sendgrid.api-user'       => hiera('passwords::phabricator::sendgrid::api-user', 'Test'),
         'security.hmac-key'       => hiera('passwords::phabricator::security::hmac-key', '123'),
