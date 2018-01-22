@@ -10,6 +10,31 @@ storage.local-disk.path: "/srv/phab/images/"
 storage.default-namespace: "bitnami_phabricator"
 pygments.enabled: true
 
+# Due to issues with 'gd' rending thumbnails for
+# Mimetype image/x-icon and image/icon
+# Disabling previews for icons for now
+# https://secure.phabricator.com/T6573
+files.viewable-mime-types:
+  'image/jpeg': 'image/jpeg'
+  'image/jpg': 'image/jpg'
+  'image/png': 'image/png'
+  'image/gif': 'image/gif'
+  'text/plain': 'text/plain; charset=utf-8'
+  'text/x-diff': 'text/plain; charset=utf-8'
+  'image/vnd.microsoft.icon': 'image/x-icon'
+  'audio/x-wav': 'audio/x-wav'
+  'application/ogg': 'application/ogg'
+  'audio/mpeg': 'audio/mpeg'
+  'text/x-php': 'text/plain; charset=utf-8'
+  'text/x-python': 'text/plain; charset=utf-8'
+
+files.image-mime-types:
+    'image/jpeg': true
+    'image/jpg': true
+    'image/png': true
+    'image/gif': true
+    'image/vnd.microsoft.icon': true
+
 recaptcha.enabled: true
 
 config.ignore-issues:
@@ -33,7 +58,7 @@ config.ignore-issues:
 mysql.port: '3306'
 mysql.user: 'phabricator'
 mysql.host: 'localhost'
-storage.mysql-engine.max-size: 8388608
+storage.mysql-engine.max-size: 10000000
 
 # SMTP
 metamta.default-address: 'noreply@wiki.org.uk.'
@@ -50,65 +75,71 @@ maniphest.priorities:
   '100':
     name: 'Unbreak Now!'
     short: 'Unbreak!'
-    color: 'pink'
+    color: pink
     keywords: ['unbreak']
   '90':
     name: 'Needs Triage'
-    short: 'Triage'
-    color: 'violet'
+    short: Triage
+    color: violet
     keywords: ['triage']
-  '75':
-    name: 'High'
-    short: 'High'
-    color: 'red'
+  '80':
+    name: High
+    short: High
+    color: red
     keywords: ['high']
   '50':
-    name: 'Normal'
-    short: 'Normal'
-    color: 'orange'
+    name: Normal
+    short: Normal
+    color: orange
     keywords: ['normal']
   '25':
-    name: 'Low'
-    short: 'Low'
-    color: 'sky'
+    name: Low
+    short: Low
+    color: yellow
     keywords: ['low']
+  '10':
+    name: Lowest
+    short: Lowest
+    color: sky
+    keywords: ['lowest']
 
 maniphest.statuses:
-  'open':
-    name: 'Open'
-    special: 'default'
-  'resolved':
-    name: 'Resolved'
-    name.full: 'Closed, Resolved'
-    closed: true
-    special: 'closed'
-    transaction.icon: 'fa-check-circle'
-    keywords: ['closed', 'fixed', 'resolved', 'closes', 'fixes', 'resolves']
-  'invalid':
-    name: 'Invalid'
-    name.full: 'Closed, Invalid'
-    closed: true
-    transaction.icon: 'fa-minus-circle'
-    claim: false
-    keywords: ['invalid']
-  'duplicate':
-    name: 'Duplicate'
-    name.full: 'Closed, Duplicate'
-    closed: true
-    special: 'duplicate'
-    transaction.icon: 'fa-files-o'
-    claim: false
-  'declined':
-    name: 'Declined'
-    name.full: 'Closed, Declined'
-    closed: true
-    transaction.icon: 'fa-thumbs-o-down'
-    keywords: ['declined', 'declines']
-  'stalled':
+  open:
+    name: Open
+    special: default
+  stalled:
     name: 'Stalled'
     name.full: 'Open, Stalled'
     closed: false
-    transaction.icon: 'fa-spinner'
+    prefixes: [stalled]
+    suffixes: ['as stalled']
+  resolved:
+    name: Resolved
+    name.full: 'Closed, Resolved'
+    closed: true
+    special: closed
+    prefixes: [closed, closes, close, fix, fixes, fixed, resolve, resolves, resolved]
+    suffixes: ['as resolved', 'as fixed']
+  invalid:
+    name: Invalid
+    name.full: "Closed, Invalid"
+    closed: true
+    prefixes: [invalidate, invalidates, invalidated]
+    suffixes: ['as invalid']
+  duplicate:
+    name: Duplicate
+    name.full: "Closed, Duplicate"
+    transaction.icon: fa-times
+    special: duplicate
+    closed: true
+  declined:
+    name: Declined
+    name.full: "Closed, Declined"
+    name.action: Declined
+    transaction.icon: fa-thumbs-o-down
+    closed: true
+    prefixes: [decline, declines, declined]
+    suffixes: ['as declined']
   
  # Custom field settings
 user.custom-field-definitions:
@@ -116,3 +147,10 @@ user.custom-field-definitions:
     name: 'IRC Nickname'
     type: text
     search: true
+
+# Allow the "view" policy setting of public to be available
+policy.allow-public: true
+
+# 30 days T114014
+phd.garbage-collection:
+  'user.logs': 2592000
