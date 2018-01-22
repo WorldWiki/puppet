@@ -32,7 +32,7 @@ class logbot(ircbot.SingleServerIRCBot):
     def connect(self, *args, **kwargs):
         if self.use_ssl:
             import ssl
-            ssl_factory = irc.connection.Factory(wrapper=ssl.wrap_socket)
+            ssl_factory = ircbot.connection.Factory(wrapper=ssl.wrap_socket)
             self.connection.connect(*args, connect_factory=ssl_factory, **kwargs)
         else:
             self.connection.connect(*args, **kwargs)
