@@ -9,7 +9,7 @@ class irc::ircrcbot(
 ) {
     include ::irc
 
-    $mirahezebots_password = hiera('passwords::irc::mirahezebots')
+    $mirahezebots_password = hiera('passwords::irc::mirahezebots', 'test')
 
     file { '/usr/local/bin/ircrcbot.py':
         ensure  => present,
@@ -41,8 +41,8 @@ class irc::ircrcbot(
         require => File['/etc/systemd/system/ircrcbot.service'],
     }
 
-    icinga::service { 'ircrcbot':
-        description   => 'IRC RC Bot',
-        check_command => 'check_nrpe_1arg!check_irc_rcbot',
-    }
+    #icinga::service { 'ircrcbot':
+    #    description   => 'IRC RC Bot',
+    #    check_command => 'check_nrpe_1arg!check_irc_rcbot',
+    #}
 }
