@@ -1,5 +1,5 @@
 [Unit]
-Description=Miraheze IRC RecentChanges feed
+Description=Worldwiki IRC RecentChanges feed
 
 [Service]
 Type=simple
