@@ -2,6 +2,7 @@
 import adminlog
 import argparse
 import imp
+import irc.client  # for exceptions.
 import irc.bot as ircbot
 import json
 import logging
@@ -32,7 +33,7 @@ class logbot(ircbot.SingleServerIRCBot):
     def connect(self, *args, **kwargs):
         if self.use_ssl:
             import ssl
-            ssl_factory = ircbot.connection.Factory(wrapper=ssl.wrap_socket)
+            ssl_factory = irc.connection.Factory(wrapper=ssl.wrap_socket)
             self.connection.connect(*args, connect_factory=ssl_factory, **kwargs)
         else:
             self.connection.connect(*args, **kwargs)
