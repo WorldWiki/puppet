@@ -29,16 +29,16 @@ twitter_api_params = {
 }
 
 # Channels to join
-targets = ("#miraheze", "#miraheze-staff")
+targets = ("#worldwiki-operations", "#worldwiki-admins")
 
 # Name of nickserv user
 nickserv = "nickserv"
 
 # Nick to use when joining
-nick = "MirahezeLogbot"
+nick = "WorldwikiLogbot"
 
 # Username for NickServ Auth
-nick_username = "mirahezebots"
+nick_username = "worldwiki"
 
 # Password to identify with
 nick_password = "<%= @mirahezebots_password %>"
@@ -47,7 +47,7 @@ nick_password = "<%= @mirahezebots_password %>"
 network = "chat.freenode.net"
 
 # Port to use when joining network (ex: 7000). Should support SSL.
-port = 6667
+port = 6697
 
 # Map irc nick to real name
 author_map = {
@@ -59,13 +59,13 @@ author_map = {
 title_map = { "example": "Master" }
 
 # Scheme and wiki hostname to connect to
-wiki_connection = ("https", "meta.miraheze.org")
+wiki_connection = ("https", "wiki.org.uk")
 
 # Url path
 wiki_path = "/w/"
 
 # Username of wiki bot user
-wiki_user = "MirahezeLogbot"
+wiki_user = "WorldwikiLogbot"
 
 # Password of wiki bot user
 wiki_pass = "<%= @mirahezelogbot_password %>"
