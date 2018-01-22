@@ -20,6 +20,7 @@ class logbot(ircbot.SingleServerIRCBot):
     def __init__(self, name, config):
         self.config = config
         self.name = name
+	self.use_ssl = config.ssl
         if config.use_sasl:
             sasl_password = config.nick_username + ':' + config.nick_password
             server = [config.network, config.port, sasl_password]
@@ -29,9 +30,12 @@ class logbot(ircbot.SingleServerIRCBot):
                 config.nick)
 
     def connect(self, *args, **kwargs):
-	# disable ssl
-        kwargs.update(ssl=True)
-        ircbot.SingleServerIRCBot.connect(self, *args, **kwargs)
+        if self.use_ssl:
+            import ssl
+            ssl_factory = irc.connection.Factory(wrapper=ssl.wrap_socket)
+            self.connection.connect(*args, connect_factory=ssl_factory, **kwargs)
+        else:
+            self.connection.connect(*args, **kwargs)
 
     def get_version(self):
         return ('Worldwiki Log Bot -- '
