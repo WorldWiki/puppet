@@ -1,5 +1,5 @@
 [Unit]
-Description=Miraheze SAL Logbot
+Description=Worldwiki SAL Logbot
 
 [Service]
 Type=simple
