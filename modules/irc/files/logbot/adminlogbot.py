@@ -30,8 +30,8 @@ class logbot(ircbot.SingleServerIRCBot):
         ircbot.SingleServerIRCBot.connect(self, *args, **kwargs)
 
     def get_version(self):
-        return ('Miraheze Log Bot -- '
-            'https://meta.miraheze.org/wiki/Tech:Server_admin_log')
+        return ('Worldwiki Log Bot -- '
+            'https://wiki.org.uk/wiki/Tech:Server_admin_log')
 
     def get_cloak(self, source):
         if re.search("/", source) and re.search("@", source):
