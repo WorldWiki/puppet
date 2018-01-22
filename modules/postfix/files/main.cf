@@ -1,6 +1,6 @@
-myhostname = mail.miraheze.org
+myhostname = mail.wiki.org.uk
 myorigin = /etc/mailname
-mydestination = mail.miraheze.org, miraheze.org, localhost
+mydestination = mail.wiki.org.uk, wiki.org.uk, localhost
 relayhost =
 relay_domains =
 mynetworks = 185.52.1.75, 185.52.1.76, 185.52.2.113, 81.4.127.174
