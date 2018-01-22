@@ -69,7 +69,7 @@ wiki_connection = ("https", "wiki.org.uk")
 wiki_path = "/w/"
 
 # Username of wiki bot user
-wiki_user = "WorldwikiLogbot"
+wiki_user = "WorldWikiSAL"
 
 # Password of wiki bot user
 wiki_pass = "<%= @mirahezelogbot_password %>"
