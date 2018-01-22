@@ -29,7 +29,8 @@ class logbot(ircbot.SingleServerIRCBot):
                 config.nick)
 
     def connect(self, *args, **kwargs):
-        # kwargs.update(ssl=True)
+	# disable ssl
+        kwargs.update(ssl=True)
         ircbot.SingleServerIRCBot.connect(self, *args, **kwargs)
 
     def get_version(self):
