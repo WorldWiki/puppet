@@ -20,8 +20,11 @@ class logbot(ircbot.SingleServerIRCBot):
     def __init__(self, name, config):
         self.config = config
         self.name = name
-        sasl_password = config.nick_username + ':' + config.nick_password
-        server = [config.network, config.port, sasl_password]
+        if config.use_sasl:
+            sasl_password = config.nick_username + ':' + config.nick_password
+            server = [config.network, config.port, sasl_password]
+        else:
+            server = [config.network, config.port]
         ircbot.SingleServerIRCBot.__init__(self, [server], config.nick,
                 config.nick)
 
