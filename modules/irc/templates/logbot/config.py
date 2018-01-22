@@ -49,6 +49,8 @@ network = "chat.freenode.net"
 # Port to use when joining network (ex: 7000). Should support SSL.
 port = 6697
 
+use_sasl = false
+
 # Map irc nick to real name
 author_map = {
     "JohnLewis": "John",
