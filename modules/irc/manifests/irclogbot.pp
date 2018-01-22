@@ -55,8 +55,8 @@ class irc::irclogbot {
         ensure => 'running',
     }
 
-    icinga::service { 'irclogbot':
-        description   => 'IRC Log Bot',
-        check_command => 'check_nrpe_1arg!check_irc_logbot',
-    }
+    #icinga::service { 'irclogbot':
+    #    description   => 'IRC Log Bot',
+    #    check_command => 'check_nrpe_1arg!check_irc_logbot',
+    #}
 }
