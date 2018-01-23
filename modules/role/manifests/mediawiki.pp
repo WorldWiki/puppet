@@ -1,7 +1,6 @@
 # role: mediawiki
 class role::mediawiki {
     include ::mediawiki
-    include nfs::client
 
     ufw::allow { 'http port tcp':
         proto => 'tcp',
