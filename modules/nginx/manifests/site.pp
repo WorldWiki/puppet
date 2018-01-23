@@ -3,7 +3,7 @@ define nginx::site(
     $ensure   = present,
     $content  = undef,
     $source   = undef,
-    $monitor  = true,
+    $monitor  = false,
 ) {
     include ::nginx
 
