@@ -55,7 +55,7 @@ use_sasl = True
 
 # Map irc nick to real name
 author_map = {
-    "Zppix": "Zppix"
+    "Zppix": "Zppix",
     "Paladox": "Paladox",
     "Dysklyver": "Dysklyver",
     "S-I-T-H": "S-I-T-H",
