@@ -157,12 +157,6 @@ class mediawiki(
         delay  => false,
     }
 
-    exec { 'Math texvccheck':
-        command => '/usr/bin/make --directory=/srv/mediawiki/w/extensions/Math/texvccheck',
-        creates => '/srv/mediawiki/w/extensions/Math/texvccheck/texvccheck',
-        require => [ Git::Clone['MediaWiki core'], Package['ocaml'] ],
-    }
-
     exec { 'ExtensionMessageFiles':
         command     => 'php /srv/mediawiki/w/maintenance/mergeMessageFileList.php --wiki loginwiki --output /srv/mediawiki/config/ExtensionMessageFiles.php',
         creates     => '/srv/mediawiki/config/ExtensionMessageFiles.php',
