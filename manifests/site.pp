@@ -13,6 +13,8 @@ node 'ip-172-31-3-168-9a33ab41.c.world-wiki.internal' {
 
 node 'mw1.wiki.org.uk' {
     include base
+    include role::irc
+    include role::mediawiki
 }
 
 # ensures all servers have basic class if puppet runs
