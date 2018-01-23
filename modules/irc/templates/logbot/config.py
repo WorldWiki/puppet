@@ -55,11 +55,7 @@ use_sasl = True
 
 # Map irc nick to real name
 author_map = {
-    "Zppix": "Zppix",
-    "Paladox": "Paladox",
-    "Dysklyver": "Dysklyver",
-    "S-I-T-H": "S-I-T-H",
-    "Adotchar": "Adotchar",
+    "Zppix": "Zppix"
 }
 
 # Map irc nick to title of the user (how the bot addresses the user)
