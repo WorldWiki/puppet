@@ -35,10 +35,10 @@ targets = ("#worldwiki-operations")
 nickserv = "nickserv"
 
 # Nick to use when joining
-nick = "WorldwikiLogbot"
+nick = "WorldWikiBot"
 
 # Username for NickServ Auth
-nick_username = "WorldwikiLogbot"
+nick_username = "WorldWikiBot"
 
 # Password to identify with
 nick_password = "<%= @mirahezebots_password %>"
