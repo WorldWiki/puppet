@@ -29,7 +29,7 @@ twitter_api_params = {
 }
 
 # Channels to join
-targets = ("#worldwiki-operations")
+targets = ("#worldwiki-operations", "#worldwiki-admins")
 
 # Name of nickserv user
 nickserv = "nickserv"
@@ -56,10 +56,20 @@ use_sasl = True
 # Map irc nick to real name
 author_map = {
     "Zppix": "Zppix"
+    "Paladox": "Paladox",
+    "Dysklyver": "Dysklyver",
+    "S-I-T-H": "S-I-T-H",
+    "Adotchar": "Adotchar",
 }
 
 # Map irc nick to title of the user (how the bot addresses the user)
-title_map = { "Zppix": "Master" }
+title_map = {
+    "Zppix": "Master",
+    "Paladox": "Master",
+    "Dysklyver": "Master",
+    "S-I-T-H": "Master",
+    "Adotchar": "Master"
+}
 
 # Scheme and wiki hostname to connect to
 wiki_connection = ("https", "wiki.org.uk")
