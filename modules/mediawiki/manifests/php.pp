@@ -3,45 +3,45 @@ class mediawiki::php {
     $packages = [
         'php-pear',
         'php-mail',
-        'php5',
-        'php5-curl',
-        'php5-fpm',
-        'php5-gd',
-        'php5-imagick',
-        'php5-intl',
-        'php5-json',
-        'php5-mcrypt',
-        'php5-mysqlnd',
-        'php5-redis',
+        'php7.0',
+        'php7.0-curl',
+        'php7.0-fpm',
+        'php7.0-gd',
+        'php7.0-imagick',
+        'php7.0-intl',
+        'php7.0-json',
+        'php7.0-mcrypt',
+        'php7.0-mysqlnd',
+        'php7.0-redis',
     ]
 
     package { $packages:
         ensure => present,
     }
 
-    service { 'php5-fpm':
+    service { 'php7.0-fpm':
         ensure  => running,
-        require => Package['php5-fpm'],
+        require => Package['php7.0-fpm'],
     }
 
-    file { '/etc/php5/fpm/php-fpm.conf':
+    file { '/etc/php/7.0/fpm/php-fpm.conf':
         ensure => 'present',
         mode   => '0755',
         source => 'puppet:///modules/mediawiki/php/php-fpm.conf',
-        notify => Service['php5-fpm'],
+        notify => Service['php7.0-fpm'],
     }
 
-    file { '/etc/php5/fpm/pool.d/www.conf':
+    file { '/etc/php/7.0/fpm/pool.d/www.conf':
         ensure => 'present',
         mode   => '0755',
         source => 'puppet:///modules/mediawiki/php/www.conf',
-        notify => Service['php5-fpm'],
+        notify => Service['php7.0-fpm'],
     }
 
-    file { '/etc/php5/fpm/php.ini':
+    file { '/etc/php/7.0/fpm/php.ini':
         ensure => present,
         mode   => '0755',
         source => 'puppet:///modules/mediawiki/php/php.ini',
-        notify => Service['php5-fpm'],
+        notify => Service['php7.0-fpm'],
     }
 }
