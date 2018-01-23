@@ -46,10 +46,10 @@ nick_password = "<%= @mirahezebots_password %>"
 # Network to join (ex: irc.freenode.net)
 network = "chat.freenode.net"
 
-ssl = False
+ssl = True
 
 # Port to use when joining network (ex: 7000). Should support SSL.
-port = 6667
+port = 6697
 
 use_sasl = True
 
