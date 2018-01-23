@@ -102,15 +102,6 @@ class mediawiki(
         require            => File['/srv/mediawiki'],
     }
 
-    # Ensure widgets template directory is read/writeable by webserver if mediawiki is cloned
-    file { '/srv/mediawiki/w/extensions/Widgets/compiled_templates':
-        ensure  => directory,
-        owner   => 'www-data',
-        group   => 'www-data',
-        mode    => '0755',
-        require => Git::Clone['MediaWiki core'],
-    }
-
     file { '/srv/mediawiki/robots.txt':
         ensure  => 'present',
         source  => 'puppet:///modules/mediawiki/robots.txt',
@@ -145,6 +136,7 @@ class mediawiki(
     file { '/srv/mediawiki/config/PrivateSettings.php':
         ensure  => 'present',
         content => template('mediawiki/PrivateSettings.php'),
+        require => Git::Clone['MediaWiki config'],
     }
 
     file { '/usr/local/bin/foreachwikiindblist':
