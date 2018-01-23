@@ -159,6 +159,15 @@ class mediawiki(
         delay  => false,
     }
 
+    exec { 'curl -sS https://getcomposer.org/installer | php && php composer.phar install':
+        creates     => '/srv/composer.phar',
+        cwd         => '/srv',
+        path        => '/usr/bin',
+        environment => 'HOME=/srv',
+        user        => 'www-data',
+        require     => Git::Clone['MediaWiki core'],
+    }
+
     exec { 'ExtensionMessageFiles':
         command     => 'php /srv/mediawiki/w/maintenance/mergeMessageFileList.php --wiki loginwiki --output /srv/mediawiki/config/ExtensionMessageFiles.php',
         creates     => '/srv/mediawiki/config/ExtensionMessageFiles.php',
