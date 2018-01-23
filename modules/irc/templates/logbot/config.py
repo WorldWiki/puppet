@@ -29,7 +29,7 @@ twitter_api_params = {
 }
 
 # Channels to join
-targets = ("#worldwiki-operations"
+targets = ("#worldwiki-operations")
 
 # Name of nickserv user
 nickserv = "nickserv"
