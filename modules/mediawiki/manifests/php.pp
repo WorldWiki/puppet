@@ -4,6 +4,7 @@ class mediawiki::php {
         'php-imagick',
         'php-pear',
         'php-mail',
+        'php-mbstring',
         'php-redis',
         'php7.0',
         'php7.0-curl',
