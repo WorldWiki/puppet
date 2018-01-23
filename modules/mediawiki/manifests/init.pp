@@ -125,7 +125,7 @@ class mediawiki(
         require => Git::Clone['MediaWiki config'],
     }
     
-    file { '/var/log/php5-fpm.log':
+    file { '/var/log/php7.0-fpm.log':
         ensure  => 'present',
         owner   => 'www-data',
         group   => 'www-data',
