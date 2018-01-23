@@ -75,9 +75,6 @@ class mediawiki(
         require => Package['imagemagick'],
     }
 
-    # these aren't autoloaded by ssl::hiera
-    ssl::cert { 'wildcard.miraheze.org': }
-
     nginx::conf { 'mediawiki-includes':
         ensure => present,
         source => 'puppet:///modules/mediawiki/nginx/mediawiki-includes.conf',
@@ -86,7 +83,7 @@ class mediawiki(
     git::clone { 'MediaWiki config':
         ensure    => 'latest',
         directory => '/srv/mediawiki/config',
-        origin    => 'https://github.com/miraheze/mw-config.git',
+        origin    => 'https://github.com/WorldWiki/mediawiki-config',
         owner     => 'www-data',
         group     => 'www-data',
         mode      => '0755',
@@ -96,7 +93,7 @@ class mediawiki(
     git::clone { 'MediaWiki core':
         ensure             => 'latest',
         directory          => '/srv/mediawiki/w',
-        origin             => 'https://github.com/miraheze/mediawiki.git',
+        origin             => 'https://github.com/WorldWiki/mediawiki',
         branch             => $branch,
         owner              => 'www-data',
         group              => 'www-data',
@@ -136,15 +133,15 @@ class mediawiki(
         mode    => '0755',
     }
 
-    $wikiadmin_password   = hiera('passwords::db::wikiadmin')
-    $mediawiki_password   = hiera('passwords::db::mediawiki')
-    $redis_password       = hiera('passwords::redis::master')
-    $noreply_password     = hiera('passwords::mail::noreply')
-    $mediawiki_upgradekey = hiera('passwords::mediawiki::upgradekey')
-    $mediawiki_secretkey  = hiera('passwords::mediawiki::secretkey')
-    $recaptcha_sitekey    = hiera('passwords::recaptcha::sitekey')
-    $recaptcha_secretkey  = hiera('passwords::recaptcha::secretkey')
-    $googlemaps_key       = hiera('passwords::mediawiki::googlemapskey')
+    $wikiadmin_password   = hiera('passwords::db::wikiadmin', 'test')
+    $mediawiki_password   = hiera('passwords::db::mediawiki', 'test')
+    $redis_password       = hiera('passwords::redis::master', 'test')
+    $noreply_password     = hiera('passwords::mail::noreply', 'test')
+    $mediawiki_upgradekey = hiera('passwords::mediawiki::upgradekey', 'test')
+    $mediawiki_secretkey  = hiera('passwords::mediawiki::secretkey', 'test')
+    $recaptcha_sitekey    = hiera('passwords::recaptcha::sitekey', 'test')
+    $recaptcha_secretkey  = hiera('passwords::recaptcha::secretkey', 'test')
+    $googlemaps_key       = hiera('passwords::mediawiki::googlemapskey', 'test')
 
     file { '/srv/mediawiki/config/PrivateSettings.php':
         ensure  => 'present',
@@ -175,23 +172,6 @@ class mediawiki(
         require => [ Git::Clone['MediaWiki core'], Package['ocaml'] ],
     }
 
-    exec { 'curl -sS https://getcomposer.org/installer | php && php composer.phar install':
-        creates     => '/srv/mediawiki/w/extensions/Wikibase/composer.phar',
-        cwd         => '/srv/mediawiki/w/extensions/Wikibase',
-        path        => '/usr/bin',
-        environment => 'HOME=/srv/mediawiki/w/extensions/Wikibase',
-        user        => 'www-data',
-        require     => Git::Clone['MediaWiki core'],
-    }
-    exec { 'maps_composer':
-        command     => 'curl -sS https://getcomposer.org/installer | php && php composer.phar install',
-        creates     => '/srv/mediawiki/w/extensions/Maps/composer.phar',
-        cwd         => '/srv/mediawiki/w/extensions/Maps',
-        path        => '/usr/bin',
-        environment => 'HOME=/srv/mediawiki/w/extensions/Maps',
-        user        => 'www-data',
-        require     => Git::Clone['MediaWiki core'],
-    }
     exec { 'ExtensionMessageFiles':
         command     => 'php /srv/mediawiki/w/maintenance/mergeMessageFileList.php --wiki loginwiki --output /srv/mediawiki/config/ExtensionMessageFiles.php',
         creates     => '/srv/mediawiki/config/ExtensionMessageFiles.php',
@@ -202,13 +182,13 @@ class mediawiki(
         require     => Git::Clone['MediaWiki core'],
     }
     
-    icinga::service { 'mediawiki_rendering':
-        description   => 'MediaWiki Rendering',
-        check_command => 'check_mediawiki!meta.miraheze.org',
-    }
+    #icinga::service { 'mediawiki_rendering':
+    #    description   => 'MediaWiki Rendering',
+    #    check_command => 'check_mediawiki!meta.miraheze.org',
+    #}
 
-    icinga::service { 'php5-fpm':
-        description   => 'php5-fpm',
-        check_command => 'check_nrpe_1arg!check_php_fpm',
-    }
+    #icinga::service { 'php5-fpm':
+    #    description   => 'php5-fpm',
+    #    check_command => 'check_nrpe_1arg!check_php_fpm',
+    #}
 }
