@@ -252,6 +252,12 @@ class logbot(ircbot.SingleServerIRCBot):
                 pageurl = adminlog.log(self.config, message, project, author)
                 if author in self.config.title_map:
                     title = self.config.title_map[author]
+                    self.connection.privmsg(
+                        event.target,
+                        "Logged the message at {url}, {author}".format(
+                            url=pageurl, author=title
+                        )
+                    )
                 else:
                     title = "Master"
                     self.connection.privmsg(
