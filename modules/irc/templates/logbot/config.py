@@ -38,7 +38,7 @@ nickserv = "nickserv"
 nick = "WorldwikiLogbot"
 
 # Username for NickServ Auth
-nick_username = "worldwiki"
+nick_username = "WorldwikiLogbot"
 
 # Password to identify with
 nick_password = "<%= @mirahezebots_password %>"
