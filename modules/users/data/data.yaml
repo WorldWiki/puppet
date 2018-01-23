@@ -45,3 +45,9 @@ GTFroCW6Wbp1x3k91UPe4vZgYfuoqfL9cs6F0/sg7D2lguYs8iG33AwB52ZhtfTh
 bi/vYSibrMzhtImAL6UjvTjWXbywAHRHk6V235soF97o9F2HrM8cpABMZwVoVWCa
 C8y3gpozeMyHVGPlxqLY6FcM2HfYWvoIixl7jZFhKO61DBN5Mw==
 ---- END SSH2 PUBLIC KEY ----']
+  adotchar:
+    ensure: present
+    uid: 2005
+    name: adotchar
+    realname: Adotchar
+    ssh_keys: []
