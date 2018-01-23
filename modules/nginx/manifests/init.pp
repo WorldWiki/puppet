@@ -4,8 +4,8 @@ class nginx {
 
     apt::source { 'nginx_apt':
         comment  => 'NGINX stable',
-        location => 'http://nginx.org/packages/debian',
-        release  => 'jessie',
+        location => 'http://nginx.org/packages/ubuntu',
+        release  => 'xenial',
         repos    => 'nginx',
         key      => '573BFD6B3D8FBC641079A6ABABF5BD827BD9BF62',
     }
