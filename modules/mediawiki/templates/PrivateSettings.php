@@ -1,7 +1,8 @@
 <?php
 
 // Database passwords
-$wgDBadminpassword = "<%= @wikiadmin_password %>";
+$wgDBname = "<%= @mediawiki_dbname %>";
+$wgDBuser = "<%= @mediawiki_user %>";
 $wgDBpassword = "<%= @mediawiki_password %>";
 
 // MediaWiki secret keys
