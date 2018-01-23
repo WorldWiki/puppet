@@ -124,6 +124,8 @@ class mediawiki(
     }
 
     $wikiadmin_password   = hiera('passwords::db::wikiadmin', 'test')
+    $mediawiki_dbname     = hiera('passwords::db::mediawiki', 'test')
+    $mediawiki_user       = hiera('passwords::db::mediawiki', 'test')
     $mediawiki_password   = hiera('passwords::db::mediawiki', 'test')
     $redis_password       = hiera('passwords::redis::master', 'test')
     $noreply_password     = hiera('passwords::mail::noreply', 'test')
