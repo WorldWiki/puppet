@@ -1,13 +1,13 @@
 # mediawiki::php
 class mediawiki::php {
     $packages = [
+        'php-imagick',
         'php-pear',
         'php-mail',
         'php7.0',
         'php7.0-curl',
         'php7.0-fpm',
         'php7.0-gd',
-        'php7.0-imagick',
         'php7.0-intl',
         'php7.0-json',
         'php7.0-mcrypt',
