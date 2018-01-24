@@ -3,7 +3,7 @@ class role::irc {
     include irc::irclogbot
 
     class { 'irc::ircrcbot':
-        nickname     => 'WorldWikiBot',
+        nickname     => 'WorldWikiRC',
         network      => 'chat.freenode.net',
         network_port => '6667',
         channel      => '#worldwiki-operations',
