@@ -13,16 +13,16 @@ class puppetmaster(
     if os_version('ubuntu == artful') {
         $packages = [
             'libmariadbd-dev',
-            'puppetmaster',
+            'puppet-master',
             'puppet-common',
-            'puppetmaster-passenger',
+            'puppet-master-passenger',
         ]
     } else {
         $packages = [
             'libmariadbd-dev',
-            'puppet-master',
+            'puppetmaster',
             'puppet-common',
-            'puppet-master-passenger',
+            'puppetmaster-passenger',
         ]
     }
 
