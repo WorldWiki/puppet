@@ -17,6 +17,11 @@ node 'mw1.wiki.org.uk' {
     include role::mediawiki
 }
 
+node 'world-wiki-main.c.world-wiki.internal' {
+    include base
+    include puppetmaster
+}
+
 # ensures all servers have basic class if puppet runs
 node default {
     include base
