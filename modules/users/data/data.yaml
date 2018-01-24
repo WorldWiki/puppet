@@ -38,12 +38,4 @@ users:
     name: samtar
     realname: samtar
     ssh_keys: ['
-    ---- BEGIN SSH2 PUBLIC KEY ----                                  
-Comment: "samtar.on.en.wp @ WorldWiki"
-AAAAB3NzaC1yc2EAAAABJQAAAQEA2NAZMpXAVHt8F1pzCzZosz4tR4X5zuJOO6dk
-8wW/a9crg8Q4ZhjdnB4ll+x+K+8RIsAuEyCFDPHhwHkJdSlw+zpmgz7byZeU0eiX
-QN9I1iSu7E+BkVLSTlpuCeK8Qo48yDs20Pg5YMdk552FkJXqD021OfaNn+2af/PP
-GTFroCW6Wbp1x3k91UPe4vZgYfuoqfL9cs6F0/sg7D2lguYs8iG33AwB52ZhtfTh
-bi/vYSibrMzhtImAL6UjvTjWXbywAHRHk6V235soF97o9F2HrM8cpABMZwVoVWCa
-C8y3gpozeMyHVGPlxqLY6FcM2HfYWvoIixl7jZFhKO61DBN5Mw==
----- END SSH2 PUBLIC KEY ----']
+    ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEA2NAZMpXAVHt8F1pzCzZosz4tR4X5zuJOO6dk8wW/a9crg8Q4ZhjdnB4ll+x+K+8RIsAuEyCFDPHhwHkJdSlw+zpmgz7byZeU0eiXQN9I1iSu7E+BkVLSTlpuCeK8Qo48yDs20Pg5YMdk552FkJXqD021OfaNn+2af/PPGTFroCW6Wbp1x3k91UPe4vZgYfuoqfL9cs6F0/sg7D2lguYs8iG33AwB52ZhtfThbi/vYSibrMzhtImAL6UjvTjWXbywAHRHk6V235soF97o9F2HrM8cpABMZwVoVWCaC8y3gpozeMyHVGPlxqLY6FcM2HfYWvoIixl7jZFhKO61DBN5Mw==']
