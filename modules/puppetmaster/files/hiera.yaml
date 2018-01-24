@@ -3,9 +3,8 @@
 :yaml:
   :datadir: /etc/puppet/hieradata
 :private:
-  :datadir: /etc/puppet/private/hieradata
 :hierarchy:
-  - "private/%{::hostname}"
+  - "private/hieradata/%{::hostname}"
   - "hosts/%{::hostname}"
   - "private/common"
   - ssl
