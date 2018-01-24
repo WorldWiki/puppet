@@ -92,7 +92,7 @@ wiki_domain = ""
 wiki_page = "Tech:Server_admin_log"
 
 # Page to visit to view logs -- used by the bot's help message
-log_url = "wiki.org.uk/w/Tech:Server_admin_log"
+log_url = "wiki.org.uk/wiki/Tech:Server_admin_log"
 
 # Header depth for dates written
 wiki_header_depth = 2
