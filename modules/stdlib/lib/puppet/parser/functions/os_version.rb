@@ -43,6 +43,7 @@ module Puppet::Parser::Functions
       'xenial'   => '16.04',
       'yakkety'  => '16.10',
       'zesty'    => '17.04',
+      'artful'   => '17.10',
     },
     'Debian' => {
       'wheezy'  => '7',
