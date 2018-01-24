@@ -11,6 +11,7 @@ class puppetmaster(
     $puppetmaster_version = hiera('puppetmaster_version', 4)
 
     if os_version('ubuntu == artful') {
+        $puppetmaster = 'puppet-master'
         $packages = [
             'libmariadbd-dev',
             'puppet-master',
@@ -18,6 +19,7 @@ class puppetmaster(
             'puppet-master-passenger',
         ]
     } else {
+        $puppetmaster = 'puppetmaster'
         $packages = [
             'libmariadbd-dev',
             'puppetmaster',
@@ -35,28 +37,28 @@ class puppetmaster(
     file { '/etc/puppet/hiera.yaml':
         ensure  => present,
         source  => 'puppet:///modules/puppetmaster/hiera.yaml',
-        require => Package['puppetmaster'],
+        require => Package[$puppetmaster],
         notify  => Service['apache2'],
     }
 
     file { '/etc/puppet/puppet.conf':
         ensure  => present,
         content => template("puppetmaster/puppet_${puppetmaster_version}.conf"),
-        require => Package['puppetmaster'],
+        require => Package[$puppetmaster],
         notify  => Service['apache2'],
     }
 
     file { '/etc/puppet/auth.conf':
         ensure  => present,
         source  => "puppet:///modules/puppetmaster/auth_${puppetmaster_version}.conf",
-        require => Package['puppetmaster'],
+        require => Package[$puppetmaster],
         notify  => Service['apache2'],
     }
 
     file { '/etc/puppet/fileserver.conf':
         ensure  => present,
         source  => 'puppet:///modules/puppetmaster/fileserver.conf',
-        require => Package['puppetmaster'],
+        require => Package[$puppetmaster],
         notify  => Service['apache2'],
     }
 
@@ -64,14 +66,14 @@ class puppetmaster(
         ensure    => latest,
         directory => '/etc/puppet/git',
         origin    => 'https://github.com/WorldWiki/puppet.git',
-        require   => Package['puppetmaster'],
+        require   => Package[$puppetmaster],
     }
 
     git::clone { 'ssl':
         ensure    => latest,
         directory => '/etc/puppet/ssl',
         origin    => 'https://github.com/miraheze/ssl.git',
-        require   => Package['puppetmaster'],
+        require   => Package[$puppetmaster],
     }
 
     file { '/etc/puppet/private':
@@ -105,7 +107,7 @@ class puppetmaster(
         owner   => 'root',
         group   => 'root',
         mode    => '0770',
-        require => Package['puppetmaster'],
+        require => Package[$puppetmaster],
     }
 
     file { '/etc/puppet/code/environments':
@@ -146,7 +148,7 @@ class puppetmaster(
         class { 'puppetmaster::puppetdb::client': }
     }
 
-    service { 'puppetmaster':
+    service { $puppetmaster:
         ensure => stopped,
     }
 
