@@ -17,7 +17,6 @@ class mediawiki(
 
     file { [ 
         '/srv/mediawiki', 
-        '/srv/mediawiki/dblist', 
         '/srv/mediawiki/cdb-config', 
         '/var/log/mediawiki', 
         '/var/log/mediawiki/debuglogs' 
