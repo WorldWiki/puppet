@@ -2,7 +2,6 @@
 :backends: yaml
 :yaml:
   :datadir: /etc/puppet/hieradata
-:private:
 :hierarchy:
   - "private/hieradata/%{::hostname}"
   - "hosts/%{::hostname}"
