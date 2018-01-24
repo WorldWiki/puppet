@@ -10,12 +10,21 @@ class puppetmaster(
     $puppetmaster_certname = hiera('puppetmaster_cert', 'phabricator-2-vm.c.world-wiki.internal')
     $puppetmaster_version = hiera('puppetmaster_version', 4)
 
-    $packages = [
-        'libmariadbd-dev',
-        'puppetmaster',
-        'puppet-common',
-        'puppetmaster-passenger',
-    ]
+    if os_version('ubuntu == artful') {
+        $packages = [
+            'libmariadbd-dev',
+            'puppetmaster',
+            'puppet-common',
+            'puppetmaster-passenger',
+        ]
+    } else {
+        $packages = [
+            'libmariadbd-dev',
+            'puppet-master',
+            'puppet-common',
+            'puppet-master-passenger',
+        ]
+    }
 
     package { $packages:
         ensure => present,
