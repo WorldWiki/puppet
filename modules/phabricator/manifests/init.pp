@@ -66,6 +66,7 @@ class phabricator {
         ensure  => present,
         content => template('phabricator/local.json.erb'),
         notify  => Service['apache2'],
+        require => Git::Clone['phabricator'],
     }
 
     file { '/srv/phab/images':
