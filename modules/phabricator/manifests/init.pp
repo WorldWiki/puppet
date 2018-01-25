@@ -49,6 +49,13 @@ class phabricator {
         group  => 'www-data',
     }
 
+    file { '/srv/phab/images':
+        ensure => directory,
+        mode   => '0755',
+        owner  => 'www-data',
+        group  => 'www-data',
+    }
+
     $module_path = get_module_path($module_name)
     $phab_yaml = loadyaml("${module_path}/data/config.yaml")
     $phab_private = {
@@ -69,10 +76,11 @@ class phabricator {
         require => Git::Clone['phabricator'],
     }
 
-    file { '/srv/phab/images':
-        ensure => directory,
-        owner  => 'www-data',
-        group  => 'www-data',
+    file { '/srv/phab/phabricator/support/preamble.php':
+        ensure  => present,
+        source => 'puppet:///modules/phabricator/preamble.php',
+        notify  => Service['apache2'],
+        require => Git::Clone['phabricator'],
     }
 
     file { '/etc/php/7.1/apache2/php.ini':
