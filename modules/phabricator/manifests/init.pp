@@ -57,6 +57,7 @@ class phabricator {
         'sendgrid.api-key'        => hiera('passwords::phabricator::sendgrid::api-key', '123'),
         'sendgrid.api-user'       => hiera('passwords::phabricator::sendgrid::api-user', 'Test'),
         'security.hmac-key'       => hiera('passwords::phabricator::security::hmac-key', '123'),
+        'mysql.port'              => '3306',
         'mysql.pass'              => hiera('passwords::db::phabricator', 'test'),
     }
 
