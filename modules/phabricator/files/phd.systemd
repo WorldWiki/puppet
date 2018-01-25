@@ -1,0 +1,18 @@
+[Unit]
+Description=phabricator-phd
+After=syslog.target network.target mysql.service
+Before=apache2.service
+
+[Service]
+Type=forking
+User=root
+Group=root
+Environment="PHABRICATOR_ENV=phd"
+ExecStartPre=-/bin/mkdir -p /var/run/phd/
+ExecStartPre=/bin/chown -R phd:phd /var/run/phd/
+ExecStart=/srv/phab/phabricator/bin/phd start
+ExecStop=/srv/phab/phabricator/bin/phd stop --force
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target
