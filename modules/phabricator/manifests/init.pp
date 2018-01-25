@@ -12,8 +12,6 @@ class phabricator {
         ensure => present,
     }
 
-    ssl::cert { 'phab.miraheze.wiki': }
-
     apache::site { 'phabricator.wiki.org.uk':
         ensure => present,
         source => 'puppet:///modules/phabricator/phabricator.wiki.org.uk.conf',
