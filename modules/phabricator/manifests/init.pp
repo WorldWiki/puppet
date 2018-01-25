@@ -89,4 +89,14 @@ class phabricator {
         source => 'puppet:///modules/phabricator/php.ini',
         notify => Service['apache2'],
     }
+
+    file { '/etc/systemd/system/phd.service':
+        ensure => present,
+        source => 'puppet:///modules/phabricator/phd.systemd',
+    }
+
+    service { 'phd':
+        ensure  => 'running',
+        require => File['/etc/systemd/system/phd.service'],
+    }
 }
