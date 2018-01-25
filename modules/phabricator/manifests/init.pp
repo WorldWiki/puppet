@@ -97,6 +97,6 @@ class phabricator {
 
     service { 'phd':
         ensure  => 'running',
-        require => File['/etc/systemd/system/phd.service'],
+        require => [File['/etc/systemd/system/phd.service'], [File['/srv/phab/phabricator/conf/local/local.json']],
     }
 }
