@@ -8,7 +8,7 @@ class phabricator {
         ensure => present,
     }
 
-    package { ['php-apcu', 'php-curl', 'php7.1-mbstring', 'php-mysql', 'python-pygments']:
+    package { ['php-apcu', 'php-curl', 'php-gd', 'php-mbstring', 'php-mysql', 'python-pygments']:
         ensure => present,
     }
 
