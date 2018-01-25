@@ -71,6 +71,8 @@ class phabricator {
 
     file { '/srv/phab/images':
         ensure => directory,
+        owner  => 'www-data',
+        group  => 'www-data',
     }
 
     file { '/etc/php/7.1/apache2/php.ini':
