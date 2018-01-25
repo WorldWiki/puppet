@@ -55,7 +55,6 @@ config.ignore-issues:
   security.security.alternate-file-domain: true
 
 # MySQL
-mysql.port: '3306'
 mysql.user: 'phabricator'
 mysql.host: 'localhost'
 storage.mysql-engine.max-size: 10000000
