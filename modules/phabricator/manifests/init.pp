@@ -90,6 +90,13 @@ class phabricator {
         notify => Service['apache2'],
     }
 
+    file { '/var/tmp/phd':
+        ensure => directory,
+        mode   => '0755',
+        owner  => 'www-data',
+        group  => 'www-data',
+    }
+
     file { '/etc/systemd/system/phd.service':
         ensure => present,
         source => 'puppet:///modules/phabricator/phd.systemd',
@@ -97,6 +104,6 @@ class phabricator {
 
     service { 'phd':
         ensure  => 'running',
-        require => [File['/etc/systemd/system/phd.service'], File['/srv/phab/phabricator/conf/local/local.json']],
+        require => [File['/etc/systemd/system/phd.service'], File['/srv/phab/phabricator/conf/local/local.json'], File['/var/tmp/phd']],
     }
 }
