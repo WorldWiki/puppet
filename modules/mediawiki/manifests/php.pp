@@ -6,6 +6,7 @@ class mediawiki::php {
         'php-mail',
         'php-mbstring',
         'php-redis',
+        'php-mysqlnd',
         'php7.0',
         'php7.0-curl',
         'php7.0-fpm',
