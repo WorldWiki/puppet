@@ -10,6 +10,7 @@ node 'mw1.wiki.org.uk' {
     include base
     include role::irc
     include role::mediawiki
+    include role::mail
 }
 
 node 'world-wiki-main.c.world-wiki.internal' {
