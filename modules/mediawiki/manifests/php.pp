@@ -5,8 +5,8 @@ class mediawiki::php {
         'php-pear',
         'php-mail',
         'php-mbstring',
+        'php-mysql',
         'php-redis',
-        'php-mysqlnd',
         'php7.0',
         'php7.0-curl',
         'php7.0-fpm',
@@ -14,7 +14,6 @@ class mediawiki::php {
         'php7.0-intl',
         'php7.0-json',
         'php7.0-mcrypt',
-        'php7.0-mysql',
     ]
 
     package { $packages:
