@@ -112,7 +112,6 @@ class mediawiki(
         timeout            => '550',
         recurse_submodules => true,
         require            => File['/srv/mediawiki'],
-        before             => File['/srv/mediawiki/w'],
     }
 
     file { '/srv/mediawiki/w':
