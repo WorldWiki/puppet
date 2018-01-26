@@ -78,6 +78,19 @@ class mediawiki(
         source => 'puppet:///modules/mediawiki/nginx/mediawiki-includes.conf',
     }
 
+    git::clone { 'Landing Page':
+        ensure             => 'latest',
+        directory          => '/srv/mediawiki/landing',
+        origin             => 'https://github.com/WorldWiki/Landing-page',
+        branch             => $branch,
+        owner              => 'www-data',
+        group              => 'www-data',
+        mode               => '0755',
+        timeout            => '550',
+        recurse_submodules => true,
+        require            => File['/srv/mediawiki'],
+    }
+
     git::clone { 'MediaWiki config':
         ensure    => 'latest',
         directory => '/srv/mediawiki/config',
