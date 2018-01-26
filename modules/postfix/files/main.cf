@@ -8,7 +8,7 @@ mailbox_size_limit = 0
 recipient_delimiter = +
 inet_interfaces = all
 smtp_bind_address=185.52.2.113
-smtp_bind_address6=2a00:d880:6:787::3
+#smtp_bind_address6=2a00:d880:6:787::3
 
 virtual_alias_domains = phabricator.wiki.org.uk
 virtual_alias_maps = hash:/etc/virtual
