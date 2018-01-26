@@ -1,6 +1,6 @@
 myhostname = mail.wiki.org.uk
 myorigin = /etc/mailname
-mydestination = mail.wiki.org.uk, wiki.org.uk, localhost
+mydestination = mailserver.wiki.org.uk, wiki.org.uk, localhost
 relayhost =
 relay_domains =
 mynetworks = 185.186.244.93
