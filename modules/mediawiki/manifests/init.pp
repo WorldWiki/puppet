@@ -112,13 +112,13 @@ class mediawiki(
         timeout            => '550',
         recurse_submodules => true,
         require            => File['/srv/mediawiki'],
+        before             => File['/srv/mediawiki/w'],
     }
 
     file { '/srv/mediawiki/w':
-        ensure  => directory,
+        ensure => 'directory',
         owner   => 'www-data',
         group   => 'www-data',
-        require => Git::Clone['MediaWiki core'],
     }
 
     file { '/srv/mediawiki/robots.txt':
