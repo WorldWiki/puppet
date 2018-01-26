@@ -114,6 +114,13 @@ class mediawiki(
         require            => File['/srv/mediawiki'],
     }
 
+    file { '/srv/mediawiki/w':
+        ensure  => directory,
+        owner   => 'www-data',
+        group   => 'www-data',
+        require => Git::Clone['MediaWiki core'],
+    }
+
     file { '/srv/mediawiki/robots.txt':
         ensure  => 'present',
         source  => 'puppet:///modules/mediawiki/robots.txt',
