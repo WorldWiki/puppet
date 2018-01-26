@@ -22,6 +22,11 @@ class base::ufw {
         port  => 443,
     }
 
+    ufw::allow { 'mail':
+        proto => 'tcp',
+        port  => 25,
+    }
+
     file { '/root/ufw-fix':
         ensure => present,
         source => 'puppet:///modules/base/ufw/ufw-fix',
