@@ -7,13 +7,13 @@ class mediawiki::favicons {
         mode   => '0755',
     }
 
-    file { '/usr/share/nginx/favicons/default.png]':
+    file { '/usr/share/nginx/favicons/default.ico]':
         ensure => present,
-        source => 'puppet:///modules/mediawiki/favicons/default.png',
+        source => 'puppet:///modules/mediawiki/favicons/default.ico',
     }
 
     # file { '/usr/share/nginx/favicons/apple-touch-icon-default.png':
       #  ensure => present,
-       # source => 'puppet:///modules/mediawiki/favicons/apple-touch-icon-default.png',
+       # source => 'puppet:///modules/mediawiki/favicons/default.png',
     }
 }
