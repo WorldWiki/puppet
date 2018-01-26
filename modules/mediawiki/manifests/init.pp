@@ -82,7 +82,7 @@ class mediawiki(
         ensure             => 'latest',
         directory          => '/srv/mediawiki/landing',
         origin             => 'https://github.com/WorldWiki/Landing-page',
-        branch             => $branch,
+        branch             => 'master',
         owner              => 'www-data',
         group              => 'www-data',
         mode               => '0755',
