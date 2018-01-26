@@ -12,8 +12,8 @@ class mediawiki::favicons {
         source => 'puppet:///modules/mediawiki/favicons/default.ico',
     }
 
-    # file { '/usr/share/nginx/favicons/apple-touch-icon-default.png':
-      #  ensure => present,
-       # source => 'puppet:///modules/mediawiki/favicons/default.png',
+    file { '/usr/share/nginx/favicons/apple-touch-icon-default.png':
+       ensure => present,
+        source => 'puppet:///modules/mediawiki/favicons/default.png',
     }
 }
