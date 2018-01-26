@@ -15,7 +15,6 @@ class mediawiki::php {
         'php7.0-json',
         'php7.0-mcrypt',
         'php7.0-mysql',
-        'php7.0-mysqlnd',
     ]
 
     package { $packages:
