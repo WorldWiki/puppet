@@ -11,6 +11,7 @@ node 'mw1.wiki.org.uk' {
     include role::irc
     include role::mediawiki
     include role::mail
+    include role::redis
 }
 
 node 'world-wiki-main.c.world-wiki.internal' {
