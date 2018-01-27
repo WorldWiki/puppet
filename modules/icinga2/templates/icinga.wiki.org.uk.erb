@@ -3,8 +3,8 @@
 NameVirtualHost *:443
 
 <VirtualHost *:80>
-    ServerName gerrit-icinga.wmflabs.org
-    ServerAdmin noc@wikimedia.org
+    ServerName icinga.wiki.org.uk
+    ServerAdmin noc@wiki.org.uk
     DocumentRoot /usr/share/icingaweb2/public
 
     <Directory "/usr/share/icingaweb2/public">
@@ -53,8 +53,8 @@ NameVirtualHost *:443
 </VirtualHost>
 
 <VirtualHost *:443>
-    ServerName gerrit-icinga.wmflabs.org
-    ServerAdmin noc@wikimedia.org
+    ServerName icinga.wiki.org.uk
+    ServerAdmin noc@wiki.org.uk
     # https://httpoxy.org/
     RequestHeader unset Proxy early
 
@@ -101,7 +101,7 @@ NameVirtualHost *:443
         </IfModule>
 
         RewriteEngine on
-        RewriteRule ^/(.*)$ https://gerrit-icinga.wmflabs.org/$1 [L,R=301,NE]
+        RewriteRule ^/(.*)$ https://icinga.wiki.org.uk/$1 [L,R=301,NE]
     </Directory>
 
     <IfModule !mod_alias.c>
