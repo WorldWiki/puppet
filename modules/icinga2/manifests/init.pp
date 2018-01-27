@@ -75,6 +75,7 @@ class icinga2(
         owner   => 'root',
         group   => 'root',
         notify  => Service['icinga2'],
+        require => Package['icinga2'],
     }
 
     file { '/etc/icinga2/zones.conf':
@@ -83,6 +84,7 @@ class icinga2(
         owner   => 'root',
         group   => 'root',
         notify  => Service['icinga2'],
+        require => Package['icinga2'],
     }
 
     file { '/etc/icinga2/conf.d/api-users.conf':
@@ -91,6 +93,7 @@ class icinga2(
         owner   => 'root',
         group   => 'root',
         notify  => Service['icinga2'],
+        require => Package['icinga2'],
     }
 
     file { '/etc/icinga2/conf.d/apt.conf':
@@ -99,6 +102,7 @@ class icinga2(
         owner   => 'root',
         group   => 'root',
         notify  => Service['icinga2'],
+        require => Package['icinga2'],
     }
 
     file { '/etc/icinga2/conf.d/commands.conf':
@@ -107,6 +111,7 @@ class icinga2(
         owner   => 'root',
         group   => 'root',
         notify  => Service['icinga2'],
+        require => Package['icinga2'],
     }
 
     file { '/etc/icinga2/conf.d/downtimes.conf':
@@ -115,6 +120,7 @@ class icinga2(
         owner   => 'root',
         group   => 'root',
         notify  => Service['icinga2'],
+        require => Package['icinga2'],
     }
 
     file { '/etc/icinga2/conf.d/groups.conf':
@@ -123,6 +129,7 @@ class icinga2(
         owner   => 'root',
         group   => 'root',
         notify  => Service['icinga2'],
+        require => Package['icinga2'],
     }
 
     file { '/etc/icinga2/conf.d/hosts.conf':
@@ -131,6 +138,7 @@ class icinga2(
         owner   => 'root',
         group   => 'root',
         notify  => Service['icinga2'],
+        require => Package['icinga2'],
     }
 
     file { '/etc/icinga2/conf.d/notifications.conf':
@@ -139,6 +147,7 @@ class icinga2(
         owner   => 'root',
         group   => 'root',
         notify  => Service['icinga2'],
+        require => Package['icinga2'],
     }
 
     file { '/etc/icinga2/conf.d/satellite.conf':
@@ -147,6 +156,7 @@ class icinga2(
         owner   => 'root',
         group   => 'root',
         notify  => Service['icinga2'],
+        require => Package['icinga2'],
     }
 
     file { '/etc/icinga2/conf.d/services.conf':
@@ -155,6 +165,7 @@ class icinga2(
         owner   => 'root',
         group   => 'root',
         notify  => Service['icinga2'],
+        require => Package['icinga2'],
     }
 
     file { '/etc/icinga2/conf.d/templates.conf':
@@ -163,6 +174,7 @@ class icinga2(
         owner   => 'root',
         group   => 'root',
         notify  => Service['icinga2'],
+        require => Package['icinga2'],
     }
 
     file { '/etc/icinga2/conf.d/timeperiods.conf':
@@ -171,6 +183,7 @@ class icinga2(
         owner  => 'root',
         group  => 'root',
         notify => Service['icinga2'],
+        require => Package['icinga2'],
     }
 
     file { '/etc/icinga2/conf.d/users.conf':
@@ -179,6 +192,7 @@ class icinga2(
         owner  => 'root',
         group  => 'root',
         notify => Service['icinga2'],
+        require => Package['icinga2'],
     }
 
     file { '/etc/icinga2/scripts/mail-host-notification.sh':
@@ -188,6 +202,7 @@ class icinga2(
         group   => 'root',
         mode    => '0755',
         notify  => Service['icinga2'],
+        require => Package['icinga2'],
     }
 
     file { '/etc/icinga2/scripts/mail-service-notification.sh':
@@ -197,6 +212,7 @@ class icinga2(
         group   => 'root',
         mode    => '0755',
         notify  => Service['icinga2'],
+        require => Package['icinga2'],
     }
 
     # Setup all plugins!
