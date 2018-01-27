@@ -51,7 +51,7 @@ class icinga2(
 
     package { 'icinga2':
         ensure => 'present',
-        require => Apt::Repository['icinga2'],
+        require => Apt::Source['icinga2'],
     }
 
     package { 'icinga2-ido-mysql':
