@@ -23,46 +23,31 @@ class base::monitoring {
         hasrestart => true,
     }
 
-    package { 'ganglia-monitor':
-        ensure => present,
-    }
-
-    file { '/etc/ganglia/gmond.conf':
-        ensure  => present,
-        content => template('base/ganglia/gmond.conf'),
-    }
-
-    service { 'ganglia-monitor':
-        ensure    => running,
-        require   => Package['ganglia-monitor'],
-        subscribe => File['/etc/ganglia/gmond.conf'],
-    }
-
     # SUDO FOR NRPE
     sudo::user { 'nrpe_sudo':
         user       => 'nagios',
         privileges => [ 'ALL = NOPASSWD: /usr/lib/nagios/plugins/check_puppet_run', ],
     }
 
-    icinga::host { $::hostname: }
+    # icinga::host { $::hostname: }
 
-    icinga::service { 'disk_space':
-        description   => 'Disk Space',
-        check_command => 'check_nrpe_1arg!check_disk',
-    }
+    #icinga::service { 'disk_space':
+    #    description   => 'Disk Space',
+    #    check_command => 'check_nrpe_1arg!check_disk',
+    #}
 
-    icinga::service { 'current_load':
-        description   => 'Current Load',
-        check_command => 'check_nrpe_1arg!check_load',
-    }
+    #icinga::service { 'current_load':
+    #    description   => 'Current Load',
+    #    check_command => 'check_nrpe_1arg!check_load',
+    #}
 
-    icinga::service { 'puppet':
-        description   => 'Puppet',
-        check_command => 'check_nrpe_1arg!check_puppet_run',
-    }
+    #icinga::service { 'puppet':
+    #    description   => 'Puppet',
+    #    check_command => 'check_nrpe_1arg!check_puppet_run',
+    #}
 
-    icinga::service { 'ssh':
-        description   => 'SSH',
-        check_command => 'check_ssh',
-    }
+    #icinga::service { 'ssh':
+    #    description   => 'SSH',
+    #    check_command => 'check_ssh',
+    #}
 }
