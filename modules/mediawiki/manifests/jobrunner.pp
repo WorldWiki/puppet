@@ -7,7 +7,7 @@ class mediawiki::jobrunner {
         origin    => 'https://github.com/wikimedia/mediawiki-services-jobrunner',
     }
 
-    $redis_password = hiera('passwords::redis::master')
+    $redis_password = hiera('passwords::redis::master', 'test')
 
     file { '/srv/jobrunner/jobrunner.json':
         ensure  => present,
@@ -80,18 +80,18 @@ class mediawiki::jobrunner {
         mode   => '0555',
     }
 
-    icinga::service { 'jobrunner':
-        description   => 'JobRunner Service',
-        check_command => 'check_nrpe_1arg!check_jobrunner',
-    }
+    #icinga::service { 'jobrunner':
+    #    description   => 'JobRunner Service',
+    #    check_command => 'check_nrpe_1arg!check_jobrunner',
+    #}
 
-    icinga::service { 'jobchron':
-        description   => 'JobChron Service',
-        check_command => 'check_nrpe_1arg!check_jobchron',
-    }
+    #icinga::service { 'jobchron':
+    #    description   => 'JobChron Service',
+    #    check_command => 'check_nrpe_1arg!check_jobchron',
+    #}
 
-    icinga::service { 'jobqueue':
-        description   => 'JobQueue',
-        check_command => 'check_nrpe_1arg!check_jobqueue',
-    }
+    #icinga::service { 'jobqueue':
+    #    description   => 'JobQueue',
+    #    check_command => 'check_nrpe_1arg!check_jobqueue',
+    #}
 }
