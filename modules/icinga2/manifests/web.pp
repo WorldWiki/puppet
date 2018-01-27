@@ -29,9 +29,9 @@ class icinga2::web(
 
     if os_version('debian == jessie') {
         include ::apache::mod::php5
-    } else if os_version('debian >= stretch') {
+    } elsif os_version('debian >= stretch') {
         include ::apache::mod::php7
-    } else if os_version('ubuntu >= artful') {
+    } elsif os_version('ubuntu >= artful') {
         include ::apache::mod::php7
     }
 
