@@ -22,11 +22,6 @@ class base::ufw {
         port  => 443,
     }
 
-    ufw::allow { 'nrpe':
-        proto => 'tcp',
-        port  => '5666',
-    }
-
     file { '/root/ufw-fix':
         ensure => present,
         source => 'puppet:///modules/base/ufw/ufw-fix',
