@@ -32,7 +32,7 @@ class icinga2::web(
     } elsif os_version('debian >= stretch') {
         include ::apache::mod::php7
     } elsif os_version('ubuntu >= artful') {
-        include ::apache::mod::php7
+        include ::apache::mod::php71
     }
 
     include ::apache::mod::ssl
