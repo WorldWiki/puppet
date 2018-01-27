@@ -52,14 +52,6 @@ apply Service "ssh" {
       assign where (host.address || host.address6) && (host.vars.os == "Linux" || host.vars.os == "Linux OS") && host.vars.ssh_check != "disable"
 }
 
-apply Service "check gerrit ssh" {
-      import "generic-service"
-      check_command = "check_ssh_port"
-      vars.port = host.vars.ssh_port
-      vars.address = host.address
-      assign where host.address == "gerrit2.git.wmflabs.org"
-}
-
 apply Service for (http_vhost => config in host.vars.http_vhosts) {
       import "generic-service"
 
@@ -151,22 +143,6 @@ apply Service "check users" {
       assign where host.vars.check_user
 }
 
-object Service "phabricator check dns" {
-      import "generic-service"
-      host_name = "phabricator.phabricator.eqiad.wmflabs"
-      check_command = "check_dns"
-      vars.host = "phab-01.wmflabs.org"
-      vars.address = "labs-ns0.wikimedia.org"
-}
-
-object Service "gerrit-test3 check gerrit" {
-      import "generic-service"
-      host_name = "gerrit-test3.git.eqiad.wmflabs"
-      check_command = "nrpe-check-1arg"
-      vars.check = "check_gerrit"
-      vars.host = "gerrit-test3.git.eqiad.wmflabs"
-}
-
 object Service "phabricator check phd" {
       import "generic-service"
       host_name = "phabricator.phabricator.eqiad.wmflabs"
@@ -183,14 +159,6 @@ apply Service "apt_get" {
       check_interval = 10m
       retry_interval = 5m
       assign where host.vars.external_host
-}
-
-object Service "gerrit-test check jenkins" {
-      import "generic-service"
-      host_name = "gerrit-test.git.eqiad.wmflabs"
-      check_command = "nrpe-check-1arg"
-      vars.check = "check_jenkins"
-      vars.host = "gerrit-test.git.eqiad.wmflabs"
 }
 
 apply Service "puppet" {
