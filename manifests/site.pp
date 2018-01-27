@@ -1,11 +1,5 @@
 # servers
 
-node 'phabricator-2-vm.c.world-wiki.internal' {
-    include base
-    include puppetmaster
-    include role::phabricator
-}
-
 node 'mw1.wiki.org.uk' {
     include base
     include role::irc
