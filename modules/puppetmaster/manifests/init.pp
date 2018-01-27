@@ -43,7 +43,7 @@ class puppetmaster(
 
     file { '/etc/puppet/puppet.conf':
         ensure  => present,
-        content => template("puppetmaster/puppet_${puppetmaster_version}.conf"),
+        content => template("puppetmaster/puppet_${puppetmaster_version}.conf.erb"),
         require => Package[$puppetmaster],
         notify  => Service['apache2'],
     }
