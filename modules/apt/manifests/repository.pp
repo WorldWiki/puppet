@@ -8,6 +8,13 @@ define apt::repository(
     $ensure=present,
     $trust_repo=false,
 ) {
+    exec { 'apt-get update':
+        path        => '/usr/bin',
+        timeout     => 240,
+        returns     => [ 0, 100 ],
+        refreshonly => true,
+    }
+
     if $trust_repo {
         $trustedline = '[trusted=yes] '
     } else {
