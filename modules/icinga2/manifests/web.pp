@@ -22,7 +22,7 @@ class icinga2::web(
     package { [ 'icingaweb2', 'icingaweb2-module-monitoring',
                 'icingaweb2-module-doc', 'icingacli' ] :
         ensure => present,
-        require => Apt::Repository['icinga2'],
+        require => Apt::Source['icinga2'],
     }
 
     include ::apache
