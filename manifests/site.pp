@@ -20,6 +20,13 @@ node 'world-wiki-main.c.world-wiki.internal' {
     include role::phabricator
 }
 
+node 'world-wiki-main' {
+    include base
+    include icinga2
+    include icinga2::web
+}
+
+
 # ensures all servers have basic class if puppet runs
 node default {
     include base
