@@ -18,7 +18,7 @@ class icinga2(
     $os = hiera('icinga_apt_dist', 'artful'),
     $icinga_api_password = hiera('icinga_api_password'),
 ) {
-    apt::repository { 'icinga2':
+    apt::source { 'icinga2':
         uri        => 'http://packages.icinga.com/ubuntu',
         dist       => $os,
         components => 'main',
