@@ -199,24 +199,6 @@ class icinga2(
         notify  => Base::Service_unit['icinga2'],
     }
 
-    file { '/etc/icinga2/scripts/ores-mail-host-notification.sh':
-        ensure  => present,
-        content => template('icinga2/ores-mail-host-notification.sh.erb'),
-        owner   => 'root',
-        group   => 'root',
-        mode    => '0755',
-        notify  => Base::Service_unit['icinga2'],
-    }
-
-    file { '/etc/icinga2/scripts/ores-mail-service-notification.sh':
-        ensure  => present,
-        content => template('icinga2/ores-mail-service-notification.sh.erb'),
-        owner   => 'root',
-        group   => 'root',
-        mode    => '0755',
-        notify  => Base::Service_unit['icinga2'],
-    }
-
     # Setup all plugins!
     class { '::icinga2::plugins':
         require => Package['icinga2'],
@@ -244,16 +226,27 @@ class icinga2(
         group  => 'www-data',
     }
 
-    base::service_unit { 'icinga2':
-        ensure         => 'present',
-        systemd        => systemd_template('icinga2'),
-        sysvinit       => sysvinit_template('icinga2'),
-        service_params => {
-            ensure     => 'running',
-            provider   => $::initsystem,
-            hasrestart => true,
-            restart   => '/bin/systemctl reload icinga2',
-        },
+    file { '/etc/init.d/icinga2':
+        ensure => present,
+        mode   => '0755',
+        content => template('icinga2/initscripts/icinga2.sysvinit.erb'),
+    }
+
+    exec { 'Icinga2 reload systemd':
+        command     => '/bin/systemctl daemon-reload',
+        refreshonly => true,
+    }
+
+    file { '/etc/systemd/system/icinga2.service':
+        ensure => present,
+        content => template('icinga2/initscripts/icinga2.systemd.erb'),
+        notify => Exec['Icinga2 reload systemd'],
+    }
+
+    service { 'icinga2':
+        ensure => 'running',
+        hasrestart => true,
+        restart   => '/bin/systemctl reload icinga2',
     }
 
     # FIXME: This should not require explicit setup
