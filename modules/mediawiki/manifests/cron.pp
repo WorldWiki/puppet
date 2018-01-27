@@ -11,7 +11,7 @@ class mediawiki::cron {
     }
     cron { 'restart_php5fpm':
         ensure  => absent,
-        command => '/usr/sbin/service php5-fpm restart',
+        command => '/usr/sbin/service php7.0-fpm restart',
         minute  => '*/10',
     }
 }
