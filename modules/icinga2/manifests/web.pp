@@ -40,11 +40,11 @@ class icinga2::web(
     include ::apache::mod::cgi
 
     if os_version('ubuntu >= artful || debian >= stretch') {
-        package { [ 'php', 'php-dev', 'php-curl', 'php-imagick',
-                    'php-gd', 'php-json', 'php-mbstring', 'php-common',
-                    'php-mysql', 'php-ldap' ] :
-            ensure => 'installed',
-        }
+        #package { [ 'php', 'php-dev', 'php-curl', 'php-imagick',
+        #            'php-gd', 'php-json', 'php-mbstring', 'php-common',
+        #            'php-mysql', 'php-ldap' ] :
+        #    ensure => 'installed',
+        #}
     } else {
         package { [ 'php5', 'php5-dev', 'php5-curl', 'php5-imagick',
                     'php5-gd', 'php5-json', 'php5-mbstring', 'php5-common',
