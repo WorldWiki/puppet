@@ -143,14 +143,6 @@ apply Service "check users" {
       assign where host.vars.check_user
 }
 
-object Service "phabricator check phd" {
-      import "generic-service"
-      host_name = "phabricator.phabricator.eqiad.wmflabs"
-      check_command = "nrpe-check-1arg"
-      vars.check = "check_phd"
-      vars.host = "phabricator.phabricator.eqiad.wmflabs"
-}
-
 apply Service "apt_get" {
       import "generic-service"
       check_command = "nrpe-check-1arg"
