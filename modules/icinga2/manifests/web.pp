@@ -40,27 +40,17 @@ class icinga2::web(
     include ::apache::mod::cgi
 
     if os_version('ubuntu >= artful || debian >= stretch') {
-        require_package('php')
-        require_package('php-dev')
-        require_package('php-curl')
-        require_package('php-imagick')
-        require_package('php-gd')
-        require_package('php-json')
-        require_package('php-mbstring')
-        require_package('php-common')
-        require_package('php-mysql')
-        require_package('php-ldap')
+        package { [ 'php', 'php-dev', 'php-curl', 'php-imagick',
+                    'php-gd', 'php-json', 'php-mbstring', 'php-common',
+                    'php-mysql', 'php-ldap' ] :
+            ensure => present,
+        }
     } else {
-        require_package('php5')
-        require_package('php5-curl')
-        require_package('php5-dev')
-        require_package('php5-imagick')
-        require_package('php5-gd')
-        require_package('php5-json')
-        require_package('php5-mbstring')
-        require_package('php5-common')
-        require_package('php5-mysql')
-        require_package('php5-ldap')
+        package { [ 'php5', 'php5-dev', 'php5-curl', 'php5-imagick',
+                    'php5-gd', 'php5-json', 'php5-mbstring', 'php5-common',
+                    'php5-mysql', 'php5-ldap' ] :
+            ensure => present,
+        }
     }
 
     file { '/etc/icingaweb2':
