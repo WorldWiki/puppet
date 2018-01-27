@@ -15,6 +15,16 @@ define apt::repository(
         refreshonly => true,
     }
 
+    # Directory to hold the repository signing keys
+    file { '/var/lib/apt/keys':
+        ensure  => directory,
+        owner   => 'root',
+        group   => 'root',
+        mode    => '0700',
+        recurse => true,
+        purge   => true,
+    }
+
     if $trust_repo {
         $trustedline = '[trusted=yes] '
     } else {
