@@ -22,7 +22,7 @@ class icinga2::web(
     package { [ 'icingaweb2', 'icingaweb2-module-monitoring',
                 'icingaweb2-module-doc', 'icingacli' ] :
         ensure => present,
-        require => Apt::Source['icinga2'],
+        require => Apt::Repository['icinga2'],
     }
 
     include ::apache
@@ -39,19 +39,20 @@ class icinga2::web(
     include ::apache::mod::headers
     include ::apache::mod::cgi
 
-    if os_version('ubuntu >= artful || debian >= stretch') {
-        #package { [ 'php', 'php-dev', 'php-curl', 'php-imagick',
-        #            'php-gd', 'php-json', 'php-mbstring', 'php-common',
-        #            'php-mysql', 'php-ldap' ] :
-        #    ensure => 'installed',
-        #}
-    } else {
-        package { [ 'php5', 'php5-dev', 'php5-curl', 'php5-imagick',
-                    'php5-gd', 'php5-json', 'php5-mbstring', 'php5-common',
-                    'php5-mysql', 'php5-ldap' ] :
-            ensure => 'installed',
-        }
-    }
+    # TODO fix compatiblity to so other classes doin't throw duplicate's puppet error
+    #if os_version('ubuntu >= artful || debian >= stretch') {
+    #    package { [ 'php', 'php-dev', 'php-curl', 'php-imagick',
+    #                'php-gd', 'php-json', 'php-mbstring', 'php-common',
+    #                'php-mysql', 'php-ldap' ] :
+    #        ensure => 'installed',
+    #    }
+    #} else {
+    #    package { [ 'php5', 'php5-dev', 'php5-curl', 'php5-imagick',
+    #                'php5-gd', 'php5-json', 'php5-mbstring', 'php5-common',
+    #                'php5-mysql', 'php5-ldap' ] :
+    #        ensure => 'installed',
+    #    }
+    #}
 
     file { '/etc/icingaweb2':
         ensure => 'directory',
