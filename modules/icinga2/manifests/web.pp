@@ -29,9 +29,9 @@ class icinga2::web(
 
     if os_version('debian == jessie') {
         include ::apache::mod::php5
-    }
-
-    if os_version('debian >= stretch') {
+    } else if os_version('debian >= stretch') {
+        include ::apache::mod::php7
+    } else if os_version('ubuntu >= artful') {
         include ::apache::mod::php7
     }
 
@@ -39,18 +39,8 @@ class icinga2::web(
     include ::apache::mod::headers
     include ::apache::mod::cgi
 
-    ferm::service { 'icinga2-https':
-      proto => 'tcp',
-      port  => 443,
-    }
-
-    ferm::service { 'icinga2-http':
-      proto => 'tcp',
-      port  => 80,
-    }
-
-    if os_version('debian >= stretch') {
-        require_package('php7.0')
+    if os_version('ubuntu >= artful || debian >= stretch') {
+        require_package('php')
         require_package('php-dev')
         require_package('php-curl')
         require_package('php-imagick')
@@ -179,7 +169,7 @@ class icinga2::web(
     #    require    => Class['apache::mod::ssl'],
     #}
 
-    apache::site { 'gerrit-icinga.wmflabs.org':
-        content => template('icinga2/gerrit-icinga.wmflabs.org.erb'),
+    apache::site { 'icinga.wiki.org.uk':
+        content => template('icinga2/icinga.wiki.org.uk.erb'),
     }
 }
