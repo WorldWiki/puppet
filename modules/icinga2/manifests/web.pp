@@ -123,7 +123,7 @@ class icinga2::web(
     #    content => template('icinga2/roles.ini.erb'),
     #    owner  => 'www-data',
     #    group  => 'icingaweb2',
-    3}
+    #}
 
     #git::clone { 'beta-mediawiki-core':
     #    directory => "${stage_dir}/php-master",
