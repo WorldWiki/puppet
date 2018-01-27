@@ -43,13 +43,13 @@ class icinga2::web(
         package { [ 'php', 'php-dev', 'php-curl', 'php-imagick',
                     'php-gd', 'php-json', 'php-mbstring', 'php-common',
                     'php-mysql', 'php-ldap' ] :
-            ensure => present,
+            ensure => 'installed',
         }
     } else {
         package { [ 'php5', 'php5-dev', 'php5-curl', 'php5-imagick',
                     'php5-gd', 'php5-json', 'php5-mbstring', 'php5-common',
                     'php5-mysql', 'php5-ldap' ] :
-            ensure => present,
+            ensure => 'installed',
         }
     }
 
