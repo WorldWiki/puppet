@@ -1,0 +1,223 @@
+/*
+ * Service apply rules.
+ *
+ * The CheckCommand objects `ping4`, `ping6`, etc
+ * are provided by the plugin check command templates.
+ * Check the documentation for details.
+ *
+ * Tip: Use `icinga2 object list --type Service` to
+ * list all service objects after running
+ * configuration validation (`icinga2 daemon -C`).
+ */
+
+/*
+ * This is an example host based on your
+ * local host's FQDN. Specify the NodeName
+ * constant in `constants.conf` or use your
+ * own description, e.g. "db-host-1".
+ */
+
+/*
+ * These are generic `ping4` and `ping6`
+ * checks applied to all hosts having the
+ * `address` resp. `address6` attribute
+ * defined.
+ */
+apply Service "ping4" {
+      import "generic-service"
+
+      check_command = "ping4"
+
+      assign where host.address
+}
+
+apply Service "ping6" {
+      import "generic-service"
+
+      check_command = "ping6"
+
+      assign where host.address6
+}
+
+/*
+ * Apply the `ssh` service to all hosts
+ * with the `address` attribute defined and
+ * the custom attribute `os` set to `Linux`.
+ */
+apply Service "ssh" {
+      import "generic-service"
+
+      check_command = "ssh"
+
+      assign where (host.address || host.address6) && (host.vars.os == "Linux" || host.vars.os == "Linux OS") && host.vars.ssh_check != "disable"
+}
+
+apply Service "check gerrit ssh" {
+      import "generic-service"
+      check_command = "check_ssh_port"
+      vars.port = host.vars.ssh_port
+      vars.address = host.address
+      assign where host.address == "gerrit2.git.wmflabs.org"
+}
+
+apply Service for (http_vhost => config in host.vars.http_vhosts) {
+      import "generic-service"
+
+      check_command = "http"
+
+      command_endpoint = host.vars.remote_client
+
+      vars += config
+}
+
+/*apply Service for (disk => config in host.vars.disks) {
+      import "generic-service"
+
+      check_command = "disk"
+      command_endpoint = host.vars.remote_client
+
+      vars += config
+}*/
+
+apply Service "check disk" {
+      import "generic-service"
+      check_command = "nrpe-check-1arg"
+      vars.host = host.address
+      vars.check = "check_disk_space"
+      assign where host.vars.check_disk
+}
+
+apply Service "check http" {
+      import "generic-service"
+      check_command = "check_http_2"
+      vars.http_vhost = host.vars.website_name
+      vars.http_ssl = true
+      vars.http_certificate = 10
+      vars.http_uri = host.vars.website_url
+      // vars.check = "check_http"
+      assign where host.vars.website_name
+}
+
+apply Service "icinga" {
+      import "generic-service"
+
+      check_command = "icinga"
+
+      assign where host.name == NodeName
+}
+
+apply Service "check load" {
+      import "generic-service"
+
+      /* Used by the ScheduledDowntime apply rule in `downtimes.conf`. */
+      /* vars.backup_downtime = "02:00-03:00" */
+
+      check_command = "nrpe-check-1arg"
+      vars.host = host.address
+      vars.check = "check_load"
+      vars.load_check = "enabled"
+      assign where host.vars.load_check != "disable"
+}
+
+apply Service "procs" {
+      import "generic-service"
+
+      check_command = "nrpe-check-1arg"
+      vars.host = host.address
+      vars.check = "check_procs"
+
+      //assign where host.name == NodeName
+      assign where host.vars.remote_client
+}
+
+apply Service "swap" {
+      import "generic-service"
+
+      check_command = "nrpe-check-1arg"
+      vars.host = host.address
+      vars.check = "check_swap"
+
+      //assign where host.name == NodeName
+      assign where host.vars.swap
+}
+
+apply Service "check users" {
+      import "generic-service"
+
+      check_command = "nrpe-check-1arg"
+      vars.host = host.address
+      vars.check = "check_users"
+
+      assign where host.vars.check_user
+}
+
+object Service "phabricator check dns" {
+      import "generic-service"
+      host_name = "phabricator.phabricator.eqiad.wmflabs"
+      check_command = "check_dns"
+      vars.host = "phab-01.wmflabs.org"
+      vars.address = "labs-ns0.wikimedia.org"
+}
+
+object Service "gerrit-test3 check gerrit" {
+      import "generic-service"
+      host_name = "gerrit-test3.git.eqiad.wmflabs"
+      check_command = "nrpe-check-1arg"
+      vars.check = "check_gerrit"
+      vars.host = "gerrit-test3.git.eqiad.wmflabs"
+}
+
+object Service "phabricator check phd" {
+      import "generic-service"
+      host_name = "phabricator.phabricator.eqiad.wmflabs"
+      check_command = "nrpe-check-1arg"
+      vars.check = "check_phd"
+      vars.host = "phabricator.phabricator.eqiad.wmflabs"
+}
+
+apply Service "apt_get" {
+      import "generic-service"
+      check_command = "nrpe-check-1arg"
+      vars.host = host.address
+      vars.check = "check_apt"
+      check_interval = 10m
+      retry_interval = 5m
+      assign where host.vars.external_host
+}
+
+object Service "gerrit-test check jenkins" {
+      import "generic-service"
+      host_name = "gerrit-test.git.eqiad.wmflabs"
+      check_command = "nrpe-check-1arg"
+      vars.check = "check_jenkins"
+      vars.host = "gerrit-test.git.eqiad.wmflabs"
+}
+
+apply Service "puppet" {
+      import "generic-service"
+
+      check_command = "nrpe-check-1arg"
+      vars.host = host.address
+      vars.check = "check_puppet_checkpuppetrun"
+      enable_active_checks = true
+      enable_passive_checks = true
+      enable_event_handler = true
+      enable_perfdata = true
+
+      assign where host.vars.check_puppet
+}
+
+apply Service "mem-check" {
+      import "generic-service"
+      check_command = "nrpe-check-1arg"
+      vars.host = host.address
+      vars.check = "check_ram"
+      enable_active_checks = true
+      enable_passive_checks = true
+      enable_event_handler = true
+      enable_perfdata = true
+      check_interval = 10m
+      retry_interval = 5m
+
+      assign where host.vars.check_ram
+}
