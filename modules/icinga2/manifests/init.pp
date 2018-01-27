@@ -15,7 +15,7 @@ class icinga2(
     $icinga_ido_db_name = hiera('icinga_ido_db_name'),
     $icinga_ido_user_name = hiera('icinga_ido_user_name'),
     $icinga_ido_password = hiera('icinga_ido_password'),
-    $os = hiera('icinga_apt_dist', 'artful'),
+    $os = hiera('icinga_apt_dist', 'icinga-artful'),
     $icinga_api_password = hiera('icinga_api_password'),
 ) {
     apt::repository { 'icinga2':
