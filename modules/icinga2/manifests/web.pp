@@ -118,12 +118,12 @@ class icinga2::web(
         group  => 'icingaweb2',
     }
 
-    file { '/etc/icingaweb2/modules/monitoring/roles.ini':
-        ensure => present,
-        content => template('icinga2/roles.ini.erb'),
-        owner  => 'www-data',
-        group  => 'icingaweb2',
-    }
+    #file { '/etc/icingaweb2/modules/monitoring/roles.ini':
+    #    ensure => present,
+    #    content => template('icinga2/roles.ini.erb'),
+    #    owner  => 'www-data',
+    #    group  => 'icingaweb2',
+    3}
 
     #git::clone { 'beta-mediawiki-core':
     #    directory => "${stage_dir}/php-master",
