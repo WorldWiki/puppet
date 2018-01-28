@@ -6,10 +6,10 @@ class icinga2::ircbot(
 ) {
     if $ensure == 'present' {
         $ircecho_logs   = {
-            '/var/log/icinga2/irc.log'             => '#wikimedia-bots-testing',
+            '/var/log/icinga2/irc.log' => '#worldwiki-operations',
         }
-        $ircecho_nick   = 'icinga2-wm'
-        $ircecho_server = 'chat.freenode.net'
+        $ircecho_nick   = 'icinga2-worldwiki'
+        $ircecho_server = 'chat.freenode.net +6697'
 
         class { '::ircecho':
             ircecho_logs   => $ircecho_logs,
