@@ -18,11 +18,12 @@ class ircecho (
     require_package(['python-pyinotify', 'python-irc'])
 
     file { '/usr/local/bin/ircecho':
-        ensure => 'present',
-        source => 'puppet:///modules/ircecho/ircecho.py',
-        owner  => 'root',
-        group  => 'root',
-        mode   => '0755',
+        ensure  => 'present',
+        source  => 'puppet:///modules/ircecho/ircecho.py',
+        owner   => 'root',
+        group   => 'root',
+        mode    => '0755',
+        notify  => Service['ircecho'],
     }
 
     file { '/etc/default/ircecho':
