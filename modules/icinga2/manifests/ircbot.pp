@@ -8,7 +8,7 @@ class icinga2::ircbot(
         $ircecho_logs   = {
             '/var/log/icinga2/irc.log' => '#worldwiki-operations',
         }
-        $ircecho_nick   = 'icinga2-worldwiki'
+        $ircecho_nick   = 'WorldWikiServers'
         $ircecho_server = 'chat.freenode.net +6697'
 
         class { '::ircecho':
