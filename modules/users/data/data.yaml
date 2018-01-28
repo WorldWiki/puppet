@@ -2,7 +2,7 @@ groups:
   ops:
     gid: 2000
     description: roots, sudo everywhere
-    members: [jemlee15, Megadev44s.mail, paladox, reception, samtar]
+    members: [adotchar, jemlee15, Megadev44s.mail, paladox, reception, samtar]
     privileges: ['ALL = (ALL) NOPASSWD: ALL']
 
 users:
