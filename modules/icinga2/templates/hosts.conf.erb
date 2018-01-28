@@ -56,3 +56,44 @@ object Host NodeName {
       groups = [ "icingaadmins" ]
     }
 }
+
+object Host "mw1.wiki.org.uk" {
+    /* Import the default host template defined in `templates.conf`. */
+    import "generic-host"
+
+    /* Specify the address attributes for checks e.g. `ssh` or `http`. */
+    address = "185.186.244.93"
+
+    vars.host_name = "mw1.wiki.org.uk"
+
+    /* Set custom attribute `os` for hostgroup assignment in `groups.conf`. */
+    vars.os = "Linux OS"
+
+    /* Define disks and attributes for service apply rules in `services.conf`. */
+    /* vars.disks["disk"] = { */
+      /* No parameters. */
+    /* } */
+    vars.disks["disk /"] = {
+      disk_partitions = "/"
+    }
+
+    vars.sla = "24x7"
+
+    vars.remote_client = true
+
+    vars.external_host = true
+
+    vars.check_user = true
+
+    vars.check_puppet = true
+
+    vars.check_ram = false
+
+    vars.check_disk = true
+
+    /* Define notification mail attributes for notification apply rules in `notifications.conf`. */
+    vars.notification["mail"] = {
+      /* The UserGroup `icingaadmins` is defined in `users.conf`. */
+      groups = [ "icingaadmins" ]
+    }
+}
