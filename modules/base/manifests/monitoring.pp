@@ -29,7 +29,7 @@ class base::monitoring {
         privileges => [ 'ALL = NOPASSWD: /usr/lib/nagios/plugins/check_puppet_run', ],
     }
 
-    sudo::user { 'nrpe_sudo':
+    sudo::user { 'nrpe_sudo_apt':
         user       => 'nagios',
         privileges => [ 'ALL = NOPASSWD: /usr/lib/nagios/plugins/check_apt', ],
     }
