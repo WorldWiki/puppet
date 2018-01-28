@@ -29,6 +29,11 @@ class base::monitoring {
         privileges => [ 'ALL = NOPASSWD: /usr/lib/nagios/plugins/check_puppet_run', ],
     }
 
+    sudo::user { 'nrpe_sudo':
+        user       => 'nagios',
+        privileges => [ 'ALL = NOPASSWD: /usr/lib/nagios/plugins/check_apt', ],
+    }
+
     # icinga::host { $::hostname: }
 
     #icinga::service { 'disk_space':
