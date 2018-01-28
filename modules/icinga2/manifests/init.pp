@@ -291,4 +291,6 @@ class icinga2(
         group  => 'www-data',
         mode   => '2755',
     }
+    
+    include icinga2::ircbot
 }
