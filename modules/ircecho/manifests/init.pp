@@ -12,7 +12,7 @@ class ircecho (
     $ircecho_logs,
     $ircecho_nick,
     $ircecho_server = 'chat.freenode.net 6667',
-    $ensure = 'present',
+    $ensure = 'running',
 ) {
 
     require_package(['python-pyinotify', 'python-irc'])
@@ -33,14 +33,28 @@ class ircecho (
         notify  => Service['ircecho'],
     }
 
-    base::service_unit { 'ircecho':
-        ensure         => $ensure,
-        systemd        => systemd_template('ircecho'),
-        sysvinit       => sysvinit_template('ircecho'),
-        require        => File['/usr/local/bin/ircecho'],
-        service_params => {
-            hasrestart => true,
-        },
+    file { '/etc/init.d/ircecho':
+        ensure => present,
+        mode   => '0755',
+        content => template('ircecho/initscripts/ircecho.sysvinit.erb'),
+    }
+
+    exec { 'Ircecho reload systemd':
+        command     => '/bin/systemctl daemon-reload',
+        refreshonly => true,
+    }
+
+    file { '/etc/systemd/system/ircecho.service':
+        ensure => present,
+        content => template('ircecho/initscripts/ircecho.systemd.erb'),
+        notify => Exec['Ircecho reload systemd'],
+    }
+
+    service { 'ircecho':
+        ensure     => $ensure,
+        hasrestart => true,
+        restart    => '/bin/systemctl reload icinga2',
+        require    => File['/usr/local/bin/ircecho'],
     }
 }
 
