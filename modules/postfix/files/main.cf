@@ -1,4 +1,4 @@
-myhostname = wiki.org.uk
+myhostname = mailserver.wiki.org.uk
 myorigin = /etc/mailname
 mydestination = 
 relayhost =
