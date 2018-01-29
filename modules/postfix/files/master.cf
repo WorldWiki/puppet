@@ -1,4 +1,5 @@
 smtp      inet  n       -       -       -       -       smtpd
+2525      inet  n       -        n      -       -       smtpd
 submission inet n       -       -       -       -       smtpd
   -o syslog_name=postfix/submission
   -o smtpd_tls_security_level=encrypt
