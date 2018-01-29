@@ -66,7 +66,7 @@ phpmailer.mailer: 'smtp'
 phpmailer.smtp-port: '2525'
 phpmailer.smtp-host: 'mailserver.wiki.org.uk'
 
-metamta.default-address: 'noreply@phabricator.wiki.org.uk.'
+metamta.default-address: 'phabricator.wiki.org.uk.'
 metamta.domain: 'phabricator.wiki.org.uk'
 #metamta.mail-adapter: 'PhabricatorMailImplementationSendGridAdapter'
 #metamta.single-reply-handler-prefix: 'phabricator'
