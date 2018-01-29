@@ -1,5 +1,5 @@
 myhostname = mailserver.wiki.org.uk
-myorigin = /etc/mailname
+myorigin = /etc/mailname, mailserver.wiki.org.uk
 mydestination = 
 relayhost =
 relay_domains =
