@@ -1,6 +1,6 @@
 myhostname = mailserver.wiki.org.uk
 myorigin = mailserver.wiki.org.uk
-mydestination = wiki.org.uk 
+mydestination =
 relayhost =
 relay_domains =
 mynetworks = 185.186.244.93, 35.189.126.15
