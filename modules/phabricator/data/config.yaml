@@ -62,7 +62,7 @@ storage.mysql-engine.max-size: 10000000
 
 # SMTP
 phpmailer.smtp-port: 2525
-phpmailer.smtp-user: 'noreply'
+#phpmailer.smtp-user: 'noreply'
 phpmailer.smtp-host: 'mailserver.wiki.org.uk'
 metamta.default-address: 'noreply@phab.wiki.org.uk'
 metamta.domain: 'phabricator.wiki.org.uk'
