@@ -10,6 +10,11 @@ class role::mail {
         port  => 25,
     }
 
+    ufw::allow { 'smtp2':
+        proto => 'tcp',
+        port  => 2525,
+    }
+
     ufw::allow { 'smtp-ssl':
         proto => 'tcp',
         port  => 465,
