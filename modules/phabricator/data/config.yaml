@@ -61,10 +61,14 @@ mysql.host: 'localhost'
 storage.mysql-engine.max-size: 10000000
 
 # SMTP
-metamta.default-address: 'noreply@wiki.org.uk.'
-metamta.domain: 'wiki.org.uk'
-metamta.mail-adapter: 'PhabricatorMailImplementationSendGridAdapter'
-metamta.single-reply-handler-prefix: 'phabricator'
+metamta.mail-adapter: 'PhabricatorMailImplementationPHPMailerAdapter'
+phpmailer.mailer: 'smtp'
+phpmailer.smtp-port: '25'
+
+#metamta.default-address: 'noreply@wiki.org.uk.'
+#metamta.domain: 'wiki.org.uk'
+#metamta.mail-adapter: 'PhabricatorMailImplementationSendGridAdapter'
+#metamta.single-reply-handler-prefix: 'phabricator'
 
 # Auth
 auth.require-approval: false
