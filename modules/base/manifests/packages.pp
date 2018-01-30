@@ -11,6 +11,7 @@ class base::packages {
         'logrotate',
         'mtr',
         'nano',
+		'curl',
         'pigz',
         'screen',
         'strace',
