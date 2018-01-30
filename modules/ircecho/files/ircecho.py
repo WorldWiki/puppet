@@ -135,10 +135,10 @@ class EchoBot(SingleServerIRCBot):
         if ssl:
             import ssl
             ssl_factory = irc.connection.Factory(wrapper=ssl.wrap_socket)
-            SingleServerIRCBot.__init__(self, [(server, port)], nickname, 'IRC echo bot',
+            SingleServerIRCBot.__init__(self, [(server, port)], nickname, 'Server Status',
                                         connect_factory=ssl_factory)
         else:
-            SingleServerIRCBot.__init__(self, [(server, port)], nickname, 'IRC echo bot')
+            SingleServerIRCBot.__init__(self, [(server, port)], nickname, 'Server Status')
         self.chans = chans
 
     def on_nicknameinuse(self, c, e):
