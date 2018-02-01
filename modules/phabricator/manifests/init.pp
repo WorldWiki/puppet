@@ -44,7 +44,7 @@ class phabricator {
         system_svc => 'nginx',
     }
 
-    nginx::conf { 'phabricator.wiki.org.uk':
+    nginx::site { 'phabricator.wiki.org.uk':
         ensure  => present,
         source  => 'puppet:///modules/phabricator/phabricator.wiki.org.uk.conf',
         notify  => Exec['nginx-syntaxs'],
