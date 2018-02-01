@@ -1,9 +1,5 @@
 # class: phabricator
 class phabricator {
-    include ::apache::mod::rewrite 
-    include ::apache::mod::ssl
-    include ::apache::mod::php71
-
     package { ['mariadb-server', 'mariadb-client']:
         ensure => present,
     }
@@ -37,11 +33,18 @@ class phabricator {
             ensure => present,
         }
     }
+
     package { 'python-pygments':
         ensure => present,
     }
 
-    apache::site { 'phabricator.wiki.org.uk':
+    #letsencrypt::cert::integrated { 'world':
+    #    subjects   => 'world.wiki.org.uk',
+    #    puppet_svc => 'nginx',
+    #    system_svc => 'nginx',
+    #}
+
+    nginx::conf { 'phabricator.wiki.org.uk':
         ensure => present,
         source => 'puppet:///modules/phabricator/phabricator.wiki.org.uk.conf',
     }
