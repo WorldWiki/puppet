@@ -68,7 +68,7 @@ title_map = {
 }
 
 # Scheme and wiki hostname to connect to
-wiki_connection = ("https", "wiki.org.uk")
+wiki_connection = ("https", "world.wiki.org.uk")
 
 # Url path
 wiki_path = "/w/"
@@ -92,7 +92,7 @@ wiki_domain = ""
 wiki_page = "Tech:Server_admin_log"
 
 # Page to visit to view logs -- used by the bot's help message
-log_url = "wiki.org.uk/wiki/Tech:Server_admin_log"
+log_url = "world.wiki.org.uk/wiki/Tech:Server_admin_log"
 
 # Header depth for dates written
 wiki_header_depth = 2
