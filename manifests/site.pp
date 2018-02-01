@@ -5,6 +5,7 @@ node 'mw1.wiki.org.uk' {
     include role::irc
     include role::mediawiki
     include role::mail
+    include role::phabricator
     include role::redis
 }
 
