@@ -10,9 +10,7 @@ class nginx {
             repos    => 'nginx',
             key      => '573BFD6B3D8FBC641079A6ABABF5BD827BD9BF62',
         }
-    }
 
-    if os_version('ubuntu == xenial') {
         package { 'nginx':
             ensure  => present,
             require => [ Apt::Source['nginx_apt'], Package['apache2'] ],
