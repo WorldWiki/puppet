@@ -38,8 +38,8 @@ class phabricator {
         ensure => present,
     }
 
-    #letsencrypt::cert::integrated { 'world':
-    #    subjects   => 'world.wiki.org.uk',
+    #letsencrypt::cert::integrated { 'phabricator':
+    #    subjects   => 'phabricator.wiki.org.uk',
     #    puppet_svc => 'nginx',
     #    system_svc => 'nginx',
     #}
@@ -113,13 +113,6 @@ class phabricator {
         source => 'puppet:///modules/phabricator/preamble.php',
         notify  => Service['apache2'],
         require => Git::Clone['phabricator'],
-    }
-
-    file { '/etc/php/7.1/apache2/php.ini':
-        ensure => present,
-        mode   => '0755',
-        source => 'puppet:///modules/phabricator/php.ini',
-        notify => Service['apache2'],
     }
 
     file { '/etc/systemd/system/phd.service':
