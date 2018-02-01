@@ -12,11 +12,6 @@ class nginx {
         }
     }
 
-    # Ensure Apache is absent: https://phabricator.miraheze.org/T253
-    package { 'apache2':
-        ensure  => absent,
-    }
-
     if os_version('ubuntu == xenial') {
         package { 'nginx':
             ensure  => present,
