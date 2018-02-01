@@ -47,19 +47,19 @@ class phabricator {
     nginx::conf { 'phabricator.wiki.org.uk':
         ensure  => present,
         source  => 'puppet:///modules/phabricator/phabricator.wiki.org.uk.conf',
-        notify  => Exec['nginx-syntax'],
+        notify  => Exec['nginx-syntaxs'],
     }
 
-    exec { 'nginx-syntax':
+    exec { 'nginx-syntaxs':
         command     => '/usr/sbin/nginx -t',
-        notify      => Exec['nginx-reload'],
+        notify      => Exec['nginx-reloads'],
         refreshonly => true,
     }
 
-    exec { 'nginx-reload':
+    exec { 'nginx-reloads':
         command     => '/usr/sbin/service nginx reload',
         refreshonly => true,
-        require     => Exec['nginx-syntax'],
+        require     => Exec['nginx-syntaxs'],
     }
 
     file { '/srv/phab':
