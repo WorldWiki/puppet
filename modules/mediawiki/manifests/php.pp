@@ -36,7 +36,7 @@ class mediawiki::php {
         file { '/etc/php/7.0/fpm/pool.d/www.conf':
             ensure => 'present',
             mode   => '0755',
-            source => 'puppet:///modules/mediawiki/php/www.conf',
+            source => 'puppet:///modules/mediawiki/php/www.conf-php7.0',
             notify => Service['php7.0-fpm'],
         }
 
@@ -55,14 +55,14 @@ class mediawiki::php {
         file { '/etc/php/7.1/fpm/php-fpm.conf':
             ensure => 'present',
             mode   => '0755',
-            source => 'puppet:///modules/mediawiki/php/php-fpm7.0.conf',
+            source => 'puppet:///modules/mediawiki/php/php-fpm7.1.conf',
             notify => Service['php7.1-fpm'],
         }
 
         file { '/etc/php/7.1/fpm/pool.d/www.conf':
             ensure => 'present',
             mode   => '0755',
-            source => 'puppet:///modules/mediawiki/php/www.conf',
+            source => 'puppet:///modules/mediawiki/php/www.conf-php7.1',
             notify => Service['php7.1-fpm'],
         }
 
