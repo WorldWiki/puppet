@@ -26,7 +26,18 @@ class phabricator {
         }
     }
 
-    package { ['php-apcu', 'php-mysql', 'python-pygments']:
+    if ! defined(Package['php-apcu']) {
+        package { 'php-apcu':
+            ensure => present,
+        }
+    }
+
+    if ! defined(Package['php-mysql']) {
+        package { 'php-mysql':
+            ensure => present,
+        }
+    }
+    package { 'python-pygments':
         ensure => present,
     }
 
