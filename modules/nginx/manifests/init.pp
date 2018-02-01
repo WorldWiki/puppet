@@ -19,7 +19,6 @@ class nginx {
     } else {
         package { 'nginx':
             ensure  => present,
-            require => Package['apache2'],
             notify  => Exec['nginx unmask'],
         }
     }
