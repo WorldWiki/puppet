@@ -14,7 +14,6 @@ node 'world-wiki-main.c.world-wiki.internal' {
     include icinga2
     include icinga2::web
     include puppetmaster
-    include role::phabricator
 }
 
 # ensures all servers have basic class if puppet runs
