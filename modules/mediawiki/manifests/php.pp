@@ -23,7 +23,7 @@ class mediawiki::php {
     if os_version('ubuntu == xenial') {
         service { 'php7.0-fpm':
             ensure  => running,
-            require => Package['php7.0-fpm'],
+            require => Package['php-fpm'],
         }
 
         file { '/etc/php/7.0/fpm/php-fpm.conf':
@@ -49,7 +49,7 @@ class mediawiki::php {
     } else {
         service { 'php7.1-fpm':
             ensure  => running,
-            require => Package['php7.1-fpm'],
+            require => Package['php-fpm'],
         }
 
         file { '/etc/php/7.1/fpm/php-fpm.conf':
