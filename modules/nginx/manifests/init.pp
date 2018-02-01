@@ -52,7 +52,7 @@ class nginx {
     service { 'nginx':
         ensure     => 'running',
         enable     => true,
-        provider   => 'debian',
+        provider   => 'ubuntu',
         hasrestart => true,
         require    => [ Exec['nginx unmask'], File['/etc/nginx/mime.types'] ],
     }
