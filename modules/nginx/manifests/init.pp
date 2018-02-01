@@ -53,7 +53,7 @@ class nginx {
         source => 'puppet:///modules/nginx/logrotate',
     }
 
-    file { '/etc/nginx.d/conf.d/default.conf':
+    file { '/etc/nginx/conf.d/default.conf':
         ensure => present,
         source => 'puppet:///modules/nginx/default.conf',
     }
