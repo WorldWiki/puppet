@@ -23,7 +23,7 @@ class nginx {
         }
     }
 
-    file { [ '/etc/nginx', '/etc/nginx/sites-available', '/etc/nginx/sites-enabled' ]:
+    file { [ '/etc/nginx', '/etc/nginx/conf.d', '/etc/nginx/sites-available', '/etc/nginx/sites-enabled' ]:
         ensure => directory,
         owner  => 'root',
         group  => 'root',
@@ -51,5 +51,10 @@ class nginx {
     file { '/etc/logrotate.d/nginx':
         ensure => present,
         source => 'puppet:///modules/nginx/logrotate',
+    }
+
+    file { '/etc/nginx.d/conf.d/default.conf':
+        ensure => present,
+        source => 'puppet:///modules/nginx/default.conf',
     }
 }
