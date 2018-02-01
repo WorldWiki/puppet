@@ -29,7 +29,7 @@ class mediawiki::php {
         file { '/etc/php/7.0/fpm/php-fpm.conf':
             ensure => 'present',
             mode   => '0755',
-            source => 'puppet:///modules/mediawiki/php/php-fpm.conf',
+            source => 'puppet:///modules/mediawiki/php/php-fpm7.0.conf',
             notify => Service['php7.0-fpm'],
         }
 
@@ -55,7 +55,7 @@ class mediawiki::php {
         file { '/etc/php/7.1/fpm/php-fpm.conf':
             ensure => 'present',
             mode   => '0755',
-            source => 'puppet:///modules/mediawiki/php/php-fpm.conf',
+            source => 'puppet:///modules/mediawiki/php/php-fpm7.0.conf',
             notify => Service['php7.1-fpm'],
         }
 
