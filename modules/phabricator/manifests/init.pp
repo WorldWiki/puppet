@@ -20,7 +20,13 @@ class phabricator {
         }
     }
 
-    package { ['php-apcu', 'php-mbstring', 'php-mysql', 'python-pygments']:
+    if ! defined(Package['php-mbstring']) {
+        package { 'php-mbstring':
+            ensure => present,
+        }
+    }
+
+    package { ['php-apcu', 'php-mysql', 'python-pygments']:
         ensure => present,
     }
 
