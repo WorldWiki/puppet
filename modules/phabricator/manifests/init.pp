@@ -104,14 +104,14 @@ class phabricator {
     file { '/srv/phab/phabricator/conf/local/local.json':
         ensure  => present,
         content => template('phabricator/local.json.erb'),
-        notify  => Service['apache2'],
+        notify  => Service['nginx'],
         require => Git::Clone['phabricator'],
     }
 
     file { '/srv/phab/phabricator/support/preamble.php':
         ensure  => present,
         source => 'puppet:///modules/phabricator/preamble.php',
-        notify  => Service['apache2'],
+        notify  => Service['nginx'],
         require => Git::Clone['phabricator'],
     }
 
