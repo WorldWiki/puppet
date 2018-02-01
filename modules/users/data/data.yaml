@@ -25,8 +25,7 @@ users:
     realname: Paladox
     ssh_keys:
       - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAu7ekU1Mj+gMv6qj/vKp4RXpYAf+yxqLb5gdWk/0QST patrickmulhall@Patricks-MBP.home
-      - ecdsa-sha2-nistp521 AAAAE2VjZHNhLXNoYTItbmlzdHA1MjEAAAAIbmlzdHA1MjEAAACFBAFfC+B3G8Seo7SxPcC6kLmUgVf+Yjl3QkBAkbLueMloX6x4GHLX89gdHmPXiBXR2rwfCOVRZD1Oj6fBANBt3Z9ShgD0u0ZVU/wZwddRnPabeNLzRSJyZa+6c1VgUdBCFBgjsk84/h1Pbjh4I8B63PprY/Nx9iK7KvlFVmiZyPe02f6cXw== root@ip-172-31-3-168-9a33ab41
-      - ecdsa-sha2-nistp521 AAAAE2VjZHNhLXNoYTItbmlzdHA1MjEAAAAIbmlzdHA1MjEAAACFBACJgg8K4zpbLpAfrbvzTrCt0SYf1MCAQ7wCBzH6q7ac6ggndrWg14NHwnPBsek17OYfsUcFf6KVcnrh7eKcMlvHcQFGTUhogbZJmbLlRSQGKj+1ACYDawzHEcVgnDbge/+kucuxSvOvk6cvrgx4L/BPSJH9pFVMLGHRMCaJ8PQNhqF1HQ== root@phabricator-2-vm
+      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDICkb7DPJojVbuRa2G1sc0lZV3VxbPOjQCGdSFNmHGZZTYjYjhTVeNFVE8Yd1QlOTI/BAXVZKI4OvqW50UR4H39+7kOQ7kWSe93tf9fELDt+HfrNTy35Eg9m7VAdtn/RoJTRWs1PNroRjcds8ehjtBIQvSENeJSZdFHyqihHFJK/g/cH3DXgwK3MYKRE8hTnZG91BT49eYip1O13r7uW9I520Yy4uz2HpM7HpHDiX4/kADikAuKU5SZMsF2G/6lubdEFwevt0zamTF+ndaS7KblYmUscC+KP9vkhyTiGf2ERJ3vFERmtnyKs5f4HgyhwYDpilCa5VbbCYOdzmDJ4JX root@world-wiki-main
   reception:
     ensure: present
     uid: 2003
