@@ -97,3 +97,19 @@ object Host "mw1.wiki.org.uk" {
       groups = [ "icingaadmins" ]
     }
 }
+
+object Host "phabricator.wiki.org.uk" {
+     import "generic-host"
+     address = "phabricator.wiki.org.uk"
+     vars.os = "Linux OS"
+     vars.sla = "24x7"
+     vars.load_check = "disable"
+     vars.website_name = "phabricator.wiki.org.uk"
+     vars.website_url = "/"
+     vars.ssh_check = "disable"
+
+     vars.notification["mail"] = {
+       /* The UserGroup `icingaadmins` is defined in `users.conf`. */
+       groups = [ "icingaadmins" ]
+     }
+}
