@@ -2,12 +2,14 @@
 class nginx {
     include ::apt
 
-    apt::source { 'nginx_apt':
-        comment  => 'NGINX stable',
-        location => 'http://nginx.org/packages/ubuntu',
-        release  => 'xenial',
-        repos    => 'nginx',
-        key      => '573BFD6B3D8FBC641079A6ABABF5BD827BD9BF62',
+    if os_version('ubuntu == xenial') {
+        apt::source { 'nginx_apt':
+            comment  => 'NGINX stable',
+            location => 'http://nginx.org/packages/ubuntu',
+            release  => 'xenial',
+            repos    => 'nginx',
+            key      => '573BFD6B3D8FBC641079A6ABABF5BD827BD9BF62',
+        }
     }
 
     # Ensure Apache is absent: https://phabricator.miraheze.org/T253
@@ -15,10 +17,18 @@ class nginx {
         ensure  => absent,
     }
 
-    package { 'nginx':
-        ensure  => present,
-        require => [ Apt::Source['nginx_apt'], Package['apache2'] ],
-        notify  => Exec['nginx unmask'],
+    if os_version('ubuntu == xenial') {
+        package { 'nginx':
+            ensure  => present,
+            require => [ Apt::Source['nginx_apt'], Package['apache2'] ],
+            notify  => Exec['nginx unmask'],
+        }
+    } else {
+        package { 'nginx':
+            ensure  => present,
+            require => Package['apache2'],
+            notify  => Exec['nginx unmask'],
+        }
     }
 
     file { [ '/etc/nginx', '/etc/nginx/sites-available', '/etc/nginx/sites-enabled' ]:
