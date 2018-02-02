@@ -9,6 +9,20 @@ class mediawiki::cron {
         minute  => '0',
         hour    => '23',
     }
+    cron { 'Tor exit node loading':
+        ensure  => present,
+        command => '/usr/bin/php /srv/mediawiki/w/extensions/TorBlock/loadExitNodes.php > /var/log/mediawiki/debuglogs/torblockload.log',
+        user    => 'www-data',
+        minute  => '0',
+        hour    => '23',
+    }
+    cron { 'AntiSpoof':
+        ensure  => present,
+        command => '/usr/bin/php /srv/mediawiki/w/extensions/AntiSpoof/maintenance/batchAntiSpoof.php > /var/log/mediawiki/debuglogs/antispoof.log',
+        user    => 'www-data',
+        minute  => '0',
+        hour    => '23',
+    }
     cron { 'restart_php5fpm':
         ensure  => absent,
         command => '/usr/sbin/service php7.0-fpm restart',
