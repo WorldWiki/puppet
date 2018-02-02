@@ -17,6 +17,11 @@ class base::ufw {
         port  => 80,
     }
 
+    ufw::allow { 'http_nginx':
+        proto => 'tcp',
+        port  => 8080,
+    }
+
     ufw::allow { 'https':
         proto => 'tcp',
         port  => 443,
