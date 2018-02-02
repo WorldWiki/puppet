@@ -60,7 +60,7 @@ author_map = {
 
 # Map irc nick to title of the user (how the bot addresses the user)
 title_map = {
-    "Zppix": "Master",
+    "Zppix": "CTO",
     "Paladox": "Master",
     "Dysklyver": "Master",
     "S-I-T-H": "Master",
