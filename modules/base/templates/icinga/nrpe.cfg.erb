@@ -21,5 +21,5 @@ command[check_disk_space]=/usr/lib/nagios/plugins/check_disk -w 5% -c 2% -l -e -
 command[check_apt]=/usr/bin/sudo /usr/lib/nagios/plugins/check_apt -n -u -U -t 200
 command[check_apt_distupgrade]=/usr/bin/sudo /usr/lib/nagios/plugins/check_apt -u -n -d -t 120 --exclude=elasticsearch
 command[check_procs]=/usr/lib/nagios/plugins/check_procs -w 250 -c 300
-command[check_ram]=/usr/lib/nagios/plugins/check_ram.sh 20 5
+command[check_ram]=/usr/lib/nagios/plugins/check_ram 20 5
 command[check_puppet_checkpuppetrun]=/usr/bin/sudo /usr/lib/nagios/plugins/check_puppet_run -w 3600 -c 43200
