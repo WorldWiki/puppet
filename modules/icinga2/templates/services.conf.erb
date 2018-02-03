@@ -179,5 +179,5 @@ apply Service "mem-check" {
       check_interval = 10m
       retry_interval = 5m
 
-      assign where host.vars.check_ram
+      assign where (host.address || host.address6) && (host.vars.os == "Linux" || host.vars.os == "Linux OS") && host.vars.ssh_check != "disable"
 }
