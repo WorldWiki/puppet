@@ -23,7 +23,7 @@ server {
 	ssl_certificate_key /etc/acme/key/icinga.key;
 	ssl_trusted_certificate /etc/acme/cert/icinga.chained.crt;
 
-	location ~ ^/icingaweb2/index\.php(.*)$ {
+	location ~ ^/index\.php(.*)$ {
 		fastcgi_pass  unix:/var/run/php/php7.1-fpm.sock;
 		fastcgi_index index.php;
 		include fastcgi_params;
@@ -32,7 +32,7 @@ server {
 		fastcgi_param REMOTE_USER $remote_user;
 	}
 
-	location ~ ^/icingaweb2(.+)? {
+	location ~ ^(.+)? {
 		alias /usr/share/icingaweb2/public;
 		index index.php;
 		try_files $1 $uri $uri/ /icingaweb2/index.php$is_args$args;
