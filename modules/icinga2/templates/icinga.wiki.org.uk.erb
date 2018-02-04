@@ -35,6 +35,7 @@ server {
 	location ~ ^/(.+)? {
 		alias /usr/share/icingaweb2/public;
 		index index.php;
+		rewrite ^/$ /dashboard;
 		try_files $1 $uri $uri/ /index.php$is_args$args;
 	}
 
