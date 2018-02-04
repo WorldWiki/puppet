@@ -23,21 +23,19 @@ server {
 	ssl_certificate_key /etc/acme/key/icinga.key;
 	ssl_trusted_certificate /etc/acme/cert/icinga.chained.crt;
 
-	# ssl_trusted_certificate /etc/ssl/certs/GlobalSign.crt;
+	location ~ ^/icingaweb2/index\.php(.*)$ {
+		fastcgi_pass  unix:/var/run/php/php7.1-fpm.sock;
+		fastcgi_index index.php;
+		include fastcgi_params;
+		fastcgi_param SCRIPT_FILENAME /usr/share/icingaweb2/public/index.php;
+		fastcgi_param ICINGAWEB_CONFIGDIR /etc/icingaweb2;
+		fastcgi_param REMOTE_USER $remote_user;
+	}
 
-	# add_header Strict-Transport-Security "max-age=15768000; includeSubDomains; preload";
-	
-        location ~ ^/icingaweb2(.+)? {
-           alias /usr/share/icingaweb2/public;
-           index index.php
-           try_files $1 $uri $uri/ /icingaweb2/index.php$is_args$args;
-        }
+	location ~ ^/icingaweb2(.+)? {
+		alias /usr/share/icingaweb2/public;
+		index index.php;
+		try_files $1 $uri $uri/ /icingaweb2/index.php$is_args$args;
+	}
 
-        location ~ ^/icingaweb2/index\.php(.*)$ {
-           fastcgi_index index.php;
-           include       /etc/nginx/fastcgi_params;
-           fastcgi_pass  unix:/var/run/php/php7.1-fpm.sock;
-           fastcgi_param SCRIPT_FILENAME     /usr/share/icingaweb2/public/index.php;
-           fastcgi_param ICINGAWEB_CONFIGDIR /etc/icingaweb2;
-        }
 }
