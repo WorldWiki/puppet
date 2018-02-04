@@ -111,11 +111,11 @@ class icinga2::web(
     #    group  => 'icingaweb2',
     #}
 
-    #letsencrypt::cert::integrated { 'icinga':
-    #    subjects   => 'phabricator.wiki.org.uk',
-    #    puppet_svc => 'nginx',
-    #    system_svc => 'nginx',
-    #}
+    letsencrypt::cert::integrated { 'icinga':
+        subjects   => 'icinga.wiki.org.uk',
+        puppet_svc => 'nginx',
+        system_svc => 'nginx',
+    }
 
     nginx::site { 'icinga.wiki.org.uk.erb':
         ensure  => present,
