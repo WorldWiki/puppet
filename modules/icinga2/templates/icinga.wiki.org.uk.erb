@@ -1,116 +1,43 @@
-# vim: filetype=apache
+server {
+	listen 80;
+	listen [::]:80;
 
-NameVirtualHost *:443
+	server_name icinga.wiki.org.uk;
+    root /usr/share/icingaweb2/public;
 
-<VirtualHost *:80>
-    ServerName icinga.wiki.org.uk
-    ServerAdmin noc@wiki.org.uk
-    DocumentRoot /usr/share/icingaweb2/public
+	include /etc/acme/challenge-nginx.conf;
 
-    <Directory "/usr/share/icingaweb2/public">
-        Options SymLinksIfOwnerMatch
-        AllowOverride None
+	location / {
+		return 301 https://icinga.wiki.org.uk$request_uri;
+	}
+}
 
-        <IfModule mod_authz_core.c>
-            # Apache 2.4
-            <RequireAll>
-                Require all granted
-            </RequireAll>
-        </IfModule>
+server {
+	listen 443 ssl http2;
+	listen [::]:443 ssl http2;
 
-        <IfModule !mod_authz_core.c>
-            # Apache 2.2
-            Order allow,deny
-            Allow from all
-        </IfModule>
+	server_name icinga.wiki.org.uk;
+    root /usr/share/icingaweb2/public;
 
-        SetEnv ICINGAWEB_CONFIGDIR "/etc/icingaweb2"
+	ssl_certificate /etc/acme/cert/icinga.chained.crt;
+	ssl_certificate_key /etc/acme/key/icinga.key;
+	ssl_trusted_certificate /etc/acme/cert/icinga.chained.crt;
 
-        EnableSendfile Off
+	# ssl_trusted_certificate /etc/ssl/certs/GlobalSign.crt;
 
-        <IfModule mod_rewrite.c>
-            RewriteEngine on
-            RewriteBase /
-            RewriteCond %{REQUEST_FILENAME} -s [OR]
-            RewriteCond %{REQUEST_FILENAME} -l [OR]
-            RewriteCond %{REQUEST_FILENAME} -d
-            RewriteRule ^.*$ - [NC,L]
-            RewriteRule ^.*$ index.php [NC,L]
-        </IfModule>
+	# add_header Strict-Transport-Security "max-age=15768000; includeSubDomains; preload";
+	
+    location ~ ^/icingaweb2(.+)? {
+      alias /usr/share/icingaweb2/public;
+      index index.php
+      try_files $1 $uri $uri/ /icingaweb2/index.php$is_args$args;
+    }
 
-        <IfModule !mod_rewrite.c>
-            DirectoryIndex error_norewrite.html
-            ErrorDocument 404 /error_norewrite.html
-        </IfModule>
-    </Directory>
-
-    ErrorLog /var/log/apache2/icinga.log
-    CustomLog /var/log/apache2/icinga-access.log combined
-    #LogLevel warn
-
-    ErrorLog /var/log/apache2/icinga.log
-    LogLevel warn
-</VirtualHost>
-
-<VirtualHost *:443>
-    ServerName icinga.wiki.org.uk
-    ServerAdmin noc@wiki.org.uk
-    # https://httpoxy.org/
-    RequestHeader unset Proxy early
-
-    SSLEngine On
-    SSLCertificateFile      /etc/ssl/certs/ssl-cert-snakeoil.pem
-    SSLCertificateKeyFile /etc/ssl/private/ssl-cert-snakeoil.key
-
-    DocumentRoot /usr/share/icingaweb2/public
-
-    <Directory "/usr/share/icingaweb2/public">
-        Options SymLinksIfOwnerMatch
-        AllowOverride None
-
-        <IfModule mod_authz_core.c>
-            # Apache 2.4
-            <RequireAll>
-                Require all granted
-            </RequireAll>
-        </IfModule>
-
-        <IfModule !mod_authz_core.c>
-            # Apache 2.2
-            Order allow,deny
-            Allow from all
-        </IfModule>
-
-        SetEnv ICINGAWEB_CONFIGDIR "/etc/icingaweb2"
-
-        EnableSendfile Off
-
-        <IfModule mod_rewrite.c>
-            RewriteEngine on
-            RewriteBase /
-            RewriteCond %{REQUEST_FILENAME} -s [OR]
-            RewriteCond %{REQUEST_FILENAME} -l [OR]
-            RewriteCond %{REQUEST_FILENAME} -d
-            RewriteRule ^.*$ - [NC,L]
-            RewriteRule ^.*$ index.php [NC,L]
-        </IfModule>
-
-        <IfModule !mod_rewrite.c>
-            DirectoryIndex error_norewrite.html
-            ErrorDocument 404 /error_norewrite.html
-        </IfModule>
-
-        RewriteEngine on
-        RewriteRule ^/(.*)$ https://icinga.wiki.org.uk/$1 [L,R=301,NE]
-    </Directory>
-
-    <IfModule !mod_alias.c>
-        LoadModule alias_module modules/mod_alias.so
-    </IfModule>
-
-    ErrorLog /var/log/apache2/icinga.log
-    CustomLog /var/log/apache2/icinga-access.log combined
-    #LogLevel warn
-</VirtualHost>
-
-# vim: syntax=apache ts=4 sw=4 sts=4 sr noet
+  location ~ ^/icingaweb2/index\.php(.*)$ {
+    fastcgi_index index.php;
+    include       /etc/nginx/fastcgi_params;
+    fastcgi_pass  unix:/var/run/php/php7.1-fpm.sock;
+    fastcgi_param SCRIPT_FILENAME     /usr/share/icingaweb2/public/index.php;
+    fastcgi_param ICINGAWEB_CONFIGDIR /etc/icingaweb2;
+  }
+}
