@@ -15,7 +15,13 @@ class ircecho (
     $ensure = 'running',
 ) {
 
-    require_package(['python-pyinotify', 'python-irc'])
+    if ! defined(Package['python-pyinotify']) {
+        require_package('python-pyinotify')
+    }
+
+    if ! defined(Package['python-irc']) {
+        require_package('python-irc')
+    }
 
     file { '/usr/local/bin/ircecho':
         ensure  => 'present',
