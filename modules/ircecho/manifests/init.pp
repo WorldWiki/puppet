@@ -60,7 +60,7 @@ class ircecho (
     service { 'ircecho':
         ensure     => $ensure,
         hasrestart => true,
-        restart    => '/bin/systemctl reload icinga2 && /bin/systemctl restart ircecho',
+        restart    => '/bin/systemctl restart ircecho',
         require    => File['/usr/local/bin/ircecho'],
     }
 }
