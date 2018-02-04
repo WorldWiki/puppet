@@ -117,7 +117,7 @@ class icinga2::web(
     #    system_svc => 'nginx',
     #}
 
-    nginx::site { 'phabricator.wiki.org.uk':
+    nginx::site { 'icinga.wiki.org.uk.erb':
         ensure  => present,
         content => template('icinga2/icinga.wiki.org.uk.erb'),
         notify  => Exec['nginx-syntaxs'],
