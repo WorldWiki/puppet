@@ -2,6 +2,8 @@
 
 node 'mw1.wiki.org.uk' {
     include base
+    include icinga2
+    include icinga2::web
     include role::irc
     include role::mediawiki
     include role::mail
