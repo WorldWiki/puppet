@@ -25,20 +25,6 @@ class icinga2::web(
         require => Apt::Repository['icinga2'],
     }
 
-    include ::apache
-
-    if os_version('debian == jessie') {
-        include ::apache::mod::php5
-    } elsif os_version('debian >= stretch') {
-        include ::apache::mod::php7
-    } elsif os_version('ubuntu >= artful') {
-        include ::apache::mod::php71
-    }
-
-    include ::apache::mod::ssl
-    include ::apache::mod::headers
-    include ::apache::mod::cgi
-
     # TODO fix compatiblity to so other classes doin't throw duplicate's puppet error
     #if os_version('ubuntu >= artful || debian >= stretch') {
     #    package { [ 'php', 'php-dev', 'php-curl', 'php-imagick',
@@ -125,42 +111,15 @@ class icinga2::web(
     #    group  => 'icingaweb2',
     #}
 
-    #git::clone { 'beta-mediawiki-core':
-    #    directory => "${stage_dir}/php-master",
-    #    origin    => 'https://gerrit.wikimedia.org/r/p/mediawiki/core.git',
-    #    branch    => 'master',
-    #    owner     => 'root',
-    #    group     => 'root',
-    #    require   => Package['icingaweb2'],
+    #letsencrypt::cert::integrated { 'icinga':
+    #    subjects   => 'phabricator.wiki.org.uk',
+    #    puppet_svc => 'nginx',
+    #    system_svc => 'nginx',
     #}
 
-    # install the Icinga Apache site
-    include ::apache::mod::rewrite
-    include ::apache::mod::authnz_ldap
-    include ::apache::mod::rewrite
-
-    include ::apache::mod::proxy
-
-    include ::apache::mod::proxy_http
-
-    include ::apache::mod::headers
-
-
-    #letsencrypt::cert::integrated { 'gerrit-icinga':
-    #     subjects   => 'gerrit-icinga.wmflabs.org',
-    #     puppet_svc => 'apache2',
-    #     system_svc => 'apache2',
-    #}
-
-    $ssl_settings = ssl_ciphersuite('apache', 'mid', true)
-    # letsencrypt::cert::integrated { 'icinga2':
-    #    subjects   => hiera('icinga2_apache_host', 'icinga.wmflabs.org'),
-    #    puppet_svc => 'apache2',
-    #    system_svc => 'apache2',
-    #    require    => Class['apache::mod::ssl'],
-    #}
-
-    apache::site { 'icinga.wiki.org.uk':
+    nginx::site { 'phabricator.wiki.org.uk':
+        ensure  => present,
         content => template('icinga2/icinga.wiki.org.uk.erb'),
+        notify  => Exec['nginx-syntaxs'],
     }
 }
