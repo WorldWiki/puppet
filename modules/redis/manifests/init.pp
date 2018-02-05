@@ -38,7 +38,7 @@ class redis (
         refreshonly => true,
     }
 
-    icinga::service { 'redis':
+    icinga2::service { 'redis':
         description   => 'Redis Process',
         check_command => 'check_nrpe_1arg!check_redis',
     }
