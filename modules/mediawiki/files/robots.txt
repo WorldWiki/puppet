@@ -3,6 +3,7 @@ User-Agent: *
 Disallow: /w/api.php
 Disallow: /w/index.php?title=Special:
 Disallow: /wiki/Special:
+Disallow: /wiki/MediaWiki:
 
 # Throttle YandexBot
 User-Agent: YandexBot
