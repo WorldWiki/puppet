@@ -8,6 +8,7 @@ node 'mw1.wiki.org.uk' {
     include role::mediawiki
     include role::mail
     include role::phabricator
+    include puppetmaster
     include role::redis
 }
 
