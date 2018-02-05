@@ -1,5 +1,5 @@
 [Unit]
-Description=Miraheze JobRunner
+Description=WorldWiki JobRunner
 
 [Service]
 Type=simple
