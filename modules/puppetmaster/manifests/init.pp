@@ -7,7 +7,7 @@ class puppetmaster(
   ) {
   
     $puppetmaster_hostname = hiera('puppetmaster_hostname', 'puppet.wiki.org.uk')
-    $puppetmaster_certname = hiera('puppetmaster_cert', 'world-wiki-main.c.world-wiki.internal')
+    $puppetmaster_certname = hiera('puppetmaster_cert', 'mw1.wiki.org.uk')
     $puppetmaster_version = hiera('puppetmaster_version', 4)
 
     if os_version('ubuntu >= artful') {
