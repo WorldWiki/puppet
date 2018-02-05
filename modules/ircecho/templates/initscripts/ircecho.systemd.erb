@@ -3,11 +3,11 @@ Description=ircecho
 After=network.target
 
 [Service]
-User=nobody
-Group=nogroup
+User=nagios
+Group=www-data
 Type=simple
 EnvironmentFile=-/etc/default/ircecho
-ExecStart=/usr/local/bin/ircecho --infile=${INFILE} $CHANS $NICK $SERVER
+ExecStart=/usr/bin/python /usr/local/bin/ircecho --infile=${INFILE} $CHANS $NICK $SERVER
 Restart=always
 RestartSec=10s
 
