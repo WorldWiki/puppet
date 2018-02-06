@@ -1,7 +1,7 @@
 # class: redis
 class redis (
     $port = 6379,
-    $maxmemory = '512mb',
+    $maxmemory = '450mb',
     $maxmemory_policy = 'volatile-lru',
     $maxmemory_samples = 5,
     $password = false,
