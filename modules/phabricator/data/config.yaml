@@ -9,7 +9,7 @@ user.require-real-name: false
 storage.local-disk.path: "/srv/phab/images/"
 storage.default-namespace: "bitnami_phabricator"
 pygments.enabled: true
-libraries: ["/srv/phab/libext"]
+load-libraries: ["/srv/phab/libext"]
 
 # Due to issues with 'gd' rending thumbnails for
 # Mimetype image/x-icon and image/icon
