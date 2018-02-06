@@ -87,6 +87,13 @@ class phabricator {
         require   => File['/srv/phab'],
     }
 
+    git::clone { 'libext':
+        ensure    => present,
+        directory => '/srv/phab/libext',
+        origin    => 'https://github.com/wikimedia/phabricator-extensions.git',
+        require   => File['/srv/phab'],
+    }
+
     file { '/srv/phab/repos':
         ensure => directory,
         mode   => '0755',
