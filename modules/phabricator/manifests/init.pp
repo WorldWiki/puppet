@@ -38,8 +38,8 @@ class phabricator {
         ensure => present,
     }
 
-    letsencrypt::cert::integrated { 'phabricator':
-        subjects   => 'phabricator.wiki.org.uk',
+    letsencrypt::cert::integrated { 'phabricator2':
+        subjects   => 'phabricator.worldwiki.tk',
         puppet_svc => 'nginx',
         system_svc => 'nginx',
     }
