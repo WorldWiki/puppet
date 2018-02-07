@@ -1,7 +1,7 @@
 [Unit]
 Description=phabricator-phd
 After=syslog.target network.target mysql.service
-Before=apache2.service
+Before=nginx.service
 
 [Service]
 Type=forking
@@ -9,6 +9,7 @@ User=www-data
 Group=www-data
 PermissionsStartOnly=true
 ExecStartPre=-/bin/mkdir -p /var/run/phd/
+ExecStartPre=-/bin/mkdir -p /var/run/phd/pid
 ExecStart=/srv/phab/phabricator/bin/phd start
 ExecStop=/srv/phab/phabricator/bin/phd stop --force
 RemainAfterExit=yes
