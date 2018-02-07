@@ -140,8 +140,27 @@ class phabricator {
         source => 'puppet:///modules/phabricator/phd.systemd',
     }
 
+    file { '/var/log/phab':
+        ensure => directory,
+        mode   => '0755',
+        owner  => 'www-data',
+        group  => 'www-data',
+    }
+
+    file { '/var/log/phab/phd':
+        ensure  => directory,
+        mode    => '0755',
+        owner   => 'www-data',
+        group   => 'www-data',
+        require => File['/var/log/phab'],
+    }
+
     service { 'phd':
         ensure  => 'running',
-        require => [File['/etc/systemd/system/phd.service'], File['/srv/phab/phabricator/conf/local/local.json']],
+        require => [
+          File['/var/log/phab/phd'],
+          File['/etc/systemd/system/phd.service'],
+          File['/srv/phab/phabricator/conf/local/local.json']
+        ],
     }
 }
