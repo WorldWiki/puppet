@@ -1,5 +1,5 @@
-myhostname = mailserver.wiki.org.uk
-myorigin = mailserver.wiki.org.uk
+myhostname = mailserver.worldwiki.tk
+myorigin = mailserver.worldwiki.tk
 mydestination =
 relayhost =
 relay_domains =
@@ -10,7 +10,7 @@ inet_interfaces = all
 smtp_bind_address=185.186.244.93
 #smtp_bind_address6=2a00:d880:6:787::3
 
-virtual_alias_domains = phabricator.wiki.org.uk
+virtual_alias_domains = phabricator.worldwiki.tk
 virtual_alias_maps = hash:/etc/virtual
 
 alias_maps = hash:/etc/aliases
