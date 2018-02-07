@@ -111,8 +111,8 @@ class icinga2::web(
     #    group  => 'icingaweb2',
     #}
 
-    letsencrypt::cert::integrated { 'icinga':
-        subjects   => 'icinga.wiki.org.uk',
+    letsencrypt::cert::integrated { 'icinga2':
+        subjects   => 'icinga.worldwiki.tk',
         puppet_svc => 'nginx',
         system_svc => 'nginx',
     }
