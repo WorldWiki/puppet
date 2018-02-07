@@ -2,12 +2,12 @@ groups:
   ops:
     gid: 2000
     description: roots, sudo everywhere
-    members: [jemlee15, Megadev44s.mail, paladox, reception, samtar]
+    members: [Megadev44s.mail, paladox, reception, samtar]
     privileges: ['ALL = (ALL) NOPASSWD: ALL']
 
 users:
   jemlee15:
-    ensure: present
+    ensure: absent
     uid: 2000
     name: jemlee15
     realname: Dysklyver
