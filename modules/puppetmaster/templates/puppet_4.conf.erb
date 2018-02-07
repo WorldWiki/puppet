@@ -4,7 +4,7 @@ vardir = /var/lib/puppet
 ssldir = /var/lib/puppet/ssl
 rundir = /var/run/puppet
 factpath = $vardir/lib/facter
-dns_alt_names = puppet,puppet.wiki.org.uk
+dns_alt_names = puppet,<%= @puppetmaster_hostname %>
 
 [agent]
 server = <%= @puppetmaster_hostname %>
