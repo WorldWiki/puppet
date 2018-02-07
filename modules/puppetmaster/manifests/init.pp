@@ -6,7 +6,7 @@ class puppetmaster(
     $use_puppetdb = hiera('puppetmaster::use_puppetdb', false),
   ) {
   
-    $puppetmaster_hostname = hiera('puppetmaster_hostname', 'puppet.wiki.org.uk')
+    $puppetmaster_hostname = hiera('puppetmaster_hostname', 'puppet.worldwiki.tk')
     $puppetmaster_certname = hiera('puppetmaster_cert', 'mw1.wiki.org.uk')
     $puppetmaster_version = hiera('puppetmaster_version', 4)
 
