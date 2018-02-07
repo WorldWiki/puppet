@@ -22,8 +22,8 @@ ops: operations
 dmarc: Megadev44s.mail
 
 # destination aliases
-operations: adotchar,jemlee15,Megadev44s.mail,paladox,reception,samtar
-staff: adotchar,jemlee15,Megadev44s.mail,paladox,reception,samtar
+operations: adotchar,Megadev44s.mail,paladox,reception,samtar
+staff: adotchar,Megadev44s.mail,paladox,reception,samtar
 cvt: stewards
 #conduct: alvaromolinacl@gmail.com,diarmuidsmithy@gmail.com,reception123,revi,orduinvoidwalker@gmail.com
 #wiki-abuse: ndkilla,reception123,revi
@@ -42,5 +42,5 @@ bugs: |/srv/phab/phabricator/scripts/mail/mail_handler.php
 
 # Staff aliases
 reception: utilizator.receptie123@gmail.com
-Megadev44s.mail: zppix@wiki.org.uk
-operations: tech@wiki.org.uk
+Megadev44s.mail: zppix@worldwiki.tk
+operations: tech@worldwiki.tk
