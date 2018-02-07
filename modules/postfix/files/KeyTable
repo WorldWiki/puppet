@@ -1,1 +1,1 @@
-mailserver._domainkey.wiki.org.uk wiki.org.uk:mail:/etc/opendkim/keys/mail.private
+mailserver._domainkey.worldwiki.tk worldwiki.tk:mail:/etc/opendkim/keys/mail.private
