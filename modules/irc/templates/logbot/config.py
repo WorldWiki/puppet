@@ -62,13 +62,12 @@ author_map = {
 title_map = {
     "Zppix": "CTO",
     "Paladox": "Master",
-    "Dysklyver": "Master",
     "S-I-T-H": "Master",
     "Adotchar": "Master"
 }
 
 # Scheme and wiki hostname to connect to
-wiki_connection = ("https", "world.wiki.org.uk")
+wiki_connection = ("https", "world.worldwiki.tk")
 
 # Url path
 wiki_path = "/w/"
@@ -92,7 +91,7 @@ wiki_domain = ""
 wiki_page = "Tech:Server_admin_log"
 
 # Page to visit to view logs -- used by the bot's help message
-log_url = "world.wiki.org.uk/wiki/Tech:Server_admin_log"
+log_url = "world.worldwiki.tk/wiki/Tech:Server_admin_log"
 
 # Header depth for dates written
 wiki_header_depth = 2
