@@ -9,7 +9,6 @@ User=www-data
 Group=www-data
 PermissionsStartOnly=true
 ExecStartPre=-/bin/mkdir -p /var/run/phd/
-ExecStartPre=-/bin/mkdir -p /var/run/phd/pid
 ExecStart=/srv/phab/phabricator/bin/phd start
 ExecStop=/srv/phab/phabricator/bin/phd stop --force
 RemainAfterExit=yes
