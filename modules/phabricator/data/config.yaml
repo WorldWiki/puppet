@@ -11,6 +11,7 @@ storage.default-namespace: "bitnami_phabricator"
 pygments.enabled: true
 load-libraries: ["/srv/phab/libext"]
 phd.log-directory: "/var/log/phab/phd"
+phd.pid-directory: "/var/run/phd/pid"
 # Due to issues with 'gd' rending thumbnails for
 # Mimetype image/x-icon and image/icon
 # Disabling previews for icons for now
