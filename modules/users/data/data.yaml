@@ -11,7 +11,7 @@ users:
     uid: 2000
     name: jemlee15
     realname: Dysklyver
-    ssh_keys: [ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCcieJurScAmGZNJgkCDyy+tc49StU7/LyT85oLGlvw/+IGF3InMbEJCNgrDkjyH52RxZWFA5spG728PFwjyo/ZpcmUuPAHdAH+IE9Zv3UbnUkgiWzi8FEJOxt64Qo6yV8vblZeROPf/bDaxPjt3PW8p6FqSxE3KVtBt+i8k4fs/T6qp+e97CMQ9+rUwvyIfwGtc6b6Q6ISjthg06Z40KVwPz73kOjd7xF8VD5SDANMRu4vB2JRhR4SXyA/S8u/tb14DFXL8FGeUnBl7AH8i4Ji82FYsdFVbthrqsJFEzHva4lZPyEZNhIOgcsJ9URAO5f1N3vmfKV3JcjQVe4maSfn Linux-mediawiki]
+    ssh_keys: []
   Megadev44s.mail:
     ensure: present
     uid: 2001
