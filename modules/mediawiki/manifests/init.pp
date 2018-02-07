@@ -91,7 +91,7 @@ class mediawiki(
     }
 
     git::clone { 'Landing Page':
-        ensure             => 'absent',
+        ensure    => 'latest',
         directory          => '/srv/mediawiki/landing',
         origin             => 'https://github.com/WorldWiki/Landing-page',
         branch             => 'master',
