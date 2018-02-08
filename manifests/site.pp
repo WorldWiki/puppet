@@ -1,6 +1,6 @@
 # servers
 
-node 'mw1.wiki.org.uk' {
+node 'mw1.worldwiki.tk' {
     include base
     include icinga2
     include icinga2::web
@@ -10,11 +10,6 @@ node 'mw1.wiki.org.uk' {
     include role::phabricator
     include puppetmaster
     include role::redis
-}
-
-node 'world-wiki-main.c.world-wiki.internal' {
-    include base
-    include puppetmaster
 }
 
 # ensures all servers have basic class if puppet runs
