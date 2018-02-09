@@ -37,7 +37,7 @@ class irc::ircrcbot(
     }
 
     service { 'ircrcbot':
-        ensure  => 'running',
+        ensure  => 'stopped',
         require => File['/etc/systemd/system/ircrcbot.service'],
     }
 
