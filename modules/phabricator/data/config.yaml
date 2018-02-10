@@ -63,13 +63,14 @@ mysql.host: 'localhost'
 storage.mysql-engine.max-size: 10000000
 
 # SMTP
-phpmailer.smtp-port: 2525
-#phpmailer.smtp-user: 'noreply'
-phpmailer.smtp-host: 'mailserver.worldwiki.tk'
 metamta.default-address: 'noreply@phabricator.worldwiki.tk'
 metamta.domain: 'phabricator.worldwiki.tk'
 metamta.mail-adapter: 'PhabricatorMailImplementationPHPMailerAdapter'
 metamta.single-reply-handler-prefix: 'phabricator'
+
+phpmailer.mailer: 'smtp'
+phpmailer.smtp-port: '2525'
+phpmailer.smtp-host: 'mailserver.worldwiki.tk'
 
 # Auth
 auth.require-approval: false
