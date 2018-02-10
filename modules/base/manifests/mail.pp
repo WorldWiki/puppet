@@ -24,6 +24,6 @@ class base::mail {
     }
 
     mailalias { 'root':
-        recipient => 'root@wiki.org.uk',
+        recipient => 'root@worldwiki.tk,
     }
 }

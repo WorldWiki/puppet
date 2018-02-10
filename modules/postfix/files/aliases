@@ -8,7 +8,7 @@ www: root
 ftp: root
 abuse: operations
 noc: operations
-
+zppix:Megadev44s.mail@worldwiki.tk
 # noreply death
 noreply: /dev/null
 
@@ -24,9 +24,6 @@ dmarc: Megadev44s.mail
 # destination aliases
 operations: adotchar,Megadev44s.mail,paladox,reception,samtar
 staff: adotchar,Megadev44s.mail,paladox,reception,samtar
-cvt: stewards
-#conduct: alvaromolinacl@gmail.com,diarmuidsmithy@gmail.com,reception123,revi,orduinvoidwalker@gmail.com
-#wiki-abuse: ndkilla,reception123,revi
 
 # finances
 donate: Megadev44s.mail
@@ -42,5 +39,5 @@ bugs: |/srv/phab/phabricator/scripts/mail/mail_handler.php
 
 # Staff aliases
 reception: utilizator.receptie123@gmail.com
-Megadev44s.mail: zppix@worldwiki.tk
-operations: tech@worldwiki.tk
+Megadev44s.mail: Megadev44s.mail@worldwiki.tk
+operations:Zppix, paladox
