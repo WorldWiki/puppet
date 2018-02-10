@@ -96,6 +96,12 @@ class mediawiki(
         puppet_svc => 'nginx',
         system_svc => 'nginx',
     }
+    
+   letsencrypt::cert::integrated { 'mail':
+        subjects   => 'mail.worldwiki.tk',
+        puppet_svc => 'nginx',
+        system_svc => 'nginx',
+    }
 
     nginx::conf { 'mediawiki-includes':
         ensure => present,
