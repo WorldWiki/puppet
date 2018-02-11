@@ -8,7 +8,7 @@ www: root
 ftp: root
 abuse: operations
 noc: operations
-zppix: megadev44s.mail@worldwiki.tk
+zppix: megadev44s.mail
 # noreply death
 noreply: /dev/null
 
