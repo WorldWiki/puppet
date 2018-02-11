@@ -32,7 +32,7 @@ recipient_delimiter = +
 inet_interfaces = all
 #inet_protocols = all
 inet_protocols = ipv4
-home_mailbox = Maildir/
+#home_mailbox = Maildir/
 # SMTP-Auth settings
 smtpd_sasl_type = dovecot
 smtpd_sasl_path = private/auth
