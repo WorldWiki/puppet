@@ -12,19 +12,39 @@ class postfix {
         source => 'puppet:///modules/postfix/main.cf',
     }
 
-    file { '/etc/postfix/mysql-virtual-mailbox-domains.cf':
+    file { '/etc/postfix/mysql_virtual_alias_domain_catchall_maps.cf':
         ensure => present,
-        content => template('postfix/mysql-virtual-mailbox-domains.cf.erb'),
+        content => template('postfix/mysql_virtual_alias_domain_catchall_maps.cf.erb'),
     }
 
-    file { '/etc/postfix/mysql-virtual-mailbox-maps.cf':
+    file { '/etc/postfix/mysql_virtual_alias_domain_mailbox_maps.cf':
         ensure => present,
-        content => template('postfix/mysql-virtual-mailbox-maps.cf.erb'),
+        content => template('postfix/mysql_virtual_alias_domain_mailbox_maps.cf.erb'),
     }
 
-    file { '/etc/postfix/mysql-virtual-alias-maps.cf':
+    file { '/etc/postfix/mysql_virtual_alias_domain_maps.cf':
         ensure => present,
-        content => template('postfix/mysql-virtual-alias-maps.cf.erb'),
+        content => template('postfix/mysql_virtual_alias_domain_maps.cf.erb'),
+    }
+
+    file { '/etc/postfix/mysql_virtual_alias_maps.cf':
+        ensure => present,
+        content => template('postfix/mysql_virtual_alias_maps.cf.erb'),
+    }
+
+    file { '/etc/postfix/mysql_virtual_domains_maps.cf':
+        ensure => present,
+        content => template('postfix/mysql_virtual_domains_maps.cf.erb'),
+    }
+
+    file { '/etc/postfix/mysql_virtual_mailbox_limit_maps.cf':
+        ensure => present,
+        content => template('postfix/mysql_virtual_mailbox_limit_maps.cf.erb'),
+    }
+
+    file { '/etc/postfix/mysql_virtual_mailbox_maps.cf':
+        ensure => present,
+        content => template('postfix/mysql_virtual_mailbox_maps.cf.erb'),
     }
 
     file { '/etc/postfix/master.cf':
@@ -53,9 +73,13 @@ class postfix {
         subscribe => [
           File['/etc/postfix/main.cf'],
           File['/etc/postfix/master.cf'],
-          File['/etc/postfix/mysql-virtual-mailbox-domains.cf'],
-          File['/etc/postfix/mysql-virtual-mailbox-maps.cf'],
-          File['/etc/postfix/mysql-virtual-alias-maps.cf']
+          File['/etc/postfix/mysql_virtual_alias_domain_catchall_maps.cf'],
+          File['/etc/postfix/mysql_virtual_alias_domain_mailbox_maps.cf'],
+          File['/etc/postfix/mysql_virtual_alias_domain_maps.cf'],
+          File['/etc/postfix/mysql_virtual_alias_maps.cf'],
+          File['/etc/postfix/mysql_virtual_domains_maps.cf'],
+          File['/etc/postfix/mysql_virtual_mailbox_limit_maps.cf'],
+          File['/etc/postfix/mysql_virtual_mailbox_maps.cf']
         ],
     }
 
