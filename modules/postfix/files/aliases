@@ -8,7 +8,7 @@ www: root
 ftp: root
 abuse: operations
 noc: operations
-zppix:Megadev44s.mail@worldwiki.tk
+zppix: megadev44s.mail@worldwiki.tk
 # noreply death
 noreply: /dev/null
 
@@ -19,17 +19,17 @@ root: /dev/null
 ops: operations
 
 # DMARC - potentially high volume, best recommended for mail admins on misc1
-dmarc: Megadev44s.mail
+dmarc: megadev44s.mail
 
 # destination aliases
 operations: adotchar,Megadev44s.mail,paladox,reception,samtar
-staff: adotchar,Megadev44s.mail,paladox,reception,samtar
+staff: adotchar, megadev44s.mail, paladox, reception, samtar
 
 # finances
-donate: Megadev44s.mail
+donate: megadev44s.mail
 
 # apt changes list (temp. avoid upstream reputation issues with Hotmail)
-apt-list: Megadev44s.mail
+apt-list: megadev44s.mail
 
 # phabricator incoming emails - must be configued with Maniphest
 security: |/srv/phab/phabricator/scripts/mail/mail_handler.php,operations
@@ -39,5 +39,5 @@ bugs: |/srv/phab/phabricator/scripts/mail/mail_handler.php
 
 # Staff aliases
 reception: utilizator.receptie123@gmail.com
-Megadev44s.mail: Megadev44s.mail@worldwiki.tk
-operations:Zppix, paladox
+megadev44s.mail: megadev44s.mail@worldwiki.tk
+operations: zppix, paladox
