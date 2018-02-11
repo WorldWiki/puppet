@@ -52,6 +52,12 @@ mailbox_size_limit = 0
 recipient_delimiter = +
 inet_interfaces = all
 
+virtual_mailbox_base = /var/vmail
+virtual_minimum_uid = 2222
+virtual_transport = virtual
+virtual_uid_maps = static:2222
+virtual_gid_maps = static:2222
+
 ## Tells Postfix to use Dovecot's LMTP instead of its own LDA to save emails to the local mailboxes.
 virtual_transport = lmtp:unix:private/dovecot-lmtp
 
