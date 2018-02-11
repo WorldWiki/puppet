@@ -3,6 +3,9 @@ class postfix {
     package { 'postfix':
         ensure => present,
     }
+    
+    $mysql_user = hiera('postfix_mysql_user', 'test')
+    $mysql_password = hiera('postfix_mysql_password', 'test')
 
     file { '/etc/postfix/main.cf':
         ensure => present,
@@ -11,7 +14,7 @@ class postfix {
 
     file { '/etc/postfix/mysql-virtual-mailbox-domains.cf':
         ensure => present,
-        source => 'puppet:///modules/postfix/mysql-virtual-mailbox-domains.cf',
+        content => template('postfix/mysql-virtual-mailbox-domains.cf.erb'),
     }
 
     file { '/etc/postfix/master.cf':
@@ -37,7 +40,7 @@ class postfix {
     service { 'postfix':
         ensure    => running,
         require   => Package['postfix'],
-        subscribe => [ File['/etc/postfix/main.cf'], File['/etc/postfix/master.cf'], ],
+        subscribe => [ File['/etc/postfix/main.cf'], File['/etc/postfix/master.cf'], File['/etc/postfix/mysql-virtual-mailbox-domains.cf'] ],
     }
 
     #icinga::service { 'smtp':
