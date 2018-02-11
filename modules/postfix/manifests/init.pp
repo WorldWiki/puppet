@@ -17,6 +17,11 @@ class postfix {
         content => template('postfix/mysql-virtual-mailbox-domains.cf.erb'),
     }
 
+    file { '/etc/postfix/mysql-virtual-mailbox-maps.cf':
+        ensure => present,
+        content => template('postfix/mysql-virtual-mailbox-maps.cf.erb'),
+    }
+
     file { '/etc/postfix/master.cf':
         ensure => present,
         source => 'puppet:///modules/postfix/master.cf',
@@ -40,7 +45,12 @@ class postfix {
     service { 'postfix':
         ensure    => running,
         require   => Package['postfix'],
-        subscribe => [ File['/etc/postfix/main.cf'], File['/etc/postfix/master.cf'], File['/etc/postfix/mysql-virtual-mailbox-domains.cf'] ],
+        subscribe => [
+          File['/etc/postfix/main.cf'],
+          File['/etc/postfix/master.cf'],
+          File['/etc/postfix/mysql-virtual-mailbox-domains.cf'],
+          File['/etc/postfix/mysql-virtual-mailbox-maps.cf']
+        ],
     }
 
     #icinga::service { 'smtp':
