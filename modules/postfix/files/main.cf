@@ -59,7 +59,7 @@ virtual_uid_maps = static:2222
 virtual_gid_maps = static:2222
 
 ## Tells Postfix to use Dovecot's LMTP instead of its own LDA to save emails to the local mailboxes.
-virtual_transport = lmtp:unix:private/dovecot-lmtp
+#virtual_transport = lmtp:unix:private/dovecot-lmtp
 
 ## Tells Postfix you're using MySQL to store virtual domains, and gives the paths to the database connections.
 virtual_mailbox_domains = mysql:/etc/postfix/mysql_virtual_domains_maps.cf
