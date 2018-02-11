@@ -27,11 +27,6 @@ class base::ufw {
         port  => 443,
     }
 
-    ufw::allow { 'sieve':
-        proto => 'tcp',
-        port  => 4190,
-    }
-
     file { '/root/ufw-fix':
         ensure => present,
         source => 'puppet:///modules/base/ufw/ufw-fix',
