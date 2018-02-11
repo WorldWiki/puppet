@@ -1,0 +1,5 @@
+user = <% @mysql_user %>
+password = <% @mysql_password %>
+hosts = localhost
+dbname = postfix
+query = SELECT destination FROM virtual_aliases WHERE source='%s'
