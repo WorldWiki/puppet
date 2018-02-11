@@ -54,7 +54,7 @@ inet_interfaces = all
 
 virtual_mailbox_base = /var/vmail
 virtual_minimum_uid = 2222
-virtual_transport = virtual
+virtual_transport = dovecot
 virtual_uid_maps = static:2222
 virtual_gid_maps = static:2222
 
