@@ -4,7 +4,7 @@ class puppetmaster::puppetdb::client(
   $port = 443
 ) {
 
-    $host = hiera('puppetdb_host', 'puppet.wiki.org.uk')
+    $host = hiera('puppetdb_host', 'puppet.worldwiki.tk')
 
     # We are hosting puppetdb on puppetmaster so this
     # is already going to be installed
