@@ -37,6 +37,8 @@ smtpd_recipient_restrictions =
         permit_mynetworks,
         reject_unauth_destination
 
+dovecot_destination_recipient_limit = 1
+
 # See /usr/share/doc/postfix/TLS_README.gz in the postfix-doc package for
 # information on enabling SSL in the smtp client.
 
