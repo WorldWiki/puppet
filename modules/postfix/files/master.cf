@@ -33,6 +33,8 @@ maildrop  unix  -       n       n       -       -       pipe
   flags=DRhu user=vmail argv=/usr/bin/maildrop -d ${recipient}
 uucp      unix  -       n       n       -       -       pipe
   flags=Fqhu user=uucp argv=uux -r -n -z -a$sender - $nexthop!rmail ($recipient)
+dovecot   unix  -       n       n       -       -       pipe
+  flags=DRhu user=vmail:vmail argv=/usr/lib/dovecot/deliver -f ${sender} -d ${user}@${nexthop}
   
 #
 # Other external delivery methods.
