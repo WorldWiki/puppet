@@ -103,6 +103,12 @@ class mediawiki(
         system_svc => 'nginx',
     }
 
+   letsencrypt::cert::integrated { 'postfix':
+        subjects   => 'postfixadmin.worldwiki.tk',
+        puppet_svc => 'nginx',
+        system_svc => 'nginx',
+    }
+
     nginx::conf { 'mediawiki-includes':
         ensure => present,
         source => 'puppet:///modules/mediawiki/nginx/mediawiki-includes.conf',
