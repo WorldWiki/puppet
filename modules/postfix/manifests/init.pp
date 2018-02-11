@@ -9,6 +9,11 @@ class postfix {
         source => 'puppet:///modules/postfix/main.cf',
     }
 
+    file { '/etc/postfix/mysql-virtual-mailbox-domains.cf':
+        ensure => present,
+        source => 'puppet:///modules/postfix/mysql-virtual-mailbox-domains.cf',
+    }
+
     file { '/etc/postfix/master.cf':
         ensure => present,
         source => 'puppet:///modules/postfix/master.cf',
