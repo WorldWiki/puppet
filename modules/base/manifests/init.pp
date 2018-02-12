@@ -36,6 +36,6 @@ class base {
         command => '/root/clean_mem.sh',
         user    => 'root',
         hour    => '*',
-        minute  => '*/1',
+        minute  => '*/2',
     }
 }
