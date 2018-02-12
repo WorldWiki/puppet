@@ -106,6 +106,16 @@ apply Service "smtp" {
       assign where host.name == NodeName
 }
 
+object Service "check smtp" {
+      import "generic-service"
+      host_name = NodeName
+      check_command = "nrpe-check-1arg"
+      vars.check = "check_smtp"
+      vars.host = NodeName
+
+      assign where host.name == NodeName
+}
+
 apply Service "check load" {
       import "generic-service"
 
