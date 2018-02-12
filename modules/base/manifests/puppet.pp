@@ -8,7 +8,7 @@ class base::puppet {
         ensure  => absent,
         command => '/root/puppet-run &> /var/log/puppet-run.log',
         user    => 'root',
-        minute  => [ 10, 20, 30, 40, 50 ],
+        minute  => [ 20, 30, 40, 50 ],
     }
 
     cron { 'puppet-run-force':
@@ -23,7 +23,7 @@ class base::puppet {
         command => '/usr/bin/puppet agent -t',
         user    => 'root',
         hour    => '*',
-        minute  => '*/15',
+        minute  => '*/20',
     }
 
     file { '/root/puppet-run':
