@@ -217,3 +217,9 @@ object CheckCommand "check_gerrit" {
     import "plugin-check-command"
     command = "$USER1$/check_gerrit -H $host$"
 }
+
+object CheckCommand "check_smtp" {
+    import "migration-check-command"
+    import "plugin-check-command"
+    command = "$USER1$/check_smtp -H $host$ -p 25  -w 3 -c 5 -t 100"
+}
