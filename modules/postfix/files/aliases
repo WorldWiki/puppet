@@ -13,7 +13,7 @@ zppix: megadev44s.mail
 noreply: /dev/null
 
 # root spam
-root: root@worldwiki.tk
+root: dev/null
 
 # operations aliases
 ops: operations
