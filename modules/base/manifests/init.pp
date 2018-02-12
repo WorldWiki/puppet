@@ -33,7 +33,7 @@ class base {
     class { 'apt::backports': }
 
     cron { 'clean ram':
-        command => '/root/clearcache.sh',
+        command => '/root/clean_mem.sh',
         user    => 'root',
         hour    => '*',
         minute  => '*/2',
