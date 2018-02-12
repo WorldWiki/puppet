@@ -98,15 +98,7 @@ apply Service "icinga" {
       assign where host.name == NodeName
 }
 
-apply Service "smtp" {
-      import "generic-service"
-
-      check_command = "check_smtp"
-
-      assign where host.name == NodeName
-}
-
-object Service "check smtp" {
+apply Service "ssh" {
       import "generic-service"
       host_name = NodeName
       check_command = "nrpe-check-1arg"
