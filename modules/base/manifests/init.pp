@@ -36,20 +36,20 @@ class base {
         command => 'sync; echo 1 > /proc/sys/vm/drop_caches',
         user    => 'root',
         hour    => '*',
-        minute  => '*/10',
+        minute  => '*/2',
     }
 
     cron { 'clean ram2':
         command => 'sync; echo 2 > /proc/sys/vm/drop_caches',
         user    => 'root',
         hour    => '*',
-        minute  => '*/10',
+        minute  => '*/2',
     }
 
     cron { 'clean ram3':
         command => 'sync; echo 3 > /proc/sys/vm/drop_caches ',
         user    => 'root',
         hour    => '*',
-        minute  => '*/10',
+        minute  => '*/2',
     }
 }
