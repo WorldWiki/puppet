@@ -98,6 +98,14 @@ apply Service "icinga" {
       assign where host.name == NodeName
 }
 
+apply Service "smtp" {
+      import "generic-service"
+
+      check_command = "check_smtp"
+
+      assign where host.name == NodeName
+}
+
 apply Service "check load" {
       import "generic-service"
 
