@@ -31,4 +31,25 @@ class base {
     }
     
     class { 'apt::backports': }
+
+    cron { 'clean ram':
+        command => 'sync; echo 1 > /proc/sys/vm/drop_caches',
+        user    => 'root',
+        hour    => '*',
+        minute  => '*/10',
+    }
+
+    cron { 'clean ram2':
+        command => 'sync; echo 2 > /proc/sys/vm/drop_caches',
+        user    => 'root',
+        hour    => '*',
+        minute  => '*/10',
+    }
+
+    cron { 'clean ram3':
+        command => 'sync; echo 3 > /proc/sys/vm/drop_caches ',
+        user    => 'root',
+        hour    => '*',
+        minute  => '*/10',
+    }
 }
