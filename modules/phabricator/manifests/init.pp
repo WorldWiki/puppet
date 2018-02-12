@@ -114,7 +114,6 @@ class phabricator {
         'recaptcha.private-key'    => hiera('passwords::phabricator::recaptcha::private_key', '123'),
         'recaptcha.public-key'     => hiera('passwords::phabricator::recaptcha::public_key', '123'),
         'mysql.pass'               => hiera('passwords::db::phabricator', 'test'),
-        'phpmailer.smtp-passsword' => '',
     }
 
     $phab_settings = merge($phab_yaml, $phab_private)
