@@ -73,38 +73,38 @@ class mediawiki(
         require => Package['imagemagick'],
     }
 
-    letsencrypt::cert::integrated { 'world2':
-        subjects   => 'world.worldwiki.tk',
+    letsencrypt::cert::integrated { 'world3':
+        subjects   => 'world.wikiopen.tk',
         puppet_svc => 'nginx',
         system_svc => 'nginx',
     }
 
-    letsencrypt::cert::integrated { 'worldwiki':
-        subjects   => 'worldwiki.tk',
+    letsencrypt::cert::integrated { 'worldwiki2':
+        subjects   => 'wikiopen.tk',
         puppet_svc => 'nginx',
         system_svc => 'nginx',
     }
 
-    letsencrypt::cert::integrated { 'hr':
-        subjects   => 'hr.worldwiki.tk',
+    letsencrypt::cert::integrated { 'hr2':
+        subjects   => 'hr.wikiopen.tk',
         puppet_svc => 'nginx',
         system_svc => 'nginx',
     }
 
-    letsencrypt::cert::integrated { 'etherpad':
-        subjects   => 'etherpad.worldwiki.tk',
+    letsencrypt::cert::integrated { 'etherpad2':
+        subjects   => 'etherpad.wikiopen.tk',
         puppet_svc => 'nginx',
         system_svc => 'nginx',
     }
     
-   letsencrypt::cert::integrated { 'mail':
-        subjects   => 'mail.worldwiki.tk',
+   letsencrypt::cert::integrated { 'mail2':
+        subjects   => 'mail.wikiopen.tk',
         puppet_svc => 'nginx',
         system_svc => 'nginx',
     }
 
-   letsencrypt::cert::integrated { 'postfix':
-        subjects   => 'postfixadmin.worldwiki.tk',
+   letsencrypt::cert::integrated { 'postfix2':
+        subjects   => 'postfixadmin.wikiopen.tk',
         puppet_svc => 'nginx',
         system_svc => 'nginx',
     }
