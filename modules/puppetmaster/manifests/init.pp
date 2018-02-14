@@ -6,8 +6,8 @@ class puppetmaster(
     $use_puppetdb = hiera('puppetmaster::use_puppetdb', false),
   ) {
   
-    $puppetmaster_hostname = hiera('puppetmaster_hostname', 'puppet.worldwiki.tk')
-    $puppetmaster_certname = hiera('puppetmaster_cert', 'mw1.worldwiki.tk')
+    $puppetmaster_hostname = hiera('puppetmaster_hostname', 'puppet.wikiopen.tk')
+    $puppetmaster_certname = hiera('puppetmaster_cert', 'mw1.wikiopen.tk')
     $puppetmaster_version = hiera('puppetmaster_version', 4)
 
     if os_version('ubuntu >= artful') {
