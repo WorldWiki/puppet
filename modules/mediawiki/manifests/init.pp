@@ -73,8 +73,8 @@ class mediawiki(
         require => Package['imagemagick'],
     }
 
-    letsencrypt::cert::integrated { 'world3':
-        subjects   => 'world.wikiopen.tk',
+    letsencrypt::cert::integrated { 'world4':
+        subjects   => 'wiki.wikiopen.tk',
         puppet_svc => 'nginx',
         system_svc => 'nginx',
     }
