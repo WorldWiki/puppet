@@ -39,7 +39,7 @@ class logbot(ircbot.SingleServerIRCBot):
 
     def get_version(self):
         return ('Worldwiki Log Bot -- '
-            'https://world.worldwiki.tk/wiki/Tech:Server_admin_log')
+            'https://wiki.wikiopen.tk/wiki/Tech:Server_admin_log')
 
     def get_cloak(self, source):
         if re.search("/", source) and re.search("@", source):
