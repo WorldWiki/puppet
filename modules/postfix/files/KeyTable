@@ -1,2 +1,1 @@
-mailserver._domainkey.worldwiki.tk worldwiki.tk:mail:/etc/opendkim/keys/mail.private
 mailserver._domainkey.wikiopen.tk wikiopen.tk:mail:/etc/opendkim/keys/mail.private
