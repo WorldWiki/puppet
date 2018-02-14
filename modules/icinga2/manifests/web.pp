@@ -111,13 +111,13 @@ class icinga2::web(
     #    group  => 'icingaweb2',
     #}
 
-    letsencrypt::cert::integrated { 'icinga2':
-        subjects   => 'icinga.worldwiki.tk',
+    letsencrypt::cert::integrated { 'icinga3':
+        subjects   => 'icinga.wikiopen.tk',
         puppet_svc => 'nginx',
         system_svc => 'nginx',
     }
 
-    nginx::site { 'icinga.wiki.org.uk.erb':
+    nginx::site { 'icinga.wikiopen.tk':
         ensure  => present,
         content => template('icinga2/icinga.wiki.org.uk.erb'),
         notify  => Exec['nginx-syntaxs'],
