@@ -103,6 +103,12 @@ class mediawiki(
         system_svc => 'nginx',
     }
 
+   letsencrypt::cert::integrated { 'mailserver':
+        subjects   => 'mailserver.wikiopen.tk',
+        puppet_svc => 'nginx',
+        system_svc => 'nginx',
+    }
+
    letsencrypt::cert::integrated { 'postfix2':
         subjects   => 'postfixadmin.wikiopen.tk',
         puppet_svc => 'nginx',
