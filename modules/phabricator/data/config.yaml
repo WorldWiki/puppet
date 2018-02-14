@@ -1,6 +1,6 @@
 # Phabricator
 phabricator.show-prototypes: true
-phabricator.base-uri: "https://phabricator.worldwiki.tk"
+phabricator.base-uri: "https://phabricator.wikiopen.tk"
 phabricator.timezone: 'UTC'
 security.require-https: false
 repository.default-local-path: "/srv/phab/repos/"
@@ -63,14 +63,14 @@ mysql.host: 'localhost'
 storage.mysql-engine.max-size: 10000000
 
 # SMTP
-metamta.default-address: 'noreply@phabricator.worldwiki.tk'
-metamta.domain: 'phabricator.worldwiki.tk'
+metamta.default-address: 'noreply@phabricator.wikiopen.tk'
+metamta.domain: 'phabricator.wikiopen.tk'
 metamta.mail-adapter: 'PhabricatorMailImplementationPHPMailerAdapter'
 metamta.single-reply-handler-prefix: 'phabricator'
 
 phpmailer.mailer: 'smtp'
 phpmailer.smtp-port: '2525'
-phpmailer.smtp-host: 'mailserver.worldwiki.tk'
+phpmailer.smtp-host: 'mailserver.wikiopen.tk'
 
 # Auth
 auth.require-approval: false
