@@ -8,8 +8,8 @@ myhostname = <%= @fqdn %>
 alias_maps = hash:/etc/aliases
 alias_database = hash:/etc/aliases
 myorigin = /etc/mailname
-mydestination = <%= @fqdn %>, localhost.worldwiki.tk, localhost
-relayhost = mailserver.worldwiki.tk
+mydestination = <%= @fqdn %>, localhost.wikiopen.tk, localhost
+relayhost = mailserver.wikiopen.tk
 mynetworks = 172.16.0.0/12
 mailbox_size_limit = 0
 recipient_delimiter = +
