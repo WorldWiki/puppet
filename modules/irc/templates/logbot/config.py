@@ -29,16 +29,16 @@ twitter_api_params = {
 }
 
 # Channels to join
-targets = ("#worldwiki-operations", "#worldwiki-admins")
+targets = ("#wikiopen-operations", "#wikiopen-admins")
 
 # Name of nickserv user
 nickserv = "nickserv"
 
 # Nick to use when joining
-nick = "WorldWikiBot"
+nick = "WikiOpenBot"
 
 # Username for NickServ Auth
-nick_username = "WorldwikiLogbot"
+nick_username = "WikiOpenLogbot"
 
 # Password to identify with
 nick_password = "<%= @mirahezebots_password %>"
@@ -67,13 +67,13 @@ title_map = {
 }
 
 # Scheme and wiki hostname to connect to
-wiki_connection = ("https", "world.worldwiki.tk")
+wiki_connection = ("https", "wiki.wikiopen.tk")
 
 # Url path
 wiki_path = "/w/"
 
 # Username of wiki bot user
-wiki_user = "WorldWikiSAL"
+wiki_user = "WikiOpenSAL"
 
 # Password of wiki bot user
 wiki_pass = "<%= @mirahezelogbot_password %>"
@@ -91,7 +91,7 @@ wiki_domain = ""
 wiki_page = "Tech:Server_admin_log"
 
 # Page to visit to view logs -- used by the bot's help message
-log_url = "world.worldwiki.tk/wiki/Tech:Server_admin_log"
+log_url = "wiki.wikiopen.tk/wiki/Tech:Server_admin_log"
 
 # Header depth for dates written
 wiki_header_depth = 2
