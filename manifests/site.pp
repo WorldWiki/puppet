@@ -1,6 +1,6 @@
 # servers
 
-node 'mw1.worldwiki.tk' {
+node 'mw1.wikiopen.tk' {
     include base
     include icinga2
     include icinga2::web
