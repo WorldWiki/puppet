@@ -1,14 +1,14 @@
 mailserver: true
 jobrunner: true
 puppetmaster: true
-puppetmaster_hostname: puppet.worldwiki.tk
+puppetmaster_hostname: puppet.wikiopen.tk
 puppetmaster::dbserver: db2.miraheze.org
 puppetmaster::dbuser: puppet
 puppetmaster::dbname: puppet
 puppetmaster::dbpassword: miraheze
 puppetmaster_version: 4
 puppetmaster::use_puppetdb: false
-puppetdb_host: puppet.worldwiki.tk
+puppetdb_host: puppet.wikiopen.tk
 # these are tests passwords on prod add them into the private repo
 puppetdb::db_password: miraheze
 puppetdb::password::rw: miraheze
