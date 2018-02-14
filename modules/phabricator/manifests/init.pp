@@ -38,13 +38,13 @@ class phabricator {
         ensure => present,
     }
 
-    letsencrypt::cert::integrated { 'phabricator2':
-        subjects   => 'phabricator.worldwiki.tk',
+    letsencrypt::cert::integrated { 'phabricator3':
+        subjects   => 'phabricator.wikiopen.tk',
         puppet_svc => 'nginx',
         system_svc => 'nginx',
     }
 
-    nginx::site { 'phabricator.wiki.org.uk':
+    nginx::site { 'phabricator.wikiopen.tk':
         ensure  => present,
         source  => 'puppet:///modules/phabricator/phabricator.wiki.org.uk.conf',
         notify  => Exec['nginx-syntaxs'],
