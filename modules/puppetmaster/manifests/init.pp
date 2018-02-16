@@ -65,7 +65,7 @@ class puppetmaster(
     git::clone { 'puppet':
         ensure    => latest,
         directory => '/etc/puppet/git',
-        origin    => 'https://github.com/WorldWiki/puppet.git',
+        origin    => 'https://github.com/WikiOpen/puppet.git',
         require   => Package[$puppetmaster],
     }
 
