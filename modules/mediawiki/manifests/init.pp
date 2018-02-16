@@ -123,7 +123,7 @@ class mediawiki(
     git::clone { 'Landing Page':
         ensure    => 'latest',
         directory          => '/srv/mediawiki/landing',
-        origin             => 'https://github.com/WorldWiki/Landing-page',
+        origin             => 'https://github.com/WikiOpen/Landing-page',
         branch             => 'master',
         owner              => 'www-data',
         group              => 'www-data',
@@ -136,7 +136,7 @@ class mediawiki(
     git::clone { 'MediaWiki config':
         ensure    => 'latest',
         directory => '/srv/mediawiki/config',
-        origin    => 'https://github.com/WorldWiki/mediawiki-config',
+        origin    => 'https://github.com/WikiOpen/mediawiki-config',
         owner     => 'www-data',
         group     => 'www-data',
         mode      => '0755',
@@ -146,7 +146,7 @@ class mediawiki(
     git::clone { 'MediaWiki core':
         ensure             => 'latest',
         directory          => '/srv/mediawiki/w',
-        origin             => 'https://github.com/WorldWiki/mediawiki',
+        origin             => 'https://github.com/WikiOpen/mediawiki',
         branch             => $branch,
         owner              => 'www-data',
         group              => 'www-data',
