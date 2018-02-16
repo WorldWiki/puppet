@@ -24,8 +24,8 @@ readme_directory = no
 #smtpd_tls_session_cache_database = btree:${data_directory}/smtpd_scache
 #smtp_tls_session_cache_database = btree:${data_directory}/smtp_scache
 
-smtpd_tls_cert_file=/etc/ssl/certs/dovecot.pem
-smtpd_tls_key_file=/etc/ssl/private/dovecot.pem
+smtpd_tls_cert_file=/etc/acme/cert/mailserver.chained.crt
+smtpd_tls_key_file=/etc/acme/key/mailserver.key
 smtpd_use_tls=yes
 smtpd_tls_auth_only = yes
 
