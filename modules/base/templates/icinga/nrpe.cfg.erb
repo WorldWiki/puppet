@@ -18,8 +18,7 @@ command[check_php_fpm]=/usr/lib/nagios/plugins/check_procs -C php7.0-fpm -c 1:
 command[check_users]=/usr/lib/nagios/plugins/check_users -w 5 -c 10
 command[check_load]=/usr/lib/nagios/plugins/check_load -w <%= scope.lookupvar('::processorcount').to_i * 1.7 %> -c <%= scope.lookupvar('::processorcount').to_i * 2.0 %>
 command[check_disk_space]=/usr/lib/nagios/plugins/check_disk -w 5% -c 2% -l -e --exclude-type=tracefs
-command[check_apt]=/usr/bin/sudo /usr/lib/nagios/plugins/check_apt -n -u -U -t 200
-command[check_apt_distupgrade]=/usr/bin/sudo /usr/lib/nagios/plugins/check_apt -u -n -d -t 120 --exclude=elasticsearch
+command[check_apt]=/usr/bin/sudo /usr/lib/nagios/plugins/check_apt -u -n -d -t 200 --exclude=sogo
 command[check_procs]=/usr/lib/nagios/plugins/check_procs -w 250 -c 300
 command[check_ram]=/usr/lib/nagios/plugins/check_ram 20 5
 command[check_puppet_checkpuppetrun]=/usr/bin/sudo /usr/lib/nagios/plugins/check_puppet_run -w 3600 -c 43200
