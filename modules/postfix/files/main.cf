@@ -59,18 +59,7 @@ virtual_minimum_uid = 2222
 virtual_transport = dovecot
 virtual_uid_maps = static:2222
 virtual_gid_maps = static:2222
-## Anti-spam and similar config
-smtpd_recipient_restrictions = 
-          reject_rbl_client cbl.abuseat.org,
 
-          reject_rbl_client sbl-xbl.spamhaus.org,
-
-          reject_rbl_client bl.spamcop.net, 
-
-          reject_rhsbl_sender    dsn.rfc-ignorant.org
-          check_policy_service inet:127.0.0.1:60000
-          permit 
-##end anti-spam configuration
 ## Tells Postfix to use Dovecot's LMTP instead of its own LDA to save emails to the local mailboxes.
 #virtual_transport = lmtp:unix:private/dovecot-lmtp
 
