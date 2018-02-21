@@ -19,14 +19,6 @@ class base::puppet {
         minute  => '0',
     }
 
-    cron { 'logrotate':
-        command => 'apt update && apt-get upgrade -y',
-        user    => 'root',
-        hour    => '4',
-        day     => ['1-7'],
-        minute  => '0',
-}
-
     cron { 'puppet-agent':
         command => '/usr/bin/puppet agent -t',
         user    => 'root',
