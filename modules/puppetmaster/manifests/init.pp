@@ -80,6 +80,12 @@ class puppetmaster(
         ensure => directory,
     }
 
+    file { '/etc/puppet/hieradata':
+        ensure  => link,
+        target  => '/etc/puppet/git/hieradata',
+        require => Git::Clone['puppet'],
+    }
+
     file { '/etc/puppet/private/hieradata':
         ensure  => directory,
         require => File['/etc/puppet/private'],
