@@ -153,7 +153,7 @@ class puppetmaster(
     file { '/etc/puppet/environments':
         ensure  => directory,
         mode    => '0770',
-        require => Package['puppetmaster'],
+        require => Package[$puppetmaster],
     }
 
     file { '/etc/puppet/environments/production':
