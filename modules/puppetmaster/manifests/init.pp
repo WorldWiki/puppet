@@ -150,10 +150,6 @@ class puppetmaster(
 
     service { $puppetmaster:
         ensure => stopped,
-    }
-
-    service { $puppetmaster:
-        ensure => stopped,
         enable => false,
         before => Service['apache2'],
     }
