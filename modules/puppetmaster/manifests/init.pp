@@ -150,6 +150,36 @@ class puppetmaster(
         require => [File['/etc/puppet/code/environments/production'], Git::Clone['ssl']],
     }
 
+    file { '/etc/puppet/environments':
+        ensure  => directory,
+        mode    => '0770',
+        require => Package['puppetmaster'],
+    }
+
+    file { '/etc/puppet/environments/production':
+        ensure  => directory,
+        mode    => '0770',
+        require => File['/etc/puppet/environments'],
+    }
+
+    file { '/etc/puppet/environments/production/manifests':
+        ensure  => link,
+        target  => '/etc/puppet/manifests',
+        require => [File['/etc/puppet/environments/production'], File['/etc/puppet/manifests']],
+    }
+
+    file { '/etc/puppet/environments/production/modules':
+        ensure  => link,
+        target  => '/etc/puppet/modules',
+        require => [File['/etc/puppet/environments/production'], File['/etc/puppet/modules']],
+    }
+
+    file { '/etc/puppet/environments/production/ssl':
+        ensure  => link,
+        target  => '/etc/puppet/ssl',
+        require => [File['/etc/puppet/environments/production'], Git::Clone['ssl']],
+    }
+
     if $use_puppetdb {
         class { 'puppetmaster::puppetdb::client': }
     }
