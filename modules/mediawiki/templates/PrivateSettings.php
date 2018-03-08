@@ -10,6 +10,6 @@ $wgUpgradeKey = "<%= @mediawiki_upgradekey %>";
 $wgSecretKey = "<%= @mediawiki_secretkey %>";
 
 
-$wgReCaptchaPublicKey = "<%= @mediawiki_recaptcha_public_key %>";
+$wgReCaptchaSiteKey = "<%= @mediawiki_recaptcha_public_key %>";
 
-$wgReCaptchaPrivateKey = "<%= @mediawiki_recaptcha_private_key %>";
+$wgReCaptchaSecretKey = "<%= @mediawiki_recaptcha_private_key %>";
