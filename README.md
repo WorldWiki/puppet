@@ -1,2 +1,2 @@
 # puppet
-Puppet repo for WorldWiki Servers
+Puppet repo for WikiOpen Servers
