@@ -164,3 +164,5 @@ phd.garbage-collection:
   'user.logs': 2592000
 
 security.require-https: true
+
+phd.user: 'www-data'
