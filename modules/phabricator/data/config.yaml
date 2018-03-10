@@ -30,6 +30,8 @@ files.viewable-mime-types:
   'text/x-php': 'text/plain; charset=utf-8'
   'text/x-python': 'text/plain; charset=utf-8'
 
+phabricator.serious-business: true
+
 files.image-mime-types:
     'image/jpeg': true
     'image/jpg': true
