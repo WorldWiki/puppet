@@ -90,12 +90,6 @@ class mediawiki(
         puppet_svc => 'nginx',
         system_svc => 'nginx',
     }
-
-    letsencrypt::cert::integrated { 'etherpad2':
-        subjects   => 'etherpad.wikiopen.tk',
-        puppet_svc => 'nginx',
-        system_svc => 'nginx',
-    }
     
    letsencrypt::cert::integrated { 'mail2':
         subjects   => 'mail.wikiopen.tk',
